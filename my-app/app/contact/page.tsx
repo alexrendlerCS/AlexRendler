@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
-import { supabase } from "@/supabaseClient"; // Import the Supabase client
+import { supabase } from "../../supabaseClient";
 
 const ContactPage = () => {
   const [name, setName] = useState("");
