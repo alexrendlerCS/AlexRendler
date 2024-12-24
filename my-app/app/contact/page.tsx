@@ -18,10 +18,10 @@ const ContactPage = () => {
     e.preventDefault();
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from("contact_messages")
         .insert([{ name, email, message }]); // Insert the form data into the table
-
+    
       if (error) {
         console.error("Supabase error:", error);
         setStatus("Failed to send your message. Please try again later.");
@@ -38,7 +38,7 @@ const ContactPage = () => {
       setStatus("An unexpected error occurred. Please try again later.");
       setStatusType("error"); // Error message
     }
-  };
+    
 
   return (
     <div className="container mx-auto px-4 py-8">
