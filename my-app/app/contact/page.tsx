@@ -6,24 +6,48 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/hooks/use-toast"
 import { motion } from "framer-motion"
+import { supabase } from "@/supabaseClient"; // Import the Supabase client
+
 
 const ContactPage = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the form data to a server
-    console.log({ name, email, message })
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your message. I'll get back to you soon!",
-    })
-    setName("")
-    setEmail("")
-    setMessage("")
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    try {
+      const { data, error } = await supabase
+        .from("contact_messages")
+        .insert([{ name, email, message }]); // Insert the form data into the table
+  
+      if (error) {
+        console.error("Supabase error:", error);
+        toast({
+          title: "Error",
+          description: "Failed to send your message. Please try again later.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Message Sent",
+          description: "Thank you for your message. I'll get back to you soon!",
+        });
+        setName("");
+        setEmail("");
+        setMessage("");
+      }
+    } catch (error) {
+      console.error("Failed to submit contact form:", error);
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again later.",
+        variant: "destructive",
+      });
+    }
+  };
+  
 
   return (
     <div className="container mx-auto px-4 py-8">
