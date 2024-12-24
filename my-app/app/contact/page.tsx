@@ -38,7 +38,7 @@ const ContactPage = () => {
       setStatus("An unexpected error occurred. Please try again later.");
       setStatusType("error"); // Error message
     }
-    
+  }    
 
   return (
     <div className="container mx-auto px-4 py-8">
