@@ -1,53 +1,44 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/hooks/use-toast"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
 import { supabase } from "@/supabaseClient"; // Import the Supabase client
 
-
 const ContactPage = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(""); // To hold success/error message
+  const [statusType, setStatusType] = useState(""); // To hold the type (success/error)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     try {
       const { data, error } = await supabase
         .from("contact_messages")
         .insert([{ name, email, message }]); // Insert the form data into the table
-  
+
       if (error) {
         console.error("Supabase error:", error);
-        toast({
-          title: "Error",
-          description: "Failed to send your message. Please try again later.",
-          variant: "destructive",
-        });
+        setStatus("Failed to send your message. Please try again later.");
+        setStatusType("error"); // Error message
       } else {
-        toast({
-          title: "Message Sent",
-          description: "Thank you for your message. I'll get back to you soon!",
-        });
+        setStatus("Thank you for your message. I'll get back to you soon!");
+        setStatusType("success"); // Success message
         setName("");
         setEmail("");
         setMessage("");
       }
     } catch (error) {
       console.error("Failed to submit contact form:", error);
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred. Please try again later.",
-        variant: "destructive",
-      });
+      setStatus("An unexpected error occurred. Please try again later.");
+      setStatusType("error"); // Error message
     }
   };
-  
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -67,7 +58,9 @@ const ContactPage = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium mb-1">Name</label>
+          <label htmlFor="name" className="block text-sm font-medium mb-1">
+            Name
+          </label>
           <Input
             id="name"
             value={name}
@@ -76,7 +69,9 @@ const ContactPage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium mb-1">
+            Email
+          </label>
           <Input
             id="email"
             type="email"
@@ -86,7 +81,9 @@ const ContactPage = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium mb-1">Message</label>
+          <label htmlFor="message" className="block text-sm font-medium mb-1">
+            Message
+          </label>
           <Textarea
             id="message"
             value={message}
@@ -96,9 +93,19 @@ const ContactPage = () => {
         </div>
         <Button type="submit">Send Message</Button>
       </motion.form>
+
+      {/* Status Message */}
+      {status && (
+        <div
+          className={`mt-4 text-center text-lg font-medium ${
+            statusType === "success" ? "text-green-500" : "text-red-500"
+          }`}
+        >
+          {status}
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default ContactPage
-
+export default ContactPage;
