@@ -26,6 +26,16 @@ import {
 
 const projects = [
   {
+    title: "Nexus Crypto Brokerage",
+    description:
+      "Engineered predictive models for cryptocurrency price forecasting using historical data, integrating advanced preprocessing and feature scaling techniques to ensure high model accuracy.",
+    technologies: ["SQL", "Python", "React", "TypeScript", "APIs", "Scripts", "Docker"],
+    category: "Data Analyzing",
+    image: "",
+    icon: <Database className="h-6 w-6" />,
+    link: "  https://nexus-brokerage.netlify.app/", // Add the link to the project
+  },
+  {
     title: "StatsX Sports Analyzer",
     description:
       "A sports analytics website integrating MySQL databases, Docker containers, and AWS EC2 instances for scalable, up-to-date defensive statistics and player projections.",
