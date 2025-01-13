@@ -29,9 +29,9 @@ const projects = [
     title: "Nexus Crypto Brokerage",
     description:
       "Engineered predictive models for cryptocurrency price forecasting using historical data, integrating advanced preprocessing and feature scaling techniques to ensure high model accuracy.",
-    technologies: ["SQL", "Python", "React", "TypeScript", "APIs", "Scripts", "Docker"],
+    technologies: ["SQL", "Python", "React", "TypeScript", "APIs", "Scripts", "Docker", "Svelte"],
     category: "Data Analyzing",
-    image: "",
+    image: "/nexus.png",
     icon: <Database className="h-6 w-6" />,
     link: "  https://nexus-brokerage.netlify.app/", // Add the link to the project
   },
