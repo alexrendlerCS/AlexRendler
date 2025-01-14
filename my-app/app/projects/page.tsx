@@ -53,7 +53,7 @@ const projects = [
     category: "Web Development",
     image: "/bellsandbones.png",
     icon: <Server className="h-6 w-6" />,
-    link: "https://bellsandbones.ie/", // Add the link to the project
+    link: "https://bandb-one.vercel.app/", // Add the link to the project
   },
   {
     title: "CoreVybe Care Provider Solutions",
