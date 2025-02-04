@@ -81,21 +81,21 @@ export default function Home() {
         skills to lead teams in delivering impactful projects.
       </motion.p>
 
-      {/* New section for YouTube video */}
+      {/* New section for YouTube video with local thumbnail */}
       <motion.div
-        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md"
+        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md mb-12"  {/* Added mb-12 here */}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <div className="w-1/3">
           <a
-            href="https://www.youtube.com/watch?v=Ygp95ylZsBg"
+            href="https://www.youtube.com/watch?v=cnReBkbceek"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
-              src="https://img.youtube.com/vi/Ygp95ylZsBg/0.jpg"
+              src="/VideoThumbnail.png"  // Local thumbnail image path
               alt="Video Thumbnail"
               width={300}
               height={169}
@@ -105,12 +105,13 @@ export default function Home() {
         </div>
         <div className="w-2/3 pl-6">
           <h3 className="text-2xl font-semibold mb-2">
-            Showcase of StatsX
+            Showcase of My Latest Project
           </h3>
           <p className="text-lg text-gray-700">
             In this video, I walk through one of my recent projects, showcasing
-            a few of the most notable features. I also show how I use the data to make
-            visualizations and analyze trends to make projections.
+            the design, functionality, and implementation. I hope this gives you
+            a clear understanding of how I approach problem-solving and project
+            development.
           </p>
         </div>
       </motion.div>
