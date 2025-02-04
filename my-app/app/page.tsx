@@ -80,6 +80,41 @@ export default function Home() {
         aspire to leverage my problem-solving, communication, and leadership
         skills to lead teams in delivering impactful projects.
       </motion.p>
+
+      {/* New section for YouTube video */}
+      <motion.div
+        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <div className="w-1/3">
+          <a
+            href="https://www.youtube.com/watch?v=Ygp95ylZsBg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="https://img.youtube.com/vi/Ygp95ylZsBg/0.jpg"
+              alt="Video Thumbnail"
+              width={300}
+              height={169}
+              className="rounded-lg"
+            />
+          </a>
+        </div>
+        <div className="w-2/3 pl-6">
+          <h3 className="text-2xl font-semibold mb-2">
+            Showcase of StatsX
+          </h3>
+          <p className="text-lg text-gray-700">
+            In this video, I walk through one of my recent projects, showcasing
+            a few of the most notable features. I also show how I use the data to make
+            visualizations and analyze trends to make projections.
+          </p>
+        </div>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
