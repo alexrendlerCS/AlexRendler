@@ -83,7 +83,7 @@ export default function Home() {
 
       {/* New section for YouTube video with local thumbnail */}
       <motion.div
-        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md mb-12"  {/* Added mb-12 here */}
+        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md mb-12"  
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
