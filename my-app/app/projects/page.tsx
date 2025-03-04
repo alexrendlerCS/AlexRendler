@@ -30,7 +30,7 @@ const projects = [
     description:
       "Engineered predictive models for cryptocurrency price forecasting using historical data, integrating advanced preprocessing and feature scaling techniques to ensure high model accuracy.",
     technologies: ["SQL", "Python", "React", "TypeScript", "APIs", "Scripts", "Docker", "Svelte"],
-    category: "Data Analyzing",
+    category: "Data Analyzing", 
     image: "/nexus.png",
     icon: <Database className="h-6 w-6" />,
     link: "  https://nexus-brokerage.netlify.app/", // Add the link to the project
@@ -44,6 +44,26 @@ const projects = [
     image: "/statsx.png",
     icon: <Database className="h-6 w-6" />,
     link: "https://www.statsx.online/", // Add the link to the project
+  },
+  {
+    title: "AI Resume Builder",
+    description:
+      "Developed an AI-powered resume generator leveraging natural language processing (NLP) to tailor resumes based on job descriptions, enhancing job application success rates.",
+    technologies: ["Python", "AI", "NLP", "Flask", "React", "OpenAI"],
+    category: "AI Integration",
+    image: "/resumebuilder.png",
+    icon: <Code className="h-6 w-6" />,
+    link: "https://github.com/alexrendlerCS/AIResume",
+  },
+  {
+    title: "Budget Tracker",
+    description:
+      "A financial tracking application allowing users to log expenses, categorize spending, and analyze trends over time using a modern Next.js frontend and FastAPI backend.",
+    technologies: ["Python", "React", "APIs", "SQL", "React", "TypeScript"],
+    category: "Personal Finance",
+    image: "/budgettracker.png",
+    icon: <Database className="h-6 w-6" />,
+    link: "https://github.com/alexrendlerCS/BudgetTracker",
   },
   {
     title: "Bells and Bones Online Shop",
@@ -68,9 +88,13 @@ const projects = [
 
 const iconMap: Record<string, JSX.Element> = {
   SQL: <Database className="h-4 w-4" />,
+  Flask: <Database className="h-4 w-4" />,
   Python: <Code className="h-4 w-4" />,
   HTML: <Layout className="h-4 w-4" />,
   AWS: <Server className="h-4 w-4" />,
+  AI: <Server className="h-4 w-4" />,
+  OpenAI: <Server className="h-4 w-4" />,
+  NLP: <Server className="h-4 w-4" />,
   Docker: <Server className="h-4 w-4" />,
   JavaScript: <Code className="h-4 w-4" />,
   Jira: <GitBranch className="h-4 w-4" />,
@@ -88,8 +112,9 @@ const iconMap: Record<string, JSX.Element> = {
   APIs: <Server className="h-4 w-4 mr-1" />,
   React: <Code className="h-4 w-4 mr-1" />,
   TypeScript: <Code className="h-4 w-4 mr-1" />,
-};
 
+};
+const categories = ["All", "Data Analyzing", "Web Development", "AI Integration", "Personal Finance"];
 const ProjectsPage = () => {
   const [filter, setFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState<{
@@ -129,6 +154,18 @@ const ProjectsPage = () => {
           variant={filter === "Data Analyzing" ? "default" : "outline"}
         >
           Data Analyzing
+        </Button>
+        <Button
+          onClick={() => setFilter("AI Integration")}
+          variant={filter === "AI Integration" ? "default" : "outline"}
+        >
+          AI Integration
+        </Button>
+        <Button
+          onClick={() => setFilter("Personal Finance")}
+          variant={filter === "Personal Finance" ? "default" : "outline"}
+        >
+          Personal Finance
         </Button>
         <Button
           onClick={() => setFilter("Web Development")}

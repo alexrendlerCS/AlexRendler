@@ -105,7 +105,7 @@ export default function Home() {
         </div>
         <div className="w-2/3 pl-6">
           <h3 className="text-2xl font-semibold mb-2">
-            Showcase of My Latest Project
+            StatsX Showcase ( Data Analytics )
           </h3>
           <p className="text-lg text-gray-700">
             In this video, I walk through one of my recent projects, showcasing
