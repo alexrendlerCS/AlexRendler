@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -114,7 +115,7 @@ const iconMap: Record<string, JSX.Element> = {
   TypeScript: <Code className="h-4 w-4 mr-1" />,
 
 };
-const categories = ["All", "Data Analyzing", "Web Development", "AI Integration", "Personal Finance"];
+
 const ProjectsPage = () => {
   const [filter, setFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState<{
@@ -206,11 +207,16 @@ const ProjectsPage = () => {
                 <CardDescription>{project.category}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-40 object-cover mb-4 rounded"
-                />
+              <div className="relative w-full h-40">
+  <Image
+    src={project.image}
+    alt={project.title}
+    layout="fill"
+    objectFit="cover"
+    className="rounded"
+  />
+</div>
+
                 <p className="mb-4 line-clamp-3">{project.description}</p>
               </CardContent>
               <CardFooter>
@@ -264,11 +270,16 @@ const ProjectsPage = () => {
                 <ExternalLink className="h-4 w-4" />
               </Button>
             </div>
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className="w-full h-60 object-cover mb-4 rounded"
-            />
+            <div className="relative w-full h-60">
+  <Image
+    src={selectedProject.image}
+    alt={selectedProject.title}
+    layout="fill"
+    objectFit="cover"
+    className="rounded"
+  />
+</div>
+
             <p className="mb-4">{selectedProject.description}</p>
             <div className="mb-4">
               <h3 className="font-bold mb-2">Technologies Used:</h3>
