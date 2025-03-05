@@ -116,6 +116,75 @@ export default function Home() {
         </div>
       </motion.div>
 
+      {/* New section for YouTube video with local thumbnail */}
+      <motion.div
+        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md mb-12"  
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <div className="w-1/3">
+          <a
+            href="https://youtu.be/v4e7dGRmSlI"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/VideoThumbnail2.png"  // Local thumbnail image path
+              alt="Video Thumbnail"
+              width={300}
+              height={169}
+              className="rounded-lg"
+            />
+          </a>
+        </div>
+        <div className="w-2/3 pl-6">
+          <h3 className="text-2xl font-semibold mb-2">
+            AI Resume Showcase ( AI Integration )
+          </h3>
+          <p className="text-lg text-gray-700">
+            In this video, I show my AI Resume project, which uses AI to
+            analzye a job posting and a users resume to categorize required
+            experiences and generate bullet points for each resume experience.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* New section for YouTube video with local thumbnail */}
+      <motion.div
+        className="flex items-center justify-between w-full max-w-3xl mt-8 p-4 bg-gray-50 rounded-lg shadow-md mb-12"  
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <div className="w-1/3">
+          <a
+            href="https://youtu.be/eZ6gRU0800c"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/VideoThumbnail3.png"  // Local thumbnail image path
+              alt="Video Thumbnail"
+              width={300}
+              height={169}
+              className="rounded-lg"
+            />
+          </a>
+        </div>
+        <div className="w-2/3 pl-6">
+          <h3 className="text-2xl font-semibold mb-2">
+            Budget Tracker Walkthrough ( Backend Development )
+          </h3>
+          <p className="text-lg text-gray-700">
+          In this video, I showcase my BudgetTracker website, highlighting my 
+          data visualization and backend development skills. The site features 
+          secure authentication using JWT tokens, along with interactive LineGraph 
+          and PieChart visualizations to help users track their spending effectively.
+          </p>
+        </div>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
