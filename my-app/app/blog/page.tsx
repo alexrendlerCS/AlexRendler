@@ -1,0 +1,84 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { format } from "date-fns";
+
+const posts = [
+  {
+    slug: "ai-tutor-tracking-correctness",
+    title: "How I'm Tracking Student Performance in My AIcademy",
+    description:
+      "Exploring how I detect correct answers, track attempts, and categorize question difficulty to prepare for student performance analytics.",
+    date: new Date("2025-04-21"),
+    tags: ["AI", "EdTech", "Data Analytics"],
+    thumbnail: "/aicademy.png", 
+  },
+  {
+    slug: "ai-tutor-prompt-engineering",
+    title: "Designing Prompts to Encourage Learning, Not Replace It",
+    description:
+      "How I use prompt engineering in my AIcademy to support deeper student understanding through guided questions and positive feedback.",
+    date: new Date("2025-04-22"),
+    tags: ["AI", "Prompt Engineering", "EdTech"],
+    thumbnail: "/aicademy.png",
+  },
+];
+
+
+
+export default function BlogPage() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <motion.h1
+        className="text-3xl font-bold mb-6"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Blog
+      </motion.h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <motion.div
+            key={post.slug}
+            className="bg-zinc-100 dark:bg-zinc-800 rounded-lg overflow-hidden shadow-md dark:shadow-lg transition-all duration-300 hover:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link href={`/blog/${post.slug}`}>
+              <img
+                src={post.thumbnail}
+                alt={`${post.title} Thumbnail`}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-6">
+                <h2 className="text-xl font-semibold mb-2 text-black dark:text-white">
+                  {post.title}
+                </h2>
+                <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-1">
+                  {format(post.date, "MMMM d, yyyy")}
+                </p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-2">
+                  {post.description}
+                </p>
+                <div className="flex gap-2 flex-wrap">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-2 py-1 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}

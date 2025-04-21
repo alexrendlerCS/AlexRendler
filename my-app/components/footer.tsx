@@ -4,23 +4,24 @@ import { Github, Linkedin, Mail, FileText } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="border-t mt-auto">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <p className="text-center text-sm leading-loose md:text-middle">
-            Built by Alex Rendler. The source code is available on {" "}
-            <Link
-              href="https://github.com/alexrendlerCS"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4"
-            >
-              GitHub
-            </Link>
-            .
-          </p>
-        </div>
-        <div className="flex space-x-4">
+    <footer className="border-t mt-auto w-full">
+      <div className="container flex flex-col md:flex-row items-center justify-between py-6 px-6 md:py-4">
+        {/* Left-aligned text */}
+        <p className="text-sm text-muted-foreground w-full md:w-auto text-center md:text-left">
+          Built by Alex Rendler. The source code is available on{" "}
+          <Link
+            href="https://github.com/alexrendlerCS"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium underline underline-offset-4"
+          >
+            GitHub
+          </Link>
+          .
+        </p>
+
+        {/* Right-aligned icons */}
+        <div className="w-full md:w-auto flex justify-center md:justify-end mt-4 md:mt-0 space-x-4">
           <Link
             href="https://github.com/alexrendlerCS"
             target="_blank"

@@ -1,5 +1,7 @@
 {
   "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/ai-tutor-tracking-correctness/page": "app/blog/ai-tutor-tracking-correctness/page.js",
+  "/blog/ai-tutor-prompt-engineering/page": "app/blog/ai-tutor-prompt-engineering/page.js",
   "/projects/page": "app/projects/page.js"
 }

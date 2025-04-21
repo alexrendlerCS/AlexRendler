@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import {
   Card,
@@ -23,35 +24,87 @@ import {
   Layout,
   Terminal,
   GitBranch,
+  UserCheck,
+  BarChart3,
+  Globe2,
+  User2,
+  BrainCog,
+  ShieldCheck,
+  Users,
+  FolderGit2,
+  Activity,
 } from "lucide-react";
 
 const projects = [
   {
-    title: "Nexus Crypto Brokerage",
+    title: "Aicademy - AI Tutor for K–12 Education",
     description:
-      "Engineered predictive models for cryptocurrency price forecasting using historical data, integrating advanced preprocessing and feature scaling techniques to ensure high model accuracy.",
-    technologies: ["SQL", "Python", "React", "TypeScript", "APIs", "Scripts", "Docker", "Svelte"],
-    category: "Data Analyzing", 
-    image: "/nexus.png",
-    icon: <Database className="h-6 w-6" />,
-    link: "  https://nexus-brokerage.netlify.app/", // Add the link to the project
+      "Designed and developed an interactive AI tutor that guides students aged 9–12 through learning activities using NLP and adaptive prompts. Focused on enhancing understanding through Socratic questioning rather than giving answers. Tracks user performance, XP, and question difficulty through a Supabase backend. Offers personalized feedback and visual progress analytics, designed for future integration into classroom settings.",
+    skills: [
+      "Full Stack",
+      "OpenAI API",
+      "Prompt Engineering",
+      "Supabase",
+      "React",
+      "Data Viz",
+      "NLP",
+      "EdTech",
+    ],
+    categories: ["AI Integration", "Data Analyzing"],
+    image: "/aicademy.png", // Replace with your actual thumbnail image path
+    icon: <BrainCog className="h-6 w-6" />,
+    link: "https://github.com/alexrendlerCS/AITutor", // Or your live demo if deployed
   },
   {
-    title: "StatsX Sports Analyzer",
+    title: "Nexus - Crypto Brokerage",
     description:
-      "A sports analytics website integrating MySQL databases, Docker containers, and AWS EC2 instances for scalable, up-to-date defensive statistics and player projections.",
-    technologies: ["SQL", "Python", "React", "TypeScript", "APIs", "AWS", "Docker"],
-    category: "Data Analyzing",
+      "Collaborated in a development team practicing agile methodologies, meeting weekly to deliver a cryptocurrency advice platform for new investors. Implemented portfolio analysis tools, role-based user access, and integrated live crypto and political sentiment data. This project highlights my ability to work under real deadlines, gain team trust, and contribute to full-scale product direction and architecture.",
+    skills: [
+      "Team Dev",
+      "Agile",
+      "Role Auth",
+      "PostgreSQL",
+      "Supabase",
+      "Finance",
+      "AI Analysis",
+    ],
+    categories: ["Data Analyzing", "Personal Finance"],
+    image: "/nexus.png",
+    icon: <Database className="h-6 w-6" />,
+    link: "https://nexus-brokerage.netlify.app/",
+  },
+  {
+    title: "StatsX - Sports Analyzer",
+    description:
+      "Independently designed and built a sports analytics platform from scratch, showcasing full-stack development with data pipelines, scraping, API integration, and real-time visual insights. Developed a normalized MySQL database structure to run matchup-based analysis and predictions. Demonstrates strong architectural design, problem-solving, and complete project ownership.",
+    skills: [
+      "Full Stack",
+      "Web Scraping",
+      "Prediction Logic",
+      "MySQL",
+      "Docker",
+      "Charts",
+      "API",
+    ],
+    categories: ["Data Analyzing", "Web Development"],
     image: "/statsx.png",
     icon: <Database className="h-6 w-6" />,
-    link: "https://www.statsx.online/", // Add the link to the project
+    link: "https://www.statsx.online/",
   },
   {
     title: "AI Resume Builder",
     description:
-      "Developed an AI-powered resume generator leveraging natural language processing (NLP) to tailor resumes based on job descriptions, enhancing job application success rates.",
-    technologies: ["Python", "AI", "NLP", "Flask", "React", "OpenAI"],
-    category: "AI Integration",
+      "Built an AI-powered resume analyzer that categorizes content from uploaded resumes and aligns it with job descriptions. Leveraged NLP and OpenAI APIs to generate context-aware edits, demonstrating my curiosity for AI and ability to integrate LLMs in real-world applications. A testament to my initiative to learn and apply new tools.",
+    skills: [
+      "OpenAI API",
+      "NLP",
+      "Resume AI",
+      "Flask",
+      "Data Parsing",
+      "API",
+      "Full Stack",
+    ],
+    categories: ["AI Integration"],
     image: "/resumebuilder.png",
     icon: <Code className="h-6 w-6" />,
     link: "https://github.com/alexrendlerCS/AIResume",
@@ -59,9 +112,17 @@ const projects = [
   {
     title: "Budget Tracker",
     description:
-      "A financial tracking application allowing users to log expenses, categorize spending, and analyze trends over time using a modern Next.js frontend and FastAPI backend.",
-    technologies: ["Python", "React", "APIs", "SQL", "React", "TypeScript"],
-    category: "Personal Finance",
+      "Developed a finance tracker with JWT-based user authentication, category-based spending tracking, and visualized analytics via charts. Emphasized backend logic using FastAPI and frontend polish using React and Tailwind. This project combines my passion for finance, backend security, and user-facing dashboards.",
+    skills: [
+      "JWT Auth",
+      "FastAPI",
+      "Data Viz",
+      "Expense Tracking",
+      "Charts",
+      "Finance",
+      "Full Stack",
+    ],
+    categories: ["Personal Finance", "Data Analyzing"],
     image: "/budgettracker.png",
     icon: <Database className="h-6 w-6" />,
     link: "https://github.com/alexrendlerCS/BudgetTracker",
@@ -69,51 +130,102 @@ const projects = [
   {
     title: "Bells and Bones Online Shop",
     description:
-    "Developed a responsive e-commerce platform for handcrafted baskets, featuring intuitive navigation, high-quality imagery, and a seamless ordering process. Implemented secure payment options and optimized the site for both desktop and mobile devices to enhance user experience.",
-    technologies: ["HTML", "CSS", "JavaScript", "SEO", "AWS", "E-Commerce"],
-    category: "Web Development",
+      "One of my first paid freelance projects, this e-commerce site taught me how to collaborate with a client on requirements that evolved over time. Delivered a fully responsive basket store with secure checkout and clean UX. While simple, it reflects my early ability to ship real-world products.",
+    skills: ["Client Work", "E-Commerce", "Responsive UI", "SEO", "Stripe"],
+    categories: ["Web Development"],
     image: "/bellsandbones.png",
     icon: <Server className="h-6 w-6" />,
-    link: "https://bandb-one.vercel.app/", // Add the link to the project
+    link: "https://bandb-one.vercel.app/",
   },
   {
     title: "CoreVybe Care Provider Solutions",
-    description: "Developed a comprehensive website for CoreVybe, a provider of innovative fitness and health solutions aimed at empowering older adults to live independently at home. The site features detailed information on services, team members, and wellness programs, with a focus on user-friendly navigation and accessibility.",
-    technologies: ["HTML", "CSS", "JavaScript", "Responsive Design", "SEO"],
-    category: "Web Development",
+    description:
+      "Built a custom site for a senior wellness company to improve communication of services and scheduling. Managed all frontend logic while working directly with a small business client. This was one of my earliest paid contracts and shows my growth from contract development to full-stack product delivery.",
+    skills: ["Client Work", "SEO", "Accessibility", "Responsive UI", "Content"],
+    categories: ["Web Development"],
     image: "/CoreVybe.jpg",
     icon: <Code className="h-6 w-6" />,
-    link: "https://corevybe.com/", // Add the link to the project
+    link: "https://corevybe.com/",
   },
 ];
 
 const iconMap: Record<string, JSX.Element> = {
-  SQL: <Database className="h-4 w-4" />,
-  Flask: <Database className="h-4 w-4" />,
+  // Core Technologies
   Python: <Code className="h-4 w-4" />,
-  HTML: <Layout className="h-4 w-4" />,
-  AWS: <Server className="h-4 w-4" />,
-  AI: <Server className="h-4 w-4" />,
-  OpenAI: <Server className="h-4 w-4" />,
-  NLP: <Server className="h-4 w-4" />,
-  Docker: <Server className="h-4 w-4" />,
+  React: <Code className="h-4 w-4" />,
+  TypeScript: <Code className="h-4 w-4" />,
   JavaScript: <Code className="h-4 w-4" />,
-  Jira: <GitBranch className="h-4 w-4" />,
-  Figma: <Layout className="h-4 w-4" />,
+  HTML: <Layout className="h-4 w-4" />,
   CSS: <Layout className="h-4 w-4" />,
-  Firebase: <Server className="h-4 w-4" />,
-  C: <Terminal className="h-4 w-4" />,
-  "C++": <Terminal className="h-4 w-4" />, // Enclose this key in quotes
-  Linux: <Terminal className="h-4 w-4" />,
-  Bash: <Terminal className="h-4 w-4" />,
-  "Responsive Design": <Layout className="h-4 w-4 mr-1" />,
-  Accessibility: <Layout className="h-4 w-4 mr-1" />,
-  "E-Commerce": <Layout className="h-4 w-4 mr-1" />,
-  SEO: <Database className="h-4 w-4 mr-1" />,
-  APIs: <Server className="h-4 w-4 mr-1" />,
-  React: <Code className="h-4 w-4 mr-1" />,
-  TypeScript: <Code className="h-4 w-4 mr-1" />,
+  Flask: <Server className="h-4 w-4" />,
+  SQL: <Database className="h-4 w-4" />,
+  MySQL: <Database className="h-4 w-4" />,
+  Supabase: <Database className="h-4 w-4" />,
+  PostgreSQL: <Database className="h-4 w-4" />,
+  APIs: <Server className="h-4 w-4" />,
+  Docker: <Server className="h-4 w-4" />,
+  AWS: <Server className="h-4 w-4" />,
 
+  // Skills / Tags
+  "Prompt Engineering": <BrainCog className="h-4 w-4" />,
+  EdTech: <UserCheck className="h-4 w-4" />,
+  "JWT Auth": <ShieldCheck className="h-4 w-4" />,
+  FastAPI: <Server className="h-4 w-4" />,
+  Charts: <BarChart3 className="h-4 w-4" />,
+  "Data Viz": <BarChart3 className="h-4 w-4" />,
+  "Expense Tracking": <Activity className="h-4 w-4" />,
+  "OpenAI API": <BrainCog className="h-4 w-4" />,
+  "Resume AI": <User2 className="h-4 w-4" />,
+  NLP: <BrainCog className="h-4 w-4" />,
+  "Data Parsing": <Code className="h-4 w-4" />,
+  "Prediction Logic": <BrainCog className="h-4 w-4" />,
+  "Web Scraping": <Server className="h-4 w-4" />,
+  Stripe: <Layout className="h-4 w-4" />,
+  "Client Work": <Users className="h-4 w-4" />,
+  SEO: <Globe2 className="h-4 w-4" />,
+  "Responsive UI": <Layout className="h-4 w-4" />,
+  Accessibility: <UserCheck className="h-4 w-4" />,
+  Content: <Layout className="h-4 w-4" />,
+  API: <Server className="h-4 w-4" />,
+  Finance: <Activity className="h-4 w-4" />,
+  "AI Analysis": <BrainCog className="h-4 w-4" />,
+
+  // Soft/Project Skills
+  "Team Dev": <Users className="h-4 w-4" />,
+  Agile: <FolderGit2 className="h-4 w-4" />,
+  "Role Auth": <ShieldCheck className="h-4 w-4" />,
+  "Full Stack": <Code className="h-4 w-4" />,
+};
+
+const ProjectDescription = ({ description }: { description: string }) => {
+  const [expanded, setExpanded] = useState(false);
+  const toggleExpanded = () => setExpanded((prev) => !prev);
+
+  return (
+    <div className="mt-4">
+      <p
+        className={`text-sm mb-2 ${
+          !expanded ? "line-clamp-3 min-h-[72px]" : ""
+        }`}
+      >
+        {description}
+      </p>
+      <div className="flex justify-center">
+        <Button
+          onClick={toggleExpanded}
+          variant="ghost"
+          size="icon"
+          className="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {expanded ? (
+            <ChevronUp className="w-4 h-4" />
+          ) : (
+            <ChevronDown className="w-4 h-4" />
+          )}
+        </Button>
+      </div>
+    </div>
+  );
 };
 
 const ProjectsPage = () => {
@@ -121,16 +233,18 @@ const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<{
     title: string;
     description: string;
-    technologies: string[];
-    category: string;
+    skills: string[];
+    categories: string[]; // <-- updated here
     image: string;
     icon: JSX.Element;
+    link: string;
   } | null>(null);
+
 
   const filteredProjects =
     filter === "All"
       ? projects
-      : projects.filter((project) => project.category === filter);
+      : projects.filter((project) => project.categories.includes(filter));
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -188,7 +302,7 @@ const ProjectsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <Card className="h-full flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex justify-between items-center">
                   <div className="flex items-center">
@@ -204,31 +318,39 @@ const ProjectsPage = () => {
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </CardTitle>
-                <CardDescription>{project.category}</CardDescription>
+                <CardDescription className="flex flex-wrap gap-2 mt-1 text-sm text-muted-foreground">
+                  {project.categories.map((cat) => (
+                    <Badge key={cat} variant="secondary" className="text-xs">
+                      {cat}
+                    </Badge>
+                  ))}
+                </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
-              <div className="relative w-full h-40">
-  <Image
-    src={project.image}
-    alt={project.title}
-    layout="fill"
-    objectFit="cover"
-    className="rounded"
-  />
-</div>
+                <div className="relative w-full h-40">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded"
+                  />
+                </div>
 
-                <p className="mb-4 line-clamp-3">{project.description}</p>
+                <div className="mt-4">
+                  <ProjectDescription description={project.description} />
+                </div>
               </CardContent>
               <CardFooter>
                 <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, techIndex) => (
+                  {project.skills?.map((skill, skillIndex) => (
                     <Badge
-                      key={techIndex}
-                      variant="secondary"
-                      className="flex items-center"
+                      key={skillIndex}
+                      variant="outline"
+                      className="text-xs px-2 py-0.5 flex items-center"
                     >
-                      {iconMap[tech]}
-                      <span className="ml-1">{tech}</span>
+                      {iconMap[skill] || <Code className="h-3 w-3 mr-1" />}
+                      {skill}
                     </Badge>
                   ))}
                 </div>
@@ -271,27 +393,27 @@ const ProjectsPage = () => {
               </Button>
             </div>
             <div className="relative w-full h-60">
-  <Image
-    src={selectedProject.image}
-    alt={selectedProject.title}
-    layout="fill"
-    objectFit="cover"
-    className="rounded"
-  />
-</div>
+              <Image
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                layout="fill"
+                objectFit="cover"
+                className="rounded"
+              />
+            </div>
 
-            <p className="mb-4">{selectedProject.description}</p>
+            <p className="mt-4 mb-4">{selectedProject.description}</p>
             <div className="mb-4">
-              <h3 className="font-bold mb-2">Technologies Used:</h3>
+              <h3 className="font-bold mb-2">Skills Used:</h3>
               <div className="flex flex-wrap gap-2">
-                {selectedProject.technologies.map((tech, index) => (
+                {selectedProject.skills.map((skill, index) => (
                   <Badge
                     key={index}
                     variant="secondary"
                     className="flex items-center"
                   >
-                    {iconMap[tech]}
-                    <span className="ml-1">{tech}</span>
+                    {iconMap[skill]}
+                    <span className="ml-1">{skill}</span>
                   </Badge>
                 ))}
               </div>

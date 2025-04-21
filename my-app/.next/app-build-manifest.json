@@ -11,6 +11,21 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/blog/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/page.js"
+    ],
+    "/blog/ai-tutor-tracking-correctness/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/ai-tutor-tracking-correctness/page.js"
+    ],
+    "/blog/ai-tutor-prompt-engineering/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/ai-tutor-prompt-engineering/page.js"
+    ],
     "/projects/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
