@@ -12,7 +12,7 @@ const posts = [
       "Exploring how I detect correct answers, track attempts, and categorize question difficulty to prepare for student performance analytics.",
     date: new Date("2025-04-21"),
     tags: ["AI", "EdTech", "Data Analytics"],
-    thumbnail: "/aicademy.png", 
+    thumbnail: "/Aicademy.png", 
   },
   {
     slug: "ai-tutor-prompt-engineering",
@@ -21,7 +21,7 @@ const posts = [
       "How I use prompt engineering in my AIcademy to support deeper student understanding through guided questions and positive feedback.",
     date: new Date("2025-04-22"),
     tags: ["AI", "Prompt Engineering", "EdTech"],
-    thumbnail: "/aicademy.png",
+    thumbnail: "/Aicademy.png",
   },
 ];
 

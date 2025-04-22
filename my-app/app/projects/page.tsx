@@ -49,7 +49,7 @@ const projects = [
       "EdTech",
     ],
     categories: ["AI Integration", "Data Analyzing"],
-    image: "/aicademy.png", // Replace with your actual thumbnail image path
+    image: "/Aicademy.png", 
     icon: <BrainCog className="h-6 w-6" />,
     link: "https://github.com/alexrendlerCS/AITutor", // Or your live demo if deployed
   },
