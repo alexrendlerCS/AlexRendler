@@ -1,7 +1,9 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/blog/page": "app/blog/page.js",
-  "/blog/ai-tutor-tracking-correctness/page": "app/blog/ai-tutor-tracking-correctness/page.js",
   "/blog/ai-tutor-prompt-engineering/page": "app/blog/ai-tutor-prompt-engineering/page.js",
-  "/projects/page": "app/projects/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/blog/ai-tutor-tracking-correctness/page": "app/blog/ai-tutor-tracking-correctness/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/page": "app/page.js"
 }

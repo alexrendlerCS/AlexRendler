@@ -44,7 +44,7 @@ export default function BlogPost() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        How I'm Tracking Student Performance in My AIcademy
+        How I&apos;m Tracking Student Performance in My AIcademy
       </motion.h1>
 
       <p className="text-zinc-600 dark:text-zinc-300 mb-6 text-sm">
@@ -53,8 +53,8 @@ export default function BlogPost() {
       </p>
 
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
-        In my AI-powered tutor project, I'm building a system to detect correct
-        answers, track how many attempts a student takes, and assign XP
+        In my AI-powered tutor project, I&apos;m building a system to detect
+        correct answers, track how many attempts a student takes, and assign XP
         accordingly. This lays the groundwork for future student performance
         analytics — helping teachers and guardians better understand how
         students are learning over time.
@@ -74,8 +74,8 @@ export default function BlogPost() {
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         This is just the beginning. Eventually, this data will feed into
         personalized charts showing student growth, question difficulty trends,
-        and subject-specific strengths. I'm also planning a teacher dashboard to
-        surface this data in a meaningful, digestible way.
+        and subject-specific strengths. I&apos;m also planning a teacher
+        dashboard to surface this data in a meaningful, digestible way.
       </p>
 
       <Link

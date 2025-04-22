@@ -22,8 +22,6 @@ import {
   Database,
   Server,
   Layout,
-  Terminal,
-  GitBranch,
   UserCheck,
   BarChart3,
   Globe2,
