@@ -1,7 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/blog/page": "app/blog/page.js",
   "/blog/ai-tutor-prompt-engineering/page": "app/blog/ai-tutor-prompt-engineering/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/statsx-scaling-backend/page": "app/blog/statsx-scaling-backend/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/blog/ai-tutor-tracking-correctness/page": "app/blog/ai-tutor-tracking-correctness/page.js",
   "/projects/page": "app/projects/page.js",

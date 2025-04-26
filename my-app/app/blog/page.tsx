@@ -6,13 +6,14 @@ import { format } from "date-fns";
 
 const posts = [
   {
-    slug: "ai-tutor-tracking-correctness",
-    title: "How I'm Tracking Student Performance in My AIcademy",
+    slug: "statsx-scaling-backend",
+    title:
+      "Scaling StatsX: Moving NFL Projections to the Backend and Preparing for AI",
     description:
-      "Exploring how I detect correct answers, track attempts, and categorize question difficulty to prepare for student performance analytics.",
-    date: new Date("2025-04-21"),
-    tags: ["AI", "EdTech", "Data Analytics"],
-    thumbnail: "/Aicademy.png", 
+      "How I transitioned StatsX from frontend-heavy calculations to scalable backend logic, improved the user experience, and laid the foundation for AI-driven player projections.",
+    date: new Date("2025-04-25"), // today's date
+    tags: ["AI", "Backend Development", "Scalability", "Sports Analytics"],
+    thumbnail: "/statsx.png", // <-- optional, or reuse your logo if you don't have one yet
   },
   {
     slug: "ai-tutor-prompt-engineering",
@@ -23,7 +24,19 @@ const posts = [
     tags: ["AI", "Prompt Engineering", "EdTech"],
     thumbnail: "/Aicademy.png",
   },
+  {
+    slug: "ai-tutor-tracking-correctness",
+    title: "How I'm Tracking Student Performance in My AIcademy",
+    description:
+      "Exploring how I detect correct answers, track attempts, and categorize question difficulty to prepare for student performance analytics.",
+    date: new Date("2025-04-21"),
+    tags: ["AI", "EdTech", "Data Analytics"],
+    thumbnail: "/Aicademy.png",
+  },
+  
+  
 ];
+
 
 
 
