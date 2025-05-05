@@ -6,6 +6,35 @@ import { format } from "date-fns";
 
 const posts = [
   {
+    slug: "admin-dashboard-analytics",
+    title:
+      "Visualizing Student Progress in Real Time with Recharts and Supabase",
+    description:
+      "How I built an interactive Admin Dashboard to track XP, difficulty, and learning trends using Supabase and Recharts.",
+    date: new Date("2025-05-04"),
+    tags: ["Data Analytics", "EdTech", "Visualization"],
+    thumbnail: "/Aicademy.png",
+  },
+  {
+    slug: "ai-personalization",
+    title:
+      "How I'm Personalizing AI Tutoring Based on Skill, Age, and Attempts",
+    description:
+      "A behind-the-scenes look at how my tutoring app adjusts tone, complexity, and guidance using student data like grade, XP, and attempt history.",
+    date: new Date("2025-05-04"),
+    tags: ["AI", "Personalization", "EdTech"],
+    thumbnail: "/Aicademy.png",
+  },
+  {
+    slug: "intro-skill-assessment",
+    title: "Building an Introductory Skill Assessment for Smarter AI Tutoring",
+    description:
+      "How I implemented an entry quiz system to personalize learning paths, scale challenge difficulty, and inform parents of student starting levels.",
+    date: new Date("2025-05-04"),
+    tags: ["AI", "EdTech", "Personalization"],
+    thumbnail: "/Aicademy.png",
+  },
+  {
     slug: "statsx-scaling-backend",
     title:
       "Scaling StatsX: Moving NFL Projections to the Backend and Preparing for AI",
@@ -33,8 +62,6 @@ const posts = [
     tags: ["AI", "EdTech", "Data Analytics"],
     thumbnail: "/Aicademy.png",
   },
-  
-  
 ];
 
 

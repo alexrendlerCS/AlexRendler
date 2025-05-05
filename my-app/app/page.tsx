@@ -127,10 +127,10 @@ export default function Home() {
           for August.
         </p>
         <div className="mt-4 w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
-          <div className="bg-green-500 h-2 rounded-full w-[65%] transition-all duration-500" />
+          <div className="bg-green-500 h-2 rounded-full w-[75%] transition-all duration-500" />
         </div>
         <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-1">
-          Project Completion Status: 65%
+          Project Completion Status: 75%
         </p>
       </motion.div>
 
