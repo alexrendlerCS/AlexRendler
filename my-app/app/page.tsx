@@ -115,22 +115,24 @@ export default function Home() {
         </h3>
 
         <p className="text-sm text-center text-zinc-700 dark:text-zinc-300">
-          I&apos;m currently focused on building an <strong>AI</strong> tutor
-          designed for K–12 students, blending my interests in{" "}
-          <strong>data analytics</strong> and <strong>AI</strong> to create an
-          engaging, kid-friendly educational experience. The platform is
-          designed to encourage critical thinking and deep understanding rather
-          than reliance on <strong>AI</strong> provided answers, with progress
-          tracking and adaptive questioning tailored to each student&apos;s
-          level. Simultaneously, I&apos;m continuing my collaboration with the
-          team at <strong>Nexus Brokerage</strong>, with a planned release set
-          for August.
+          I&apos;m currently focused on expanding my completed{" "}
+          <strong>AI</strong> tutor into a full-featured learning platform for
+          K–12 schools. What began as a personalized tutor is now evolving into
+          a system where teachers can create classes, assign modules, and track
+          progress — all while students interact with a supportive{" "}
+          <strong>AI</strong> assistant that encourages deep thinking. This
+          project blends my interests in <strong>AI</strong>,{" "}
+          <strong>education</strong>, and <strong>data analytics</strong>. I’m
+          also continuing my work with the team at{" "}
+          <strong>Nexus Brokerage</strong>, aiming for a public release in
+          August.
         </p>
+
         <div className="mt-4 w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
-          <div className="bg-green-500 h-2 rounded-full w-[75%] transition-all duration-500" />
+          <div className="bg-green-500 h-2 rounded-full w-[65%] transition-all duration-500" />
         </div>
         <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-1">
-          Project Completion Status: 75%
+          Project Completion Status: 65%
         </p>
       </motion.div>
 

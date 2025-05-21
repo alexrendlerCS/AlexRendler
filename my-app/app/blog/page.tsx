@@ -6,6 +6,16 @@ import { format } from "date-fns";
 
 const posts = [
   {
+    slug: "ai-tutor-platform-evolution",
+    title:
+      "Pivoting from Just a Chatbot to a Full AI-Powered Learning Platform",
+    description:
+      "How I evolved my AI tutor into a full education platform where teachers can create modules, assign lessons, and guide learning with AI-powered support.",
+    date: new Date("2025-05-21"),
+    tags: ["EdTech", "AI", "Learning Tools"],
+    thumbnail: "/new_aicademy.png",
+  },
+  {
     slug: "admin-dashboard-analytics",
     title:
       "Visualizing Student Progress in Real Time with Recharts and Supabase",
