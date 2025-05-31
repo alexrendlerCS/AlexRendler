@@ -104,7 +104,7 @@ export default function Home() {
 
       {/* Current Focus Section */}
       <motion.div
-        className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 rounded-lg shadow-md p-6 w-full max-w-7xl mb-8 px-4 transform translate-y-0 transition-all duration-300 hover:-translate-y-6 hover:scale-[1.05] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
+        className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 rounded-lg shadow-md p-6 max-w-[1000px] mx-auto mb-8 px-4 transform translate-y-0 transition-all duration-300 hover:-translate-y-6 hover:scale-[1.05] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -114,26 +114,50 @@ export default function Home() {
           Current Focus
         </h3>
 
-        <p className="text-sm text-center text-zinc-700 dark:text-zinc-300">
-          I&apos;m currently focused on expanding my completed{" "}
-          <strong>AI</strong> tutor into a full-featured learning platform for
-          K–12 schools. What began as a personalized tutor is now evolving into
-          a system where teachers can create classes, assign modules, and track
-          progress — all while students interact with a supportive{" "}
-          <strong>AI</strong> assistant that encourages deep thinking. This
-          project blends my interests in <strong>AI</strong>,{" "}
-          <strong>education</strong>, and <strong>data analytics</strong>. I’m
-          also continuing my work with the team at{" "}
-          <strong>Nexus Brokerage</strong>, aiming for a public release in
-          August.
+        <div className="max-w-[650px] mx-auto">
+          <p className="text-sm text-center text-zinc-700 dark:text-zinc-300">
+            I recently completed the initial release of{" "}
+            <strong>Aicademy</strong>, an AI-powered education platform designed
+            for students and teachers. Visitors can now demo the system using
+            prebuilt student and teacher accounts to explore the layout, preview
+            modules, and experience AI-guided tutoring in action. While this is
+            just the beginning, it represents a major milestone in blending{" "}
+            <strong>AI</strong>, <strong>education</strong>, and{" "}
+            <strong>data analytics</strong>. I’m also continuing development on{" "}
+            <strong>Nexus Brokerage</strong>, collaborating with the team to
+            refine features and prepare for a public release in August.
+          </p>
+        </div>
+
+        {/* Screenshot Image */}
+        <div className="mt-6 flex justify-center">
+          <div className="w-[480px] rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 shadow">
+            <Image
+              src="/aicademy-preview.png"
+              alt="Aicademy Demo Preview"
+              width={480}
+              height={270}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Image Caption */}
+        <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-2">
+          Example of an AI response to a student prompt using lesson-specific
+          information.
         </p>
 
-        <div className="mt-4 w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
-          <div className="bg-green-500 h-2 rounded-full w-[65%] transition-all duration-500" />
+        {/* Progress Bar */}
+        <div className="mt-4 max-w-[480px] mx-auto">
+          <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
+            <div className="bg-green-500 h-2 rounded-full w-[85%] transition-all duration-500" />
+          </div>
+          <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-1">
+            Project Completion Status: 85%
+          </p>
         </div>
-        <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-1">
-          Project Completion Status: 65%
-        </p>
       </motion.div>
 
       {/* Skills Section */}
