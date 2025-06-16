@@ -35,6 +35,30 @@ import {
 
 const projects = [
   {
+    title: "SEO Insights Project",
+    description:
+      "AI-powered dashboard that analyzes Google Ads performance, clusters underperforming keywords, and uses LLMs to suggest optimizations. Built with Python, NLP, and Prompt Engineering, it features interactive data visualizations, keyword clustering, and OpenAI-generated meta content to enhance SEO strategy.",
+    skills: [
+      "Full Stack",
+      "Python",
+      "Data Viz",
+      "Charts",
+      "NLP",
+      "OpenAI API",
+      "Prompt Engineering",
+      "AI Analysis",
+      "SEO",
+      "APIs",
+      "Client Work",
+      "Responsive UI",
+      "Content",
+    ],
+    categories: ["Machine Learning", "Data Analyzing", "AI Integration"],
+    image: "/seo_insight.png",
+    icon: <BrainCog className="h-6 w-6" />,
+    link: "https://github.com/alexrendlerCS/SEO_Insight",
+  },
+  {
     title: "Aicademy - AI Tutor for K–12 Education",
     description:
       "Designed and developed an interactive AI tutor that guides students aged 9–12 through learning activities using NLP and adaptive prompts. Focused on enhancing understanding through Socratic questioning rather than giving answers. Tracks user performance, XP, and question difficulty through a Supabase backend. Offers personalized feedback and visual progress analytics, designed for future integration into classroom settings.",
@@ -54,22 +78,25 @@ const projects = [
     link: "https://github.com/alexrendlerCS/AITutor", // Or your live demo if deployed
   },
   {
-    title: "Aicademy - AI Tutor for K–12 Education",
+    title: "Automated Stock Trading Bot",
     description:
-      "Designed and developed an interactive AI tutor that guides students aged 9–12 through learning activities using NLP and adaptive prompts. Focused on enhancing understanding through Socratic questioning rather than giving answers. Tracks user performance, XP, and question difficulty through a Supabase backend. Offers personalized feedback and visual progress analytics, designed for future integration into classroom settings.",
+      "Algorithmic trading system that predicts market moves and executes trades automatically using historical data and live signals. Developed in Python with ML prediction logic, finance analytics, and modular API integration, it includes visualized performance dashboards and optional Docker deployment.",
     skills: [
-      "Full Stack",
-      "OpenAI API",
-      "Prompt Engineering",
-      "Supabase",
-      "React",
-      "Data Viz",
+      "Python",
+      "Prediction Logic",
       "NLP",
-      "EdTech",
+      "AI Analysis",
+      "Data Parsing",
+      "Finance",
+      "APIs",
+      "Docker",
+      "Full Stack",
+      "Charts",
+      "Data Viz",
     ],
-    categories: ["AI Integration", "Data Analyzing"],
-    image: "/Aicademy.png",
-    icon: <BrainCog className="h-6 w-6" />,
+    categories: ["Machine Learning", "Data Analyzing"],
+    image: "/stock_trading_bot.png",
+    icon: <Database className="h-6 w-6" />,
     link: "https://github.com/alexrendlerCS/stock-trade-bot",
   },
   {
@@ -276,20 +303,16 @@ const ProjectsPage = () => {
       </div>
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
         <Button
-          onClick={() => setFilter("Machine Learning")}
-          variant={filter === "Machine Learning" ? "default" : "outline"}
-        >
-          Machine Learning
-        </Button>
-        <Button
-          onClick={() => setFilter("Personal Finance")}
-          variant={filter === "Personal Finance" ? "default" : "outline"}
-        ></Button>
-        <Button
           onClick={() => setFilter("All")}
           variant={filter === "All" ? "default" : "outline"}
         >
           All
+        </Button>
+        <Button
+          onClick={() => setFilter("Machine Learning")}
+          variant={filter === "Machine Learning" ? "default" : "outline"}
+        >
+          Machine Learning
         </Button>
         <Button
           onClick={() => setFilter("Data Analyzing")}
