@@ -49,9 +49,28 @@ const projects = [
       "EdTech",
     ],
     categories: ["AI Integration", "Data Analyzing"],
-    image: "/Aicademy.png", 
+    image: "/Aicademy.png",
     icon: <BrainCog className="h-6 w-6" />,
     link: "https://github.com/alexrendlerCS/AITutor", // Or your live demo if deployed
+  },
+  {
+    title: "Aicademy - AI Tutor for K–12 Education",
+    description:
+      "Designed and developed an interactive AI tutor that guides students aged 9–12 through learning activities using NLP and adaptive prompts. Focused on enhancing understanding through Socratic questioning rather than giving answers. Tracks user performance, XP, and question difficulty through a Supabase backend. Offers personalized feedback and visual progress analytics, designed for future integration into classroom settings.",
+    skills: [
+      "Full Stack",
+      "OpenAI API",
+      "Prompt Engineering",
+      "Supabase",
+      "React",
+      "Data Viz",
+      "NLP",
+      "EdTech",
+    ],
+    categories: ["AI Integration", "Data Analyzing"],
+    image: "/Aicademy.png",
+    icon: <BrainCog className="h-6 w-6" />,
+    link: "https://github.com/alexrendlerCS/stock-trade-bot",
   },
   {
     title: "Nexus - Crypto Brokerage",
@@ -256,6 +275,16 @@ const ProjectsPage = () => {
         </Button>
       </div>
       <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
+        <Button
+          onClick={() => setFilter("Machine Learning")}
+          variant={filter === "Machine Learning" ? "default" : "outline"}
+        >
+          Machine Learning
+        </Button>
+        <Button
+          onClick={() => setFilter("Personal Finance")}
+          variant={filter === "Personal Finance" ? "default" : "outline"}
+        ></Button>
         <Button
           onClick={() => setFilter("All")}
           variant={filter === "All" ? "default" : "outline"}
