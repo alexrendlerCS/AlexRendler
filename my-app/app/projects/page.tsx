@@ -35,6 +35,29 @@ import {
 
 const projects = [
   {
+    title: "TrainerDev: Custom Sites for Fitness Coaches",
+    description:
+      "A tailored website platform for personal trainers to grow their brand and manage clients. Includes mobile-friendly landing pages, booking flows, payment integrations, SEO optimization, and managed hosting. Built to be customized per trainer, combining marketing and functionality. Designed with dark green, black, and white branding, and optimized for conversions.",
+    skills: [
+      "Next.js",
+      "Stripe",
+      "Supabase",
+      "Tailwind",
+      "Vercel",
+      "ShadCN UI",
+      "Responsive Design",
+      "Landing Page Design",
+      "Payment Integration",
+      "Client Portals",
+      "SEO",
+      "Full Stack",
+    ],
+    categories: ["Web Development"],
+    image: "/fitweb.png",
+    icon: <Code className="h-6 w-6" />,
+    link: "https://trainerdev.vercel.app/",
+  },
+  {
     title: "Fitness Trainer Platform",
     description:
       "A full-stack scheduling and session management platform built for personal trainers and their clients. Includes secure role-based login, contract signing, calendar syncing, session booking, and Stripe-powered payments. Designed to scale for multiple trainers while preserving unique training styles. Developed with Next.js, Supabase, and Stripe, with a sleek UI using ShadCN components.",
