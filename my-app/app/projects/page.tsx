@@ -53,7 +53,7 @@ const projects = [
       "Full Stack",
     ],
     categories: ["Web Development"],
-    image: "/fitweb.png",
+    image: "/webfit.png",
     icon: <Code className="h-6 w-6" />,
     link: "https://trainerdev.vercel.app/",
   },
