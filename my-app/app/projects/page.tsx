@@ -35,6 +35,28 @@ import {
 
 const projects = [
   {
+    title: "Fitness Trainer Platform",
+    description:
+      "A full-stack scheduling and session management platform built for personal trainers and their clients. Includes secure role-based login, contract signing, calendar syncing, session booking, and Stripe-powered payments. Designed to scale for multiple trainers while preserving unique training styles. Developed with Next.js, Supabase, and Stripe, with a sleek UI using ShadCN components.",
+    skills: [
+      "Next.js",
+      "Supabase",
+      "Stripe",
+      "OAuth",
+      "Role-Based Auth",
+      "PostgreSQL",
+      "Scheduling Systems",
+      "Full Stack",
+      "UI/UX",
+      "Google Calendar API",
+      "Authentication",
+    ],
+    categories: ["Web Development"],
+    image: "/fitness_trainer_platform.png",
+    icon: <Code className="h-6 w-6" />,
+    link: "https://www.coachkilday.com",
+  },
+  {
     title: "SEO Insights Project",
     description:
       "AI-powered dashboard that analyzes Google Ads performance, clusters underperforming keywords, and uses LLMs to suggest optimizations. Built with Python, NLP, and Prompt Engineering, it features interactive data visualizations, keyword clustering, and OpenAI-generated meta content to enhance SEO strategy.",
@@ -97,7 +119,7 @@ const projects = [
     categories: ["Machine Learning", "Data Analyzing"],
     image: "/stock_trading_bot.png",
     icon: <Database className="h-6 w-6" />,
-    link: "https://github.com/alexrendlerCS/stock-trade-bot",
+    link: "https://aicademy-six.vercel.app/",
   },
   {
     title: "Nexus - Crypto Brokerage",

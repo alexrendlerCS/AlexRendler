@@ -6,6 +6,16 @@ import { format } from "date-fns";
 
 const posts = [
   {
+    slug: "seo-integration",
+    title: "How I Used AI & Machine Learning to Transform SEO Keyword Strategy",
+    description:
+      "How I used NLP, clustering, and data analytics to group keywords, score opportunities, and generate intelligent SEO recommendations.",
+    date: new Date("2025-06-20"),
+    tags: ["AI", "Machine Learning", "SEO", "Data Analytics"],
+    thumbnail: "/seo_insight.png",
+  },
+
+  {
     slug: "ai-tutor-platform-evolution",
     title:
       "Pivoting from Just a Chatbot to a Full AI-Powered Learning Platform",
