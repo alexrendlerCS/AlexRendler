@@ -94,7 +94,7 @@ export default function BlogPost() {
       </p>
 
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
-        Here's a key part of the system: a reusable{" "}
+        Here&apos;s a key part of the system: a reusable{" "}
         <code>KeywordClusterer</code> class that performs clustering based on
         either traditional or transformer-based embeddings:
       </p>
@@ -106,11 +106,11 @@ export default function BlogPost() {
       </div>
 
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
-        This logic allowed the system to group terms like “running shoes” and
-        “best sneakers” together — even if they shared no direct words — and
-        then assign performance-based tags across entire clusters. It made
-        strategic gaps more visible, like overused branded terms or neglected
-        niche opportunities.
+        This logic allowed the system to group terms like &quot;running
+        shoes&quot; and &quot;best sneakers&quot; together — even if they shared
+        no direct words — and then assign performance-based tags across entire
+        clusters. It made strategic gaps more visible, like overused branded
+        terms or neglected niche opportunities.
       </p>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">
@@ -143,8 +143,8 @@ export default function BlogPost() {
         </li>
         <li>Are we optimizing for visibility or for genuine value?</li>
         <li>
-          How do we avoid creating echo chambers of “top keywords” that lack
-          originality?
+          How do we avoid creating echo chambers of &quot;top keywords&quot;
+          that lack originality?
         </li>
         <li>
           Can AI help promote quality content — or does it risk flattening
@@ -154,8 +154,8 @@ export default function BlogPost() {
 
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         These questions push me to not only build smarter systems, but also more
-        human-aware ones. Marketing isn’t just numbers — it’s psychology,
-        timing, and trust. And AI should reflect that.
+        human-aware ones. Marketing isn&apos;t just numbers — it&apos;s
+        psychology, timing, and trust. And AI should reflect that.
       </p>
 
       <Link
