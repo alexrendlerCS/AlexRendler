@@ -95,11 +95,11 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        Motivated and innovative Computer Science graduate with a passion for
-        data analytics and design, eager to bring creative ideas to life through
+        Motivated and innovative Software Developer with a passion for data
+        analytics and design, eager to bring creative ideas to life through
         code. Dedicated to continuous learning and achieving excellence, I
-        aspire to leverage my problem-solving, communication, and leadership
-        skills to lead teams in delivering impactful projects.
+        leverage strong problem-solving, communication, and leadership skills to
+        deliver impactful projects and contribute to team success.
       </motion.p>
 
       {/* Current Focus Section */}
