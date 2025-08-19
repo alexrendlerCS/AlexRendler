@@ -148,17 +148,16 @@ export default function Home() {
 
         {/* Image Caption */}
         <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-2">
-          Example of an AI response to a student prompt using lesson-specific
-          information.
+          Demo of the SecondGlance.ai platform showcasing housing leads and CRM connections.
         </p>
 
         {/* Progress Bar */}
         <div className="mt-4 max-w-[480px] mx-auto">
           <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
-            <div className="bg-green-500 h-2 rounded-full w-[85%] transition-all duration-500" />
+            <div className="bg-green-500 h-2 rounded-full w-[55%] transition-all duration-500" />
           </div>
           <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-1">
-            Project Completion Status: 85%
+            Project Completion Status: 55%
           </p>
         </div>
       </motion.div>
