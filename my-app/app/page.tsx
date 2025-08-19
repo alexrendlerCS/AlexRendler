@@ -116,16 +116,19 @@ export default function Home() {
 
         <div className="max-w-[650px] mx-auto">
           <p className="text-sm text-center text-zinc-700 dark:text-zinc-300">
-            I recently completed the initial release of{" "}
-            <strong>Aicademy</strong>, an AI-powered education platform designed
-            for students and teachers. Visitors can now demo the system using
-            prebuilt student and teacher accounts to explore the layout, preview
-            modules, and experience AI-guided tutoring in action. While this is
-            just the beginning, it represents a major milestone in blending{" "}
-            <strong>AI</strong>, <strong>education</strong>, and{" "}
-            <strong>data analytics</strong>. I’m also continuing development on{" "}
-            <strong>Nexus Brokerage</strong>, collaborating with the team to
-            refine features and prepare for a public release in August.
+            I am currently focused on two major projects while continuing to
+            expand my technical skills. For Botanically Crafted Landscapes, I
+            manage <strong>SEO strategy</strong> and execution, optimizing their
+            Google Business Profile, blog content, and analytics to strengthen
+            local search rankings. In parallel, I am leading{" "}
+            <strong>full-stack development</strong> for SecondGlance.ai,
+            creating a platform that displays foreclosure leads with detailed
+            insights such as under-market auction prices, outstanding debt, and
+            equity owed. Alongside these projects, I am actively pursuing the
+            <strong> IBM Certified AI Engineer</strong> credential, having
+            already completed six of the required certificates, which deepens my
+            expertise in machine learning, data pipelines, and AI-driven
+            solutions.
           </p>
         </div>
 
