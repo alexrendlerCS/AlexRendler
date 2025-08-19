@@ -133,8 +133,8 @@ export default function Home() {
         <div className="mt-6 flex justify-center">
           <div className="w-[480px] rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 shadow">
             <Image
-              src="/aicademy-preview.png"
-              alt="Aicademy Demo Preview"
+              src="/CurrentFocus.png"
+              alt="Current Focus Preview"
               width={480}
               height={270}
               className="w-full h-auto object-cover"
