@@ -47,6 +47,16 @@ const Header = () => {
             >
               Blog
             </Link>
+            <Link
+              href="/journey"
+              className={
+                pathname === "/journey"
+                  ? "text-foreground"
+                  : "text-foreground/60 hover:text-foreground transition-colors"
+              }
+            >
+              My Journey
+            </Link>
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">

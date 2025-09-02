@@ -148,7 +148,8 @@ export default function Home() {
 
         {/* Image Caption */}
         <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-2">
-          Demo of the SecondGlance.ai platform showcasing housing leads and CRM connections.
+          Demo of the SecondGlance.ai platform showcasing housing leads and CRM
+          connections.
         </p>
 
         {/* Progress Bar */}
@@ -179,6 +180,9 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.8 }}
       >
         <Button asChild>
+          <Link href="/journey">Explore My Journey</Link>
+        </Button>
+        <Button asChild variant="outline">
           <Link href="/projects">View My Projects</Link>
         </Button>
         <Button asChild variant="outline">
