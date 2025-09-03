@@ -32,9 +32,9 @@ import {
 // Tree layout configuration
 const TREE_CONFIG = {
   rootY: 60, // Goals at top - moved closer to top for better fit
-  layerSpacing: 120, // Reduced spacing between layers to fit all 6 layers
+  layerSpacing: 240, // Increased spacing between layers for better readability
   nodeSpacing: 150, // Horizontal spacing between nodes
-  nodeRadius: 30, // Radius of circular nodes
+  nodeRadius: 40, // Increased radius of circular nodes for better visibility
   centerOffset: 400, // Center offset to prevent left cutoff
 };
 
@@ -67,46 +67,12 @@ const SimpleSkillTree = () => {
       width: number;
     }> = [];
 
-    // Layer 1: Goals (top)
-    goals.forEach((goal, index) => {
-      const x =
-        TREE_CONFIG.centerOffset +
-        (index - (goals.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
-      allNodes.push({
-        id: goal.id,
-        type: "goal",
-        data: goal,
-        x,
-        y: TREE_CONFIG.rootY,
-      });
-    });
-
-    // Layer 2: Advanced Skills
-    const advancedSkills = skills.filter(
-      (s) => s.proficiency > 70 || s.status === "unlocked"
-    );
-    advancedSkills.forEach((skill, index) => {
-      const x =
-        TREE_CONFIG.centerOffset +
-        (index - (advancedSkills.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
-      allNodes.push({
-        id: skill.id,
-        type: "skill",
-        data: skill,
-        x,
-        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing,
-      });
-    });
-
-    // Layer 3: Career Projects
+    // Layer 1: Career/Contract Work (Purple/Orange - top level)
     const careerProjects = projects.filter(
       (p) =>
-        p.title.includes("RealtyEdge") ||
-        p.title.includes("ClaimsConnect") ||
-        p.title.includes("AIcademy") ||
-        p.title.includes("SEO Insights") ||
-        p.title.includes("TrainerDev") ||
-        p.title.includes("Fitness Trainer Platform")
+        p.title.includes("Botanically Crafted SEO") ||
+        p.title.includes("Realty Edge") ||
+        p.title.includes("AIcademy")
     );
     careerProjects.forEach((project, index) => {
       const x =
@@ -117,18 +83,147 @@ const SimpleSkillTree = () => {
         type: "project",
         data: project,
         x,
+        y: TREE_CONFIG.rootY,
+      });
+    });
+
+    // Layer 2: Goals (career objectives)
+    goals.forEach((goal, index) => {
+      const x =
+        TREE_CONFIG.centerOffset +
+        (index - (goals.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
+      allNodes.push({
+        id: goal.id,
+        type: "goal",
+        data: goal,
+        x,
+        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing,
+      });
+    });
+
+    // Layer 3: Advanced Projects/Certificates (Purple - high-level achievements)
+    const advancedProjects = projects.filter(
+      (p) =>
+        p.title.includes("Aicademy") ||
+        p.title.includes("IBM AI Engineer Certificate") ||
+        p.title.includes("ClaimsConnect") ||
+        p.title.includes("Fitness Trainer Platform")
+    );
+    advancedProjects.forEach((project, index) => {
+      const x =
+        TREE_CONFIG.centerOffset +
+        (index - (advancedProjects.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
+      allNodes.push({
+        id: project.id,
+        type: "project",
+        data: project,
+        x,
         y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 2,
       });
     });
 
-    // Layer 4: Intermediate Projects
+    // Layer 3 → Layer 4: Advanced projects to advanced skills
+    // Aicademy → AI Engineer + Prompt Engineer
+    advancedProjects.forEach((project) => {
+      if (project.title.includes("Aicademy")) {
+        allConnections.push(
+          { from: project.id, to: "ai-engineer", color: "#1e40af", width: 3 },
+          {
+            from: project.id,
+            to: "prompt-engineer",
+            color: "#1e40af",
+            width: 3,
+          }
+        );
+      }
+    });
+
+    // Fitness Trainer Platform → Full-Stack Developer + SEO Engineer
+    advancedProjects.forEach((project) => {
+      if (project.title.includes("Fitness Trainer Platform")) {
+        allConnections.push(
+          {
+            from: project.id,
+            to: "fullstack-developer",
+            color: "#1e40af",
+            width: 3,
+          },
+          { from: project.id, to: "seo-engineer", color: "#1e40af", width: 3 }
+        );
+      }
+    });
+
+    // ClaimsConnect → Full-Stack Developer + Sales Engineer
+    advancedProjects.forEach((project) => {
+      if (project.title.includes("ClaimsConnect")) {
+        allConnections.push(
+          {
+            from: project.id,
+            to: "fullstack-developer",
+            color: "#1e40af",
+            width: 3,
+          },
+          { from: project.id, to: "sales-engineer", color: "#1e40af", width: 3 }
+        );
+      }
+    });
+
+    // IBM AI Engineer Certificate → AI Engineer + Prompt Engineer + ML Engineer
+    advancedProjects.forEach((project) => {
+      if (project.title.includes("IBM AI Engineer Certificate")) {
+        allConnections.push(
+          { from: project.id, to: "ai-engineer", color: "#1e40af", width: 3 },
+          {
+            from: project.id,
+            to: "prompt-engineer",
+            color: "#1e40af",
+            width: 3,
+          },
+          { from: project.id, to: "ml-engineer", color: "#1e40af", width: 3 }
+        );
+      }
+    });
+
+    // Layer 4: Advanced Skills (Green/Orange - high-level capabilities)
+    const advancedSkills = skills.filter(
+      (s) =>
+        s.id === "prompt-engineering" ||
+        s.id === "supabase" ||
+        s.id === "stripe" ||
+        s.id === "nlp" ||
+        s.id === "ml-prediction" ||
+        s.id === "ml-engineer" ||
+        s.id === "seo-analytics" ||
+        s.id === "n8n-automation" ||
+        s.id === "fullstack" ||
+        s.id === "ai-engineer" ||
+        s.id === "data-engineering" ||
+        s.id === "seo-engineer" ||
+        s.id === "sales-engineer" ||
+        s.id === "docker" ||
+        s.id === "api-integrations"
+    );
+    advancedSkills.forEach((skill, index) => {
+      const x =
+        TREE_CONFIG.centerOffset +
+        (index - (advancedSkills.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
+      allNodes.push({
+        id: skill.id,
+        type: "skill",
+        data: skill,
+        x,
+        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 3,
+      });
+    });
+
+    // Layer 4: Intermediate Projects (Blue - projects that use core skills)
     const intermediateProjects = projects.filter(
       (p) =>
-        (p.title.includes("StatsX") ||
-          p.title.includes("Nexus") ||
-          p.title.includes("AI Resume Builder") ||
-          p.title.includes("Stock Trading Bot")) &&
-        !careerProjects.find((cp) => cp.id === p.id)
+        p.title.includes("TrainerDev") ||
+        p.title.includes("AI Resume Builder") ||
+        p.title.includes("Automated Stock Trading Bot") ||
+        p.title.includes("SEO Insights") ||
+        p.title.includes("StatsX")
     );
     intermediateProjects.forEach((project, index) => {
       const x =
@@ -140,122 +235,253 @@ const SimpleSkillTree = () => {
         type: "project",
         data: project,
         x,
-        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 3,
+        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 4,
       });
     });
 
-    // Layer 5: Foundation Skills
-    const foundationSkills = skills.filter(
-      (s) => s.proficiency <= 70 || s.status === "partial"
+    // Layer 5: Core Skills (Green - skills that projects build)
+    const coreSkills = skills.filter(
+      (s) =>
+        s.id === "html-css" ||
+        s.id === "responsive-ui" ||
+        s.id === "seo-basics" ||
+        s.id === "python" ||
+        s.id === "data-viz" ||
+        s.id === "auth" // We'll need to add this skill
     );
-    foundationSkills.forEach((skill, index) => {
+    coreSkills.forEach((skill, index) => {
       const x =
         TREE_CONFIG.centerOffset +
-        (index - (foundationSkills.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
+        (index - (coreSkills.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
       allNodes.push({
         id: skill.id,
         type: "skill",
         data: skill,
         x,
-        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 4,
+        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 5,
       });
     });
 
-    // Layer 6: Early Projects
-    const earlyProjects = projects.filter(
+    // Layer 6: Baseline Projects (Blue - starting point)
+    const baselineProjects = projects.filter(
       (p) =>
-        (p.title.includes("Bells and Bones") ||
-          p.title.includes("CoreVybe") ||
-          p.title.includes("Budget Tracker")) &&
-        !careerProjects.find((cp) => cp.id === p.id) &&
-        !intermediateProjects.find((ip) => ip.id === p.id)
+        p.title.includes("Bells and Bones") ||
+        p.title.includes("CoreVybe") ||
+        p.title.includes("Budget Tracker")
     );
-    earlyProjects.forEach((project, index) => {
+    baselineProjects.forEach((project, index) => {
       const x =
         TREE_CONFIG.centerOffset +
-        (index - (earlyProjects.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
+        (index - (baselineProjects.length - 1) / 2) * TREE_CONFIG.nodeSpacing;
       allNodes.push({
         id: project.id,
         type: "project",
         data: project,
         x,
-        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 5,
+        y: TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 6,
       });
     });
 
-    // Create connections manually
-    // 1. Early projects to foundation skills
-    earlyProjects.forEach((project) => {
-      project.skillsGained.forEach((skillId) => {
-        const skill = foundationSkills.find((s) => s.id === skillId);
-        if (skill) {
-          allConnections.push({
-            from: project.id,
-            to: skillId,
-            color: "#3b82f6",
-            width: 3,
-          });
-        }
-      });
+    // Create connections following the 6-layer structure
+    // Layer 6 → Layer 5: Baseline projects to core skills
+    baselineProjects.forEach((project) => {
+      if (project.title.includes("Bells and Bones")) {
+        allConnections.push(
+          { from: project.id, to: "html-css", color: "#3b82f6", width: 3 },
+          { from: project.id, to: "responsive-ui", color: "#3b82f6", width: 3 },
+          { from: project.id, to: "seo-basics", color: "#3b82f6", width: 3 }
+        );
+      }
+      if (project.title.includes("CoreVybe")) {
+        allConnections.push(
+          { from: project.id, to: "responsive-ui", color: "#3b82f6", width: 3 },
+          { from: project.id, to: "seo-basics", color: "#3b82f6", width: 3 }
+        );
+      }
+      if (project.title.includes("Budget Tracker")) {
+        allConnections.push(
+          { from: project.id, to: "python", color: "#3b82f6", width: 3 },
+          { from: project.id, to: "data-viz", color: "#3b82f6", width: 3 },
+          { from: project.id, to: "auth", color: "#3b82f6", width: 3 }
+        );
+      }
     });
 
-    // 2. Foundation skills to intermediate projects
-    foundationSkills.forEach((skill) => {
-      intermediateProjects.forEach((project) => {
-        if (project.skillsGained.includes(skill.id)) {
-          allConnections.push({
-            from: skill.id,
-            to: project.id,
-            color: "#10b981",
-            width: 3,
-          });
-        }
-      });
-    });
-
-    // 3. Intermediate projects to advanced skills
+    // Layer 5 → Layer 4: Core skills to intermediate projects
+    // HTML/CSS + Responsive UI + SEO Fundamentals → TrainerDev
     intermediateProjects.forEach((project) => {
-      project.skillsGained.forEach((skillId) => {
-        const skill = advancedSkills.find((s) => s.id === skillId);
-        if (skill) {
-          allConnections.push({
+      if (project.title.includes("TrainerDev")) {
+        allConnections.push(
+          { from: "html-css", to: project.id, color: "#10b981", width: 3 },
+          { from: "responsive-ui", to: project.id, color: "#10b981", width: 3 },
+          { from: "seo-basics", to: project.id, color: "#10b981", width: 3 }
+        );
+      }
+    });
+
+    // Python Dev + Data Viz + Auth → AI Resume Builder + Automated Stock Trading Bot
+    intermediateProjects.forEach((project) => {
+      if (
+        project.title.includes("AI Resume Builder") ||
+        project.title.includes("Automated Stock Trading Bot")
+      ) {
+        allConnections.push(
+          { from: "python", to: project.id, color: "#10b981", width: 3 },
+          { from: "data-viz", to: project.id, color: "#10b981", width: 3 },
+          { from: "auth", to: project.id, color: "#10b981", width: 3 }
+        );
+      }
+    });
+
+    // SEO Fundamentals → SEO Insights Project
+    intermediateProjects.forEach((project) => {
+      if (project.title.includes("SEO Insights")) {
+        allConnections.push({
+          from: "seo-basics",
+          to: project.id,
+          color: "#10b981",
+          width: 3,
+        });
+      }
+    });
+
+    // Python Dev + Data Viz → StatsX (Sports Analyzer)
+    intermediateProjects.forEach((project) => {
+      if (project.title.includes("StatsX")) {
+        allConnections.push(
+          { from: "python", to: project.id, color: "#10b981", width: 3 },
+          { from: "data-viz", to: project.id, color: "#10b981", width: 3 }
+        );
+      }
+    });
+
+    // StatsX → n8n Automation / Docker
+    intermediateProjects.forEach((project) => {
+      if (project.title.includes("StatsX")) {
+        allConnections.push(
+          {
             from: project.id,
-            to: skillId,
-            color: "#3b82f6",
+            to: "n8n-automation",
+            color: "#1e40af",
             width: 3,
-          });
-        }
-      });
+          },
+          { from: project.id, to: "docker", color: "#1e40af", width: 3 }
+        );
+      }
     });
 
-    // 4. Career projects to advanced skills
-    careerProjects.forEach((project) => {
-      project.skillsGained.forEach((skillId) => {
-        const skill = advancedSkills.find((s) => s.id === skillId);
-        if (skill) {
-          allConnections.push({
+    // Layer 4 → Layer 3: Intermediate projects to advanced skills
+    // TrainerDev → Full-Stack Developer / Supabase / Stripe / API Integrations
+    intermediateProjects.forEach((project) => {
+      if (project.title.includes("TrainerDev")) {
+        allConnections.push(
+          { from: project.id, to: "fullstack", color: "#1e40af", width: 3 },
+          { from: project.id, to: "supabase", color: "#1e40af", width: 3 },
+          { from: project.id, to: "stripe", color: "#1e40af", width: 3 },
+          {
             from: project.id,
-            to: skillId,
-            color: "#8b5cf6",
-            width: 4,
-          });
-        }
-      });
+            to: "api-integrations",
+            color: "#1e40af",
+            width: 3,
+          }
+        );
+      }
     });
 
-    // 5. Advanced skills to goals
-    advancedSkills.forEach((skill) => {
-      Object.keys(skill.weightByGoal).forEach((goalId) => {
-        const goal = goals.find((g) => g.id === goalId);
-        if (goal) {
-          allConnections.push({
-            from: skill.id,
-            to: goalId,
-            color: "#f59e0b",
-            width: 4,
-          });
-        }
-      });
+    // AI Resume Builder → Prompt Engineering / NLP (Layer 3 skills)
+    intermediateProjects.forEach((project) => {
+      if (project.title.includes("AI Resume Builder")) {
+        allConnections.push(
+          {
+            from: project.id,
+            to: "prompt-engineering",
+            color: "#1e40af",
+            width: 3,
+          },
+          { from: project.id, to: "nlp", color: "#1e40af", width: 3 }
+        );
+      }
+    });
+
+    // Automated Stock Bot + StatsX → Data Engineering / ML Prediction
+    intermediateProjects.forEach((project) => {
+      if (
+        project.title.includes("Automated Stock Trading Bot") ||
+        project.title.includes("StatsX")
+      ) {
+        allConnections.push(
+          {
+            from: project.id,
+            to: "data-engineering",
+            color: "#1e40af",
+            width: 3,
+          },
+          {
+            from: project.id,
+            to: "ml-prediction",
+            color: "#1e40af",
+            width: 3,
+          }
+        );
+      }
+    });
+
+    // SEO Insights Project → SEO Analytics (Layer 3 skill)
+    intermediateProjects.forEach((project) => {
+      if (project.title.includes("SEO Insights")) {
+        allConnections.push({
+          from: project.id,
+          to: "seo-analytics",
+          color: "#1e40af",
+          width: 3,
+        });
+      }
+    });
+
+    // Layer 3 → Layer 2: Advanced skills to career/contract work
+    // Full-Stack Developer → Freelance SaaS (TrainerDev)
+    careerProjects.forEach((project) => {
+      if (project.title.includes("TrainerDev")) {
+        allConnections.push({
+          from: "fullstack",
+          to: project.id,
+          color: "#8b5cf6",
+          width: 4,
+        });
+      }
+    });
+
+    // SEO Engineer → Botanically Crafted SEO contract
+    careerProjects.forEach((project) => {
+      if (project.title.includes("Botanically Crafted SEO")) {
+        allConnections.push({
+          from: "seo-engineer",
+          to: project.id,
+          color: "#8b5cf6",
+          width: 4,
+        });
+      }
+    });
+
+    // Layer 2 → Layer 1: Career/contract work to goals
+    // Connect career projects to relevant goals
+    careerProjects.forEach((project) => {
+      if (project.title.includes("Botanically Crafted SEO")) {
+        allConnections.push({
+          from: project.id,
+          to: "seo-engineer",
+          color: "#f59e0b",
+          width: 4,
+        });
+      }
+      if (project.title.includes("AIcademy")) {
+        allConnections.push({
+          from: project.id,
+          to: "ai-engineer",
+          color: "#f59e0b",
+          width: 4,
+        });
+      }
     });
 
     return { nodes: allNodes, connections: allConnections };
@@ -297,13 +523,55 @@ const SimpleSkillTree = () => {
     });
   }, [treeData.nodes, searchTerm]);
 
+  // Get connected node IDs when a node is selected
+  const connectedNodeIds = useMemo(() => {
+    if (!selectedNode) return new Set();
+
+    const connected = new Set([selectedNode]);
+    treeData.connections.forEach((conn) => {
+      if (conn.from === selectedNode) {
+        connected.add(conn.to);
+      } else if (conn.to === selectedNode) {
+        connected.add(conn.from);
+      }
+    });
+    return connected;
+  }, [selectedNode, treeData.connections]);
+
+  // Get goals that have incoming connections (reached goals)
+  const reachedGoalIds = useMemo(() => {
+    const reached = new Set();
+    treeData.connections.forEach((conn) => {
+      // Check if the connection goes TO a goal (meaning a project is building toward that goal)
+      if (
+        (conn.to && conn.to.includes("engineer")) ||
+        conn.to === "prompt-engineer" ||
+        conn.to === "ai-engineer" ||
+        conn.to === "ml-engineer" ||
+        conn.to === "fullstack-developer"
+      ) {
+        reached.add(conn.to);
+      }
+    });
+    return reached;
+  }, [treeData.connections]);
+
   // Filter connections to only show those between visible nodes
   const filteredConnections = useMemo(() => {
     const visibleNodeIds = new Set(filteredNodes.map((n) => n.id));
-    return treeData.connections.filter(
+    let connections = treeData.connections.filter(
       (conn) => visibleNodeIds.has(conn.from) && visibleNodeIds.has(conn.to)
     );
-  }, [treeData.connections, filteredNodes]);
+
+    // If a node is selected, only show connections related to that node
+    if (selectedNode) {
+      connections = connections.filter(
+        (conn) => conn.from === selectedNode || conn.to === selectedNode
+      );
+    }
+
+    return connections;
+  }, [treeData.connections, filteredNodes, selectedNode]);
 
   const handleNodeClick = (nodeId: string) => {
     setSelectedNode(selectedNode === nodeId ? null : nodeId);
@@ -498,20 +766,84 @@ const SimpleSkillTree = () => {
                       cy={node.y}
                       r={TREE_CONFIG.nodeRadius}
                       fill={
-                        node.type === "goal"
-                          ? "#f59e0b"
+                        selectedNode === node.id
+                          ? "#fef3c7" // Light yellow for selected node
+                          : connectedNodeIds.has(node.id)
+                          ? "#fef3c7" // Light yellow for connected nodes
+                          : node.type === "goal" && reachedGoalIds.has(node.id)
+                          ? "#dc2626" // Red for reached goals
+                          : node.type === "goal"
+                          ? "#6b7280" // Grey for unreached goals
+                          : node.type === "skill" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 3
+                          ? "#10b981" // Bright green for advanced skills (Layer 4)
+                          : node.type === "skill" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 5
+                          ? "#059669" // Medium green for core skills (Layer 6)
                           : node.type === "skill"
-                          ? "#10b981"
+                          ? "#10b981" // Green for other skills
+                          : node.type === "project" &&
+                            node.y === TREE_CONFIG.rootY
+                          ? "#f59e0b" // Gold for career projects (Layer 1)
+                          : node.type === "project" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 2
+                          ? "#1e40af" // Dark blue for advanced projects/certificates (Layer 3)
+                          : node.type === "project" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 4
+                          ? "#3b82f6" // Medium blue for intermediate projects (Layer 5)
+                          : node.type === "project" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 6
+                          ? "#60a5fa" // Light blue for baseline projects (Layer 7)
                           : "#3b82f6"
                       }
                       stroke={
-                        node.type === "goal"
-                          ? "#d97706"
+                        selectedNode === node.id
+                          ? "#ef4444" // Red border for selected node
+                          : connectedNodeIds.has(node.id)
+                          ? "#f59e0b" // Orange border for connected nodes
+                          : node.type === "goal" && reachedGoalIds.has(node.id)
+                          ? "#991b1b" // Dark red border for reached goals
+                          : node.type === "goal"
+                          ? "#4b5563" // Grey border for unreached goals
+                          : node.type === "skill" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 3
+                          ? "#047857" // Dark green border for advanced skills (Layer 4)
+                          : node.type === "skill" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 5
+                          ? "#064e3b" // Darker green border for core skills (Layer 6)
                           : node.type === "skill"
-                          ? "#059669"
+                          ? "#059669" // Green border for other skills
+                          : node.type === "project" &&
+                            node.y === TREE_CONFIG.rootY
+                          ? "#d97706" // Dark gold border for career projects (Layer 1)
+                          : node.type === "project" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 2
+                          ? "#1e40af" // Dark blue border for advanced projects/certificates (Layer 3)
+                          : node.type === "project" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 4
+                          ? "#2563eb" // Medium blue border for intermediate projects (Layer 5)
+                          : node.type === "project" &&
+                            node.y ===
+                              TREE_CONFIG.rootY + TREE_CONFIG.layerSpacing * 6
+                          ? "#3b82f6" // Light blue border for baseline projects (Layer 7)
                           : "#2563eb"
                       }
-                      strokeWidth="2"
+                      strokeWidth={
+                        selectedNode === node.id
+                          ? "4"
+                          : connectedNodeIds.has(node.id)
+                          ? "3"
+                          : "2"
+                      }
                       className="cursor-pointer hover:opacity-80 transition-opacity"
                       onClick={() => handleNodeClick(node.id)}
                     />
@@ -519,28 +851,28 @@ const SimpleSkillTree = () => {
                     {/* Node icon */}
                     {node.type === "goal" && (
                       <Target
-                        x={node.x - 12}
-                        y={node.y - 12}
-                        width="24"
-                        height="24"
+                        x={node.x - 16}
+                        y={node.y - 16}
+                        width="32"
+                        height="32"
                         fill="white"
                       />
                     )}
                     {node.type === "skill" && (
                       <Code
-                        x={node.x - 12}
-                        y={node.y - 12}
-                        width="24"
-                        height="24"
+                        x={node.x - 16}
+                        y={node.y - 16}
+                        width="32"
+                        height="32"
                         fill="white"
                       />
                     )}
                     {node.type === "project" && (
                       <BookOpen
-                        x={node.x - 12}
-                        y={node.y - 12}
-                        width="24"
-                        height="24"
+                        x={node.x - 16}
+                        y={node.y - 16}
+                        width="32"
+                        height="32"
                         fill="white"
                       />
                     )}
@@ -548,9 +880,9 @@ const SimpleSkillTree = () => {
                     {/* Node label */}
                     <text
                       x={node.x}
-                      y={node.y + TREE_CONFIG.nodeRadius + 20}
+                      y={node.y + TREE_CONFIG.nodeRadius + 25}
                       textAnchor="middle"
-                      className="text-xs font-medium fill-slate-700 dark:fill-slate-300"
+                      className="text-sm font-bold fill-slate-700 dark:fill-slate-300"
                     >
                       {node.data.title.length > 20
                         ? node.data.title.substring(0, 20) + "..."
@@ -600,27 +932,179 @@ const SimpleSkillTree = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
 
-      {/* Legend */}
-      <div className="absolute top-20 right-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-4 border border-slate-200 dark:border-slate-700">
-        <h3 className="font-semibold mb-3 text-slate-900 dark:text-white">
-          Tree Structure
-        </h3>
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-            <span className="text-slate-700 dark:text-slate-300">
-              Goals (Top)
-            </span>
+        {/* Legend */}
+        <div className="w-80 bg-white dark:bg-slate-800 border-l border-slate-200 dark:border-slate-700 p-6 overflow-y-auto">
+          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
+            🌳 Tree Legend
+          </h3>
+
+          {/* Tree Structure Types */}
+          <div className="mb-8">
+            <h4 className="font-semibold mb-4 text-slate-900 dark:text-white text-lg">
+              Tree Structure
+            </h4>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-orange-500 rounded-full border-2 border-orange-600"></div>
+                <div>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    Goals
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Career objectives & aspirations
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-green-500 rounded-full border-2 border-green-600"></div>
+                <div>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    Skills
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Capabilities & expertise
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-blue-500 rounded-full border-2 border-blue-600"></div>
+                <div>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    Projects
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Work & experiences
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-            <span className="text-slate-700 dark:text-slate-300">Skills</span>
+
+          {/* Connection Types */}
+          <div className="mb-8">
+            <h4 className="font-semibold mb-4 text-slate-900 dark:text-white text-lg">
+              Connection Types
+            </h4>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-orange-400 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    Skills → Goals
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    How skills contribute to career goals
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-orange-400 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-900 dark:text-white">
+                    Goals → Career Projects
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Goals driving career work
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-purple-500 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    Advanced Skills → Career Projects
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Advanced skills enabling career work
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-orange-400 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    Intermediate Projects → Advanced Skills
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Projects building advanced capabilities
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-green-500 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    Core Skills → Intermediate Projects
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Core skills enabling new projects
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-blue-500 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    Baseline Projects → Core Skills
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    Early projects building core skills
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-            <span className="text-slate-700 dark:text-slate-300">Projects</span>
+
+          {/* Tree Layers */}
+          <div>
+            <h4 className="font-semibold mb-4 text-slate-900 dark:text-white text-lg">
+              Tree Layers
+            </h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 1: Career/Contract Work (Top)
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 2: Goals (Grey=Unreached, Green=Reached)
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-700 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 3: Advanced Projects/Certificates
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 4: Advanced Skills
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 5: Intermediate Projects
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 6: Core Skills
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <span className="text-slate-700 dark:text-slate-300">
+                  Layer 7: Baseline Projects (Roots)
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -403,6 +403,31 @@ export const projects: Project[] = [
     ],
     status: "in_progress",
   },
+  {
+    id: "ibm-ai-engineer-cert",
+    title: "IBM AI Engineer Certificate",
+    year: 2024,
+    summary:
+      "Professional certification in AI engineering and machine learning",
+    skillsGained: [
+      "ai-engineering",
+      "ml-fundamentals",
+      "data-engineering",
+      "ai-deployment",
+      "mlops",
+    ],
+    tags: ["certification", "ai", "ml", "professional"],
+    links: [
+      { label: "Certificate", url: "#" },
+      { label: "Details", url: "#" },
+    ],
+    impact: [
+      "Professional AI engineering certification",
+      "Validated ML and data engineering skills",
+      "Industry-recognized credential",
+    ],
+    status: "completed",
+  },
 ];
 
 export const skills: Skill[] = [
@@ -485,6 +510,16 @@ export const skills: Skill[] = [
     weightByGoal: { "seo-engineer": 0.9, "fullstack-developer": 0.5 },
     tags: ["seo", "marketing"],
     proficiency: 75,
+    status: "unlocked",
+  },
+  {
+    id: "seo-analytics",
+    title: "SEO Analytics & Reporting",
+    description:
+      "Advanced SEO metrics, analytics tools, and performance reporting",
+    weightByGoal: { "seo-engineer": 0.95, "fullstack-developer": 0.6 },
+    tags: ["seo", "analytics", "marketing"],
+    proficiency: 70,
     status: "unlocked",
   },
 
@@ -673,12 +708,13 @@ export const goals: Goal[] = [
     progress: 25,
   },
   {
-    id: "platform-engineer",
-    title: "Platform Engineer",
-    status: "future",
-    tags: ["platform", "infrastructure", "scaling"],
-    description: "Build developer platforms and tooling",
-    progress: 15,
+    id: "sales-engineer",
+    title: "Sales Engineer",
+    status: "in_progress",
+    tags: ["sales", "enterprise", "solution-architecture"],
+    description:
+      "Technical sales and solution architecture for enterprise clients",
+    progress: 25,
   },
 ];
 
