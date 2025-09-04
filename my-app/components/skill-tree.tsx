@@ -32,9 +32,9 @@ import {
 // Tree layout configuration
 const TREE_CONFIG = {
   rootY: 60, // Goals at top - moved closer to top for better fit
-  layerSpacing: 240, // Increased spacing between layers for better readability
+  layerSpacing: 120, // Reduced spacing between layers to fit all 6 layers
   nodeSpacing: 150, // Horizontal spacing between nodes
-  nodeRadius: 40, // Increased radius of circular nodes for better visibility
+  nodeRadius: 30, // Radius of circular nodes
   centerOffset: 400, // Center offset to prevent left cutoff
 };
 
@@ -47,7 +47,7 @@ const SimpleSkillTree = () => {
 
   // Zoom and pan state
   const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [pan, setPan] = useState({ x: 0, y: -50 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
@@ -123,7 +123,7 @@ const SimpleSkillTree = () => {
     });
 
     // Layer 3 → Layer 4: Advanced projects to advanced skills
-    // Aicademy → AI Engineer + Prompt Engineer
+    // Aicademy → AI Engineer + Prompt Engineer + Advanced Skills
     advancedProjects.forEach((project) => {
       if (project.title.includes("Aicademy")) {
         allConnections.push(
@@ -133,12 +133,26 @@ const SimpleSkillTree = () => {
             to: "prompt-engineer",
             color: "#1e40af",
             width: 3,
-          }
+          },
+          {
+            from: project.id,
+            to: "prompt-engineering",
+            color: "#10b981",
+            width: 3,
+          },
+          { from: project.id, to: "nlp", color: "#10b981", width: 3 },
+          {
+            from: project.id,
+            to: "api-integrations",
+            color: "#10b981",
+            width: 3,
+          },
+          { from: project.id, to: "supabase", color: "#10b981", width: 3 }
         );
       }
     });
 
-    // Fitness Trainer Platform → Full-Stack Developer + SEO Engineer
+    // Fitness Trainer Platform → Full-Stack Developer + SEO Engineer + Advanced Skills
     advancedProjects.forEach((project) => {
       if (project.title.includes("Fitness Trainer Platform")) {
         allConnections.push(
@@ -148,12 +162,21 @@ const SimpleSkillTree = () => {
             color: "#1e40af",
             width: 3,
           },
-          { from: project.id, to: "seo-engineer", color: "#1e40af", width: 3 }
+          { from: project.id, to: "seo-engineer", color: "#1e40af", width: 3 },
+          { from: project.id, to: "supabase", color: "#10b981", width: 3 },
+          { from: project.id, to: "seo-analytics", color: "#10b981", width: 3 },
+          { from: project.id, to: "stripe", color: "#10b981", width: 3 },
+          {
+            from: project.id,
+            to: "api-integrations",
+            color: "#10b981",
+            width: 3,
+          }
         );
       }
     });
 
-    // ClaimsConnect → Full-Stack Developer + Sales Engineer
+    // ClaimsConnect → Full-Stack Developer + Sales Engineer + Advanced Skills
     advancedProjects.forEach((project) => {
       if (project.title.includes("ClaimsConnect")) {
         allConnections.push(
@@ -163,12 +186,25 @@ const SimpleSkillTree = () => {
             color: "#1e40af",
             width: 3,
           },
-          { from: project.id, to: "sales-engineer", color: "#1e40af", width: 3 }
+          {
+            from: project.id,
+            to: "sales-engineer",
+            color: "#1e40af",
+            width: 3,
+          },
+          { from: project.id, to: "supabase", color: "#10b981", width: 3 },
+          {
+            from: project.id,
+            to: "api-integrations",
+            color: "#10b981",
+            width: 3,
+          },
+          { from: project.id, to: "n8n-automation", color: "#10b981", width: 3 }
         );
       }
     });
 
-    // IBM AI Engineer Certificate → AI Engineer + Prompt Engineer + ML Engineer
+    // IBM AI Engineer Certificate → AI Engineer + Prompt Engineer + ML Engineer + Advanced Skills
     advancedProjects.forEach((project) => {
       if (project.title.includes("IBM AI Engineer Certificate")) {
         allConnections.push(
@@ -179,7 +215,21 @@ const SimpleSkillTree = () => {
             color: "#1e40af",
             width: 3,
           },
-          { from: project.id, to: "ml-engineer", color: "#1e40af", width: 3 }
+          { from: project.id, to: "ml-engineer", color: "#1e40af", width: 3 },
+          { from: project.id, to: "nlp", color: "#10b981", width: 3 },
+          {
+            from: project.id,
+            to: "prompt-engineering",
+            color: "#10b981",
+            width: 3,
+          },
+          { from: project.id, to: "ml-prediction", color: "#10b981", width: 3 },
+          {
+            from: project.id,
+            to: "api-integrations",
+            color: "#10b981",
+            width: 3,
+          }
         );
       }
     });
@@ -584,56 +634,76 @@ const SimpleSkillTree = () => {
   const zoomOut = () => setZoom((prev) => Math.max(prev / 1.2, 0.3));
   const resetZoom = () => setZoom(1);
 
-  // Pan functions
+  // Enhanced pan functions with smooth dragging
   const handleMouseDown = (e: React.MouseEvent) => {
     if (e.button === 0) {
       // Left mouse button only
       setIsDragging(true);
       setDragStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+
+      // Change cursor to indicate dragging
+      (e.currentTarget as HTMLElement).style.cursor = "grabbing";
     }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDragging) {
+      // Smooth panning with reduced sensitivity for better control
+      const sensitivity = 1.0;
       setPan({
-        x: e.clientX - dragStart.x,
-        y: e.clientY - dragStart.y,
+        x: (e.clientX - dragStart.x) * sensitivity,
+        y: (e.clientY - dragStart.y) * sensitivity,
       });
     }
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (e: React.MouseEvent) => {
     setIsDragging(false);
+    // Reset cursor
+    (e.currentTarget as HTMLElement).style.cursor = "grab";
   };
 
   const resetView = () => {
     setZoom(1);
     // Center the tree in the viewport
-    // Our viewBox is "-200 0 1200 700" and tree center is around x=400, y=350
-    setPan({ x: 0, y: 0 });
+    // Our viewBox is "-200 -100 1200 700" and tree center is around x=400, y=300
+    setPan({ x: 0, y: -50 });
   };
 
-  // Mouse wheel zoom
+  // Enhanced mouse wheel zoom with smooth transitions
   const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? 0.9 : 1.1;
-    const newZoom = Math.max(0.3, Math.min(3, zoom * delta));
-
-    // Get the container dimensions and mouse position
+    // Only handle wheel events when mouse is over the tree area
     const rect = e.currentTarget.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    // Calculate the mouse position relative to the current pan and zoom
-    const worldMouseX = (mouseX - pan.x) / zoom;
-    const worldMouseY = (mouseY - pan.y) / zoom;
+    // Check if mouse is within the tree bounds
+    if (
+      mouseX >= 0 &&
+      mouseX <= rect.width &&
+      mouseY >= 0 &&
+      mouseY <= rect.height
+    ) {
+      // Prevent default scroll behavior and zoom only when over the tree
+      e.preventDefault();
+      e.stopPropagation();
 
-    // Calculate new pan to keep the mouse position fixed during zoom
-    const newPanX = mouseX - worldMouseX * newZoom;
-    const newPanY = mouseY - worldMouseY * newZoom;
+      // Smoother zoom factor
+      const delta = e.deltaY > 0 ? 0.95 : 1.05;
+      const newZoom = Math.max(0.2, Math.min(4, zoom * delta));
 
-    setZoom(newZoom);
-    setPan({ x: newPanX, y: newPanY });
+      // Calculate the mouse position relative to the current pan and zoom
+      const worldMouseX = (mouseX - pan.x) / zoom;
+      const worldMouseY = (mouseY - pan.y) / zoom;
+
+      // Calculate new pan to keep the mouse position fixed during zoom
+      const newPanX = mouseX - worldMouseX * newZoom;
+      const newPanY = mouseY - worldMouseY * newZoom;
+
+      // Apply smooth transitions
+      setZoom(newZoom);
+      setPan({ x: newPanX, y: newPanY });
+    }
   };
 
   return (
@@ -710,9 +780,9 @@ const SimpleSkillTree = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex h-[calc(100vh-200px)]">
+      <div className="flex h-[calc(100vh-200px)] bg-slate-800 dark:bg-slate-900">
         {/* Skill Tree */}
-        <div className="flex-1 relative overflow-hidden">
+        <div className="flex-1 relative overflow-hidden bg-slate-800 dark:bg-slate-900">
           <div
             className="w-full h-full cursor-grab active:cursor-grabbing"
             onMouseDown={handleMouseDown}
@@ -720,13 +790,19 @@ const SimpleSkillTree = () => {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
             onWheel={handleWheel}
+            onDoubleClick={resetView}
+            style={{ touchAction: "none" }}
           >
             <svg
               width="100%"
               height="100%"
-              className="min-w-full min-h-full"
-              style={{ background: "transparent" }}
-              viewBox="-200 0 1200 700"
+              className="min-w-full min-h-full transition-transform duration-75 ease-out"
+              style={{
+                background: "linear-gradient(135deg, #1e293b 0%, #334155 100%)",
+                backgroundImage:
+                  "radial-gradient(circle at 20% 80%, rgba(148, 163, 184, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(148, 163, 184, 0.1) 0%, transparent 50%)",
+              }}
+              viewBox="-200 -100 1200 700"
               preserveAspectRatio="xMidYMid meet"
             >
               {/* Apply zoom and pan transformations */}
@@ -851,28 +927,28 @@ const SimpleSkillTree = () => {
                     {/* Node icon */}
                     {node.type === "goal" && (
                       <Target
-                        x={node.x - 16}
-                        y={node.y - 16}
-                        width="32"
-                        height="32"
+                        x={node.x - 12}
+                        y={node.y - 12}
+                        width="24"
+                        height="24"
                         fill="white"
                       />
                     )}
                     {node.type === "skill" && (
                       <Code
-                        x={node.x - 16}
-                        y={node.y - 16}
-                        width="32"
-                        height="32"
+                        x={node.x - 12}
+                        y={node.y - 12}
+                        width="24"
+                        height="24"
                         fill="white"
                       />
                     )}
                     {node.type === "project" && (
                       <BookOpen
-                        x={node.x - 16}
-                        y={node.y - 16}
-                        width="32"
-                        height="32"
+                        x={node.x - 12}
+                        y={node.y - 12}
+                        width="24"
+                        height="24"
                         fill="white"
                       />
                     )}
@@ -880,9 +956,15 @@ const SimpleSkillTree = () => {
                     {/* Node label */}
                     <text
                       x={node.x}
-                      y={node.y + TREE_CONFIG.nodeRadius + 25}
+                      y={node.y + TREE_CONFIG.nodeRadius + 20}
                       textAnchor="middle"
-                      className="text-sm font-bold fill-slate-700 dark:fill-slate-300"
+                      className="text-xs font-semibold fill-white dark:fill-slate-900"
+                      style={{
+                        textShadow:
+                          "0 1px 2px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.6)",
+                        fontSize: "11px",
+                        letterSpacing: "0.025em",
+                      }}
                     >
                       {node.data.title.length > 20
                         ? node.data.title.substring(0, 20) + "..."
