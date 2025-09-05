@@ -1,9 +1,9 @@
 // Logger utility for terminal output instead of browser console
 export const logger = {
-  log: (message: string, data?: any) => {
+  log: (message: string, data?: unknown) => {
     // In development, this will show in the terminal
     // In production, this will be a no-op
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === "development") {
       if (data !== undefined) {
         console.log(`🌳 [SkillTree] ${message}`, data);
       } else {
@@ -11,9 +11,9 @@ export const logger = {
       }
     }
   },
-  
-  warn: (message: string, data?: any) => {
-    if (process.env.NODE_ENV === 'development') {
+
+  warn: (message: string, data?: unknown) => {
+    if (process.env.NODE_ENV === "development") {
       if (data !== undefined) {
         console.warn(`⚠️ [SkillTree] ${message}`, data);
       } else {
@@ -21,9 +21,9 @@ export const logger = {
       }
     }
   },
-  
-  error: (message: string, data?: any) => {
-    if (process.env.NODE_ENV === 'development') {
+
+  error: (message: string, data?: unknown) => {
+    if (process.env.NODE_ENV === "development") {
       if (data !== undefined) {
         console.error(`❌ [SkillTree] ${message}`, data);
       } else {
@@ -31,15 +31,14 @@ export const logger = {
       }
     }
   },
-  
-  info: (message: string, data?: any) => {
-    if (process.env.NODE_ENV === 'development') {
+
+  info: (message: string, data?: unknown) => {
+    if (process.env.NODE_ENV === "development") {
       if (data !== undefined) {
         console.info(`ℹ️ [SkillTree] ${message}`, data);
       } else {
         console.info(`ℹ️ [SkillTree] ${message}`);
       }
     }
-  }
+  },
 };
-

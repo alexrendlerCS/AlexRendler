@@ -2,28 +2,14 @@
 
 import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Search,
-  Filter,
-  X,
-  Target,
-  Code,
-  BookOpen,
-  Zap,
-  ExternalLink,
-} from "lucide-react";
+import { Search, X, Target, Code, BookOpen, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   projects,
   skills,
   goals,
   getNodeById,
-  getConnectedNodes,
-  calculateGoalProgress,
-  getRecommendedNextSteps,
   type Project,
   type Skill,
   type Goal,
@@ -42,8 +28,6 @@ const TREE_CONFIG = {
 const SimpleSkillTree = () => {
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [showFilters, setShowFilters] = useState(false);
 
   // Zoom and pan state
   const [zoom, setZoom] = useState(1);
@@ -56,7 +40,7 @@ const SimpleSkillTree = () => {
     const allNodes: Array<{
       id: string;
       type: "goal" | "skill" | "project";
-      data: any;
+      data: Project | Skill | Goal;
       x: number;
       y: number;
     }> = [];
