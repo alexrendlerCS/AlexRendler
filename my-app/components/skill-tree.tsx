@@ -524,6 +524,14 @@ const SimpleSkillTree = () => {
           width: 4,
         });
       }
+      if (project.title.includes("Realty Edge")) {
+        allConnections.push({
+          from: project.id,
+          to: "fullstack-developer",
+          color: "#f59e0b",
+          width: 4,
+        });
+      }
       if (project.title.includes("AIcademy")) {
         allConnections.push({
           from: project.id,
