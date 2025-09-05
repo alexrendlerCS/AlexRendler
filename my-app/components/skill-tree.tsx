@@ -1028,13 +1028,14 @@ const SimpleSkillTree = () => {
             </h4>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-4 h-4 bg-orange-500 rounded-full border-2 border-orange-600"></div>
+                <div className="w-4 h-4 bg-slate-500 rounded-full border-2 border-slate-600"></div>
                 <div>
                   <span className="font-medium text-slate-900 dark:text-white">
                     Goals
                   </span>
                   <p className="text-xs text-slate-600 dark:text-slate-400">
-                    Career objectives & aspirations
+                    Career objectives & aspirations (Grey=Unreached,
+                    Red=Reached)
                   </p>
                 </div>
               </div>
@@ -1045,7 +1046,8 @@ const SimpleSkillTree = () => {
                     Skills
                   </span>
                   <p className="text-xs text-slate-600 dark:text-slate-400">
-                    Capabilities & expertise
+                    Capabilities & expertise (Bright Green=Advanced, Dark
+                    Green=Core)
                   </p>
                 </div>
               </div>
@@ -1056,7 +1058,8 @@ const SimpleSkillTree = () => {
                     Projects
                   </span>
                   <p className="text-xs text-slate-600 dark:text-slate-400">
-                    Work & experiences
+                    Work & experiences (Gold=Career, Dark Blue=Advanced, Medium
+                    Blue=Intermediate, Light Blue=Baseline)
                   </p>
                 </div>
               </div>
@@ -1073,21 +1076,10 @@ const SimpleSkillTree = () => {
                 <div className="w-8 h-1 bg-orange-400 rounded"></div>
                 <div>
                   <span className="font-medium text-slate-900 dark:text-white">
-                    Skills → Goals
+                    Career Projects → Goals
                   </span>
                   <p className="text-xs text-slate-600 dark:text-slate-400">
-                    How skills contribute to career goals
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-1 bg-orange-400 rounded"></div>
-                <div>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    Goals → Career Projects
-                  </span>
-                  <p className="text-xs text-slate-600 dark:text-slate-400">
-                    Goals driving career work
+                    Career work contributing to specific goals
                   </p>
                 </div>
               </div>
@@ -1103,7 +1095,19 @@ const SimpleSkillTree = () => {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-1 bg-orange-400 rounded"></div>
+                <div className="w-8 h-1 bg-blue-600 rounded"></div>
+                <div>
+                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                    Advanced Projects → Goals & Advanced Skills
+                  </span>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
+                    High-level projects building toward goals and advanced
+                    capabilities
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-1 bg-blue-600 rounded"></div>
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Intermediate Projects → Advanced Skills
@@ -1145,19 +1149,19 @@ const SimpleSkillTree = () => {
             </h4>
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                 <span className="text-slate-700 dark:text-slate-300">
                   Layer 1: Career/Contract Work (Top)
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-slate-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
                 <span className="text-slate-700 dark:text-slate-300">
-                  Layer 2: Goals (Grey=Unreached, Green=Reached)
+                  Layer 2: Goals (Grey=Unreached, Red=Reached)
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-700 rounded-full"></div>
+                <div className="w-2 h-2 bg-blue-800 rounded-full"></div>
                 <span className="text-slate-700 dark:text-slate-300">
                   Layer 3: Advanced Projects/Certificates
                 </span>
