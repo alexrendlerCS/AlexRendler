@@ -506,7 +506,7 @@ export default function JourneyDemo() {
               <Button
                 key={category.id}
                 variant={selectedCategory === category.id ? "default" : "ghost"}
-                onClick={() => setSelectedCategory(category.id as any)}
+                onClick={() => setSelectedCategory(category.id as "projects" | "skills" | "goals" | "tree")}
                 className="relative"
               >
                 <span className="flex items-center gap-2">
