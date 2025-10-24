@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Skills from "@/components/skills";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, FileText, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import Image from "next/image";
 import { Rocket } from "lucide-react";
 
@@ -362,7 +362,7 @@ export default function Home() {
         <div className="container max-w-7xl px-4 mx-auto py-12">
           <div className="rounded-lg p-8 md:p-12 bg-gradient-to-br from-blue-50/30 to-indigo-50/10 dark:from-zinc-900/30 dark:to-zinc-800/10 backdrop-blur-sm border border-zinc-200/30 dark:border-zinc-700/30 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Interested in working together?</h2>
-            <p className="text-lg text-zinc-700 dark:text-zinc-300 max-w-2xl mx-auto mb-6">I'm available for contract and full-time roles — I enjoy building products that blend data, design, and AI.</p>
+            <p className="text-lg text-zinc-700 dark:text-zinc-300 max-w-2xl mx-auto mb-6">I am available for contract and full-time roles — I enjoy building products that blend data, design, and AI.</p>
             <div className="flex flex-col md:flex-row gap-3 justify-center">
               <Button asChild>
                 <Link href="mailto:alexrendler@yahoo.com">Email Me</Link>

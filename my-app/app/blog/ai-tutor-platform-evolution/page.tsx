@@ -4,6 +4,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BlogPost() {
   return (
@@ -63,11 +64,14 @@ export default function BlogPost() {
       </ul>
 
       <div className="my-6">
-        <img
-          src="/student_dashboard.png"
-          alt="Student Dashboard Preview"
-          className="rounded-lg shadow-md w-full"
-        />
+        <div className="rounded-lg shadow-md w-full h-64 relative">
+          <Image
+            src="/student_dashboard.png"
+            alt="Student Dashboard Preview"
+            fill
+            className="rounded-lg object-cover"
+          />
+        </div>
         <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 text-center">
           A sneak peek at the redesigned student dashboard with class modules,
           lesson access, and progress tracking.

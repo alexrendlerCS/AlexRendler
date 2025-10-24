@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
 
@@ -109,11 +110,14 @@ export default function BlogPage() {
             transition={{ duration: 0.5 }}
           >
             <Link href={`/blog/${post.slug}`}>
-              <img
-                src={post.thumbnail}
-                alt={`${post.title} Thumbnail`}
-                className="w-full h-40 object-cover"
-              />
+              <div className="w-full h-40 relative">
+                <Image
+                  src={post.thumbnail}
+                  alt={`${post.title} Thumbnail`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="p-6">
                 <h2 className="text-xl font-semibold mb-2 text-black dark:text-white">
                   {post.title}
