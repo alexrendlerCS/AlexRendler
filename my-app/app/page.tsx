@@ -1,232 +1,383 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Skills from "@/components/skills";
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
-import Image from "next/image";
-import { Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Mail, ExternalLink, Code2, ArrowRight, Sparkles } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import Skills from "@/components/skills"
+
+import heroBg from "../homepage/hero-background.png"
+import modernCode from "../homepage/modern-code-editor-interface-with-ai-suggestions.jpg"
 
 const videos = [
   {
-    title: "StatsX Showcase ( Data Analytics )",
-    description:
-      "I walk through one of my recent projects, showcasing the design, functionality, and implementation.",
+    title: "Building a Real-Time Chat App",
+    description: "15 min walkthrough • WebSocket implementation and scaling strategies",
     thumbnail: "/VideoThumbnail.png",
-    link: "https://www.youtube.com/watch?v=cnReBkbceek",
+    link: "#",
   },
   {
-    title: "AI Resume Showcase ( AI Integration )",
-    description:
-      "This project uses AI to analyze a job posting and a user's resume to generate bullet points tailored to each experience.",
+    title: "Optimizing Next.js Performance",
+    description: "22 min walkthrough • Advanced caching and image optimization techniques",
     thumbnail: "/VideoThumbnail2.png",
-    link: "https://youtu.be/v4e7dGRmSlI",
+    link: "#",
   },
-  {
-    title: "Budget Tracker Walkthrough ( Backend Development )",
-    description:
-      "Highlights data visualization and backend skills. Features JWT authentication and charts for spending trends.",
-    thumbnail: "/VideoThumbnail3.png",
-    link: "https://youtu.be/eZ6gRU0800c",
-  },
-];
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center"
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="relative flex items-center justify-center px-0 py-0 overflow-hidden"
+        style={{
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          width: "100vw",
+          position: "relative",
+          top: 0,
+          marginTop:
+            "-88px" /* pull up to compensate for header (56px) + main padding (32px) */,
+          minHeight: "calc(100vh + 88px)",
+        }}
       >
-        <Image
-          src="/profile.jpg"
-          alt="Alex Rendler's Profile Picture"
-          width={150}
-          height={150}
-          className="rounded-full mx-auto mb-4"
-        />
-        <h1 className="text-4xl font-bold mb-2">Alex Rendler</h1>
-        <h2 className="text-2xl mb-4">
-          Software Engineer & Computer Science Graduate
-        </h2>
-      </motion.div>
-
-      {/* Social Links */}
-      <motion.div
-        className="flex space-x-4 mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <Link href="https://github.com/alexrendlerCS" target="_blank">
-          <Button variant="outline" size="icon">
-            <Github className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link href="https://www.linkedin.com/in/alex-rendler" target="_blank">
-          <Button variant="outline" size="icon">
-            <Linkedin className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link href="mailto:alexrendler@yahoo.com">
-          <Button variant="outline" size="icon">
-            <Mail className="h-4 w-4" />
-          </Button>
-        </Link>
-        <Link
-          href="/Resume.pdf"
-          target="_blank"
-          download="AlexRendlerResume.pdf"
-        >
-          <Button variant="outline" size="icon">
-            <FileText className="h-4 w-4" />
-          </Button>
-        </Link>
-      </motion.div>
-
-      {/* About Me */}
-      <motion.p
-        className="text-center max-w-2xl mb-8 px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-      >
-        Motivated and innovative Computer Science graduate with a passion for
-        data analytics and design, eager to bring creative ideas to life through
-        code. Dedicated to continuous learning and achieving excellence, I
-        aspire to leverage my problem-solving, communication, and leadership
-        skills to lead teams in delivering impactful projects.
-      </motion.p>
-
-      {/* Current Focus Section */}
-      <motion.div
-        className="bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 rounded-lg shadow-md p-6 max-w-[1000px] mx-auto mb-8 px-4 transform translate-y-0 transition-all duration-300 hover:-translate-y-6 hover:scale-[1.05] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <h3 className="text-xl font-semibold mb-4 flex justify-center items-center gap-2 text-center">
-          <Rocket className="h-5 w-5 text-primary" />
-          Current Focus
-        </h3>
-
-        <div className="max-w-[650px] mx-auto">
-          <p className="text-sm text-center text-zinc-700 dark:text-zinc-300">
-            I recently completed the initial release of{" "}
-            <strong>Aicademy</strong>, an AI-powered education platform designed
-            for students and teachers. Visitors can now demo the system using
-            prebuilt student and teacher accounts to explore the layout, preview
-            modules, and experience AI-guided tutoring in action. While this is
-            just the beginning, it represents a major milestone in blending{" "}
-            <strong>AI</strong>, <strong>education</strong>, and{" "}
-            <strong>data analytics</strong>. I’m also continuing development on{" "}
-            <strong>Nexus Brokerage</strong>, collaborating with the team to
-            refine features and prepare for a public release in August.
-          </p>
+        <div className="absolute inset-0">
+          <Image
+            src={heroBg}
+            alt="Office background"
+            fill
+            className="object-cover object-center blur-sm scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-chart-1/10" />
         </div>
 
-        {/* Screenshot Image */}
-        <div className="mt-6 flex justify-center">
-          <div className="w-[480px] rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 shadow">
-            <Image
-              src="/aicademy-preview.png"
-              alt="Aicademy Demo Preview"
-              width={480}
-              height={270}
-              className="w-full h-auto object-cover"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Image Caption */}
-        <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-2">
-          Example of an AI response to a student prompt using lesson-specific
-          information.
-        </p>
-
-        {/* Progress Bar */}
-        <div className="mt-4 max-w-[480px] mx-auto">
-          <div className="w-full bg-zinc-200 dark:bg-zinc-700 rounded-full h-2">
-            <div className="bg-green-500 h-2 rounded-full w-[85%] transition-all duration-500" />
-          </div>
-          <p className="text-xs text-center text-zinc-500 dark:text-zinc-400 mt-1">
-            Project Completion Status: 85%
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Skills Section */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <Skills />
-      </motion.div>
-
-      {/* CTA Buttons */}
-      <motion.div
-        className="mt-8 space-x-4 mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-      >
-        <Button asChild>
-          <Link href="/projects">View My Projects</Link>
-        </Button>
-        <Button asChild variant="outline">
-          <Link href="/contact">Contact Me</Link>
-        </Button>
-      </motion.div>
-
-      {/* Video Section Title */}
-      <motion.h2
-        className="text-3xl font-bold mb-6 mt-12 text-center"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        Project Video Walkthroughs
-      </motion.h2>
-
-      {/* Video Grid */}
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl w-full px-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        {videos.map((video, index) => (
-          <motion.div
-            key={index}
-            className="rounded-lg p-4 flex flex-col bg-zinc-100 dark:bg-zinc-800 shadow-md dark:shadow-lg transform translate-y-0 transition-all duration-300 hover:-translate-y-4 hover:scale-[1.05] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <a href={video.link} target="_blank" rel="noopener noreferrer">
-              <Image
-                src={video.thumbnail}
-                alt={`${video.title} Thumbnail`}
-                width={300}
-                height={169}
-                className="rounded-lg w-full mb-4"
-              />
-            </a>
-            <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">
-              {video.title}
-            </h3>
-            <p className="text-sm text-zinc-700 dark:text-zinc-300">
-              {video.description}
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance text-white">
+              Hi, I&apos;m{" "}
+              <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+                Alex Rendler
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto text-balance">
+              Full-stack developer crafting elegant solutions to complex
+              problems
             </p>
-          </motion.div>
-        ))}
-      </motion.div>
+          </div>
+
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/projects" className="">
+              <Button
+                size="lg"
+                className="gap-2 bg-white hover:bg-gray-100 text-black shadow-lg shadow-white/20"
+              >
+                View My Work
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="gap-2 border-white/30 hover:bg-white/10 bg-white/5 text-white backdrop-blur-sm"
+              >
+                <Mail className="h-4 w-4" />
+                Get In Touch
+              </Button>
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-3 justify-center pt-8">
+            {["React", "TypeScript", "Next.js", "Node.js", "PostgreSQL"].map(
+              (tech) => (
+                <span
+                  key={tech}
+                  className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white hover:border-white/50 hover:bg-white/15 transition-all"
+                >
+                  {tech}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* scroll indicator removed */}
+      </section>
+
+      {/* Current Focus + Featured Projects */}
+      <section className="border-b border-border/40 bg-gradient-to-b from-background to-muted/20">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
+                <Sparkles className="h-4 w-4" />
+                Current Focus
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+                Securing Data And Powering Payroll Intelligence
+              </h2>
+              <div className="space-y-4 text-lg text-muted-foreground text-pretty">
+                <p>
+                  I currently work full-time as a Cyber Security Data
+                  Integration Specialist, building and operating secure data
+                  pipelines that ingest, normalize, and protect high-volume
+                  enterprise datasets. My day-to-day focuses include SQL-driven
+                  analysis, scripting and automation, Python tooling for ETL and
+                  integrations, and ensuring data integrity and observability
+                  across downstream systems.
+                </p>
+                <p>
+                  Alongside my full-time role I maintain contract work as a
+                  full-stack developer. Right now I am developing an innovative
+                  payroll platform that combines deep analytics with multi-step
+                  submission and approval workflows — designed to handle complex
+                  approval chains, reconciliation, and auditing. The payroll
+                  project uses a React frontend, Node.js backend, and a flexible
+                  NoSQL datastore to support rapid iteration and rich reporting.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 pt-4">
+                {[
+                  "Scripting",
+                  "ETL",
+                  "SSMS",
+                  "Data Integration",
+                  "React",
+                  "Node.js",
+                ].map((tech) => (
+                  <Badge
+                    key={tech}
+                    variant="secondary"
+                    className="px-3 py-1 text-sm"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              
+              </div>
+            </div>
+
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
+              <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl">
+                <Image
+                  src={modernCode}
+                  alt="Current project screenshot"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative border-b border-border/40">
+        {/* full-bleed background panel behind the cards (stretches viewport-wide) */}
+        <div className="pointer-events-none">
+          {/* use left/right 50% + negative margins so the gradient spans the full viewport width */}
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-600/30 to-orange-500/25"
+            style={{
+              position: "absolute",
+              left: "50%",
+              right: "50%",
+              marginLeft: "-50vw",
+              marginRight: "-50vw",
+              width: "100vw",
+              top: 0,
+              bottom: 0,
+            }}
+          />
+        </div>
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mb-12 space-y-4 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              A selection of my recent work showcasing full-stack development
+              and modern web technologies
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                <CardHeader className="px-6 pt-6">
+                  <CardTitle className="flex items-center justify-between text-xl">
+                    Realty Edge{" "}
+                    <Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    Modern property listing and analytics with responsive mapping and search.
+                  </CardDescription>
+                </CardHeader>
+                <div className="relative aspect-video overflow-hidden bg-muted mx-6 my-4 rounded-lg">
+                  <Image
+                    src="/realty-edge-showcase.png"
+                    alt="Realty Edge"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-teal-500/100 via-teal-500/10 to-transparent opacity-65 group-hover:opacity-80 transition-opacity duration-300" />
+                </div>
+              <CardContent className="px-6 pb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Next.js", "React", "Real-Estate"].map((tech) => (
+                    <span key={tech} className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-black hover:border-white/50 hover:bg-white/15 transition-all">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
+                  <a href="https://realtyedge.vercel.app" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+              <CardHeader className="px-6 pt-6">
+                <CardTitle className="flex items-center justify-between text-xl">
+                  Fitness Trainer Platform{" "}
+                  <Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
+                </CardTitle>
+                <CardDescription className="text-base">
+                  Fitness platform with scheduling, client management, and payments.
+                </CardDescription>
+              </CardHeader>
+              <div className="relative aspect-video overflow-hidden bg-muted mx-6 my-4 rounded-lg">
+                <Image
+                  src="/fitness-trainer-showcase.png"
+                  alt="Fitness Trainer Platform"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-red-600/100 via-red-600/10 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-300" />
+              </div>
+              <CardContent className="px-6 pb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["React", "Node.js", "Payments"].map((tech) => (
+                    <span key={tech} className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-black hover:border-white/50 hover:bg-white/15 transition-all">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
+                  <a href="https://www.coachkilday.com/" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+              <CardHeader className="px-6 pt-6">
+                <CardTitle className="flex items-center justify-between text-xl">
+                  Aicademy{" "}
+                  <Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
+                </CardTitle>
+                <CardDescription className="text-base">
+                  AI-powered education platform with demo accounts, and intelligent tutoring features.
+                </CardDescription>
+              </CardHeader>
+              <div className="relative aspect-video overflow-hidden bg-muted mx-6 my-4 rounded-lg">
+                <Image
+                  src="/aicademy-showcase.png"
+                  alt="Aicademy"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-500/100 via-orange-500/10 to-transparent opacity-65 group-hover:opacity-85 transition-opacity duration-300" />
+              </div>
+              <CardContent className="px-6 pb-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["React", "AI Engineering", "Analytics"].map((tech) => (
+                    <span key={tech} className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-black hover:border-white/50 hover:bg-white/15 transition-all">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
+                  <a href="https://aicademy-six.vercel.app/" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/projects">
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2 bg-white text-black hover:bg-gray-100 border-white/20"
+              >
+                View All Projects <ExternalLink className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border/40 bg-gradient-to-b from-muted/20 to-background">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="mb-12 space-y-4 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+              Project Walkthroughs
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Deep dives into my projects, development process, and technical
+              decisions
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {videos.map((video, idx) => (
+              <Card
+                key={idx}
+                className="group overflow-hidden backdrop-blur-sm bg-card/50 border-border/50 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
+              >
+                <div className="relative aspect-video overflow-hidden bg-muted">
+                  <Image
+                    src={video.thumbnail}
+                    alt={video.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm group-hover:scale-110 transition-transform shadow-2xl">
+                      <svg
+                        className="h-8 w-8 text-black ml-1"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl">{video.title}</CardTitle>
+                  <CardDescription className="text-base">
+                    {video.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Insert Skills section from previous homepage to preserve skills list */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Skills />
+        </div>
+      </section>
     </div>
   );
 }
