@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Github, Linkedin, Mail, ExternalLink, Code2, ArrowRight, Sparkles } from "lucide-react"
 import Image from "next/image"
+import Tag from "../components/ui/tag"
 
 export default function Home() {
   return (
@@ -18,7 +19,8 @@ export default function Home() {
             priority
           />
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/95" />
+          {/* Reduce white overlay intensity in light mode while keeping strong overlay in dark mode */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/70 dark:to-background/95" />
           {/* Additional gradient overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-chart-1/10" />
         </div>
@@ -54,12 +56,7 @@ export default function Home() {
           {/* Tech stack badges */}
           <div className="flex flex-wrap gap-3 justify-center pt-8">
             {["React", "TypeScript", "Next.js", "Node.js", "PostgreSQL"].map((tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white hover:border-white/50 hover:bg-white/15 transition-all"
-              >
-                {tech}
-              </span>
+              <Tag key={tech} className="text-white">{tech}</Tag>
             ))}
           </div>
         </div>
@@ -125,8 +122,8 @@ export default function Home() {
       <section className="border-b border-border/40">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">Featured Projects</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance text-foreground dark:text-white">Featured Projects</h2>
+            <p className="text-lg text-foreground dark:text-gray-300 max-w-2xl mx-auto">
               A selection of my recent work showcasing full-stack development and modern web technologies
             </p>
           </div>
@@ -154,13 +151,13 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     Next.js
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     Stripe
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     PostgreSQL
                   </Badge>
                 </div>
@@ -199,13 +196,13 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     React
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     WebSocket
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     MongoDB
                   </Badge>
                 </div>
@@ -244,13 +241,13 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     TypeScript
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     OpenAI
                   </Badge>
-                  <Badge variant="outline" className="text-xs">
+                  <Badge variant="outline" className="text-xs text-foreground">
                     Vercel AI
                   </Badge>
                 </div>

@@ -16,11 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
-      </body>
-    </html>
-  )
+  // This layout should not include <html> or <body> because the root
+  // `app/layout.tsx` already provides them. Returning only the children
+  // ensures theme classes and global CSS from the root layout apply.
+  return <>{children}</>
 }
