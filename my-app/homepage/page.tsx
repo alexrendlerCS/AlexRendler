@@ -122,8 +122,17 @@ export default function Home() {
       <section className="border-b border-border/40">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="mb-12 space-y-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance text-foreground dark:text-white">Featured Projects</h2>
-            <p className="text-lg text-foreground dark:text-gray-300 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center">
+              <span className="text-sm uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
+                Selected Work
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-balance text-foreground dark:text-white">Featured Projects</h2>
+
+            <div className="mx-auto my-3 h-1 w-24 rounded-full bg-gradient-to-r from-primary to-chart-1 opacity-90" />
+
+            <p className="text-lg text-foreground/95 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
               A selection of my recent work showcasing full-stack development and modern web technologies
             </p>
           </div>

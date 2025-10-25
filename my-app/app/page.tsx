@@ -192,10 +192,19 @@ export default function Home() {
 				</div>
 				<div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
 					<div className="mb-12 space-y-4 text-center">
-						<h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance text-foreground dark:text-white">
+						<div className="flex items-center justify-center">
+							<span className="text-sm uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
+								Selected Work
+							</span>
+						</div>
+
+						<h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-balance text-foreground dark:text-white">
 							Featured Projects
 						</h2>
-										<p className="text-lg text-foreground dark:text-gray-300 max-w-2xl mx-auto">
+
+						<div className="mx-auto my-3 h-1 w-24 rounded-full bg-gradient-to-r from-primary to-chart-1 opacity-90" />
+
+						<p className="text-lg text-foreground/95 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
 							A selection of my recent work showcasing full-stack development
 							and modern web technologies
 						</p>
@@ -312,50 +321,42 @@ export default function Home() {
 
 			<section className="border-b border-border/40 bg-gradient-to-b from-muted/20 to-background">
 				<div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-					<div className="mb-12 space-y-4 text-center">
-						<h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
-							Project Walkthroughs
-						</h2>
-						<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-							Deep dives into my projects, development process, and technical
-							decisions
-						</p>
-					</div>
-
-					<div className="grid gap-8 md:grid-cols-2">
-						{videos.map((video, idx) => (
-							<Card
-								key={idx}
-								className="group overflow-hidden backdrop-blur-sm bg-card/50 border-border/50 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10"
-							>
-								<div className="relative aspect-video overflow-hidden bg-muted">
-									<Image
-										src={video.thumbnail}
-										alt={video.title}
-										fill
-										className="object-cover transition-transform duration-500 group-hover:scale-105"
-									/>
-									<div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/30 transition-colors">
-										<div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm group-hover:scale-110 transition-transform shadow-2xl">
-											<svg
-												className="h-8 w-8 text-black ml-1"
-												fill="currentColor"
-												viewBox="0 0 24 24"
-											>
-												<path d="M8 5v14l11-7z" />
-											</svg>
-										</div>
+							<div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+								<div className="space-y-6">
+									<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
+										<Sparkles className="h-4 w-4" />
+										Project Walkthroughs
 									</div>
+									<h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+										Project Walkthroughs
+									</h2>
+									<div className="space-y-4 text-lg text-muted-foreground text-pretty">
+										<p>
+											Deep dives into my projects, development process, and technical
+											decisions. Browse short walkthroughs that highlight architecture,
+											implementation, and trade-offs.
+										</p>
+									</div>
+
+									{/* left column: header + paragraph only; walkthrough cards moved to right column */}
 								</div>
-								<CardHeader>
-									<CardTitle className="text-xl">{video.title}</CardTitle>
-									<CardDescription className="text-base">
-										{video.description}
-									</CardDescription>
-								</CardHeader>
-							</Card>
-						))}
-					</div>
+
+								<div className="space-y-4">
+									{videos.map((video, idx) => (
+										<Card key={idx} className="group overflow-hidden bg-card/50 border-border/50 transition-all">
+											<div className="flex items-center gap-4 p-4">
+												<div className="w-28 h-16 relative rounded-md overflow-hidden bg-muted flex-shrink-0">
+													<Image src={video.thumbnail} alt={video.title} fill className="object-cover" />
+												</div>
+												<div className="flex-1">
+													<h3 className="text-base font-semibold">{video.title}</h3>
+													<p className="text-sm text-muted-foreground">{video.description}</p>
+												</div>
+											</div>
+										</Card>
+									))}
+								</div>
+							</div>
 				</div>
 			</section>
 
