@@ -11,6 +11,15 @@ export const metadata: Metadata = {
   title: "Alex Rendler - Software Developer Portfolio",
   description:
     "Portfolio of Alex Rendler, a Computer Science graduate from the University of Arizona",
+  icons: {
+    // prefer legacy .ico (added to public/) with PNG as a fallback for Apple/modern browsers
+    icon: "/favicon.ico",
+    apple: "/favicon.png",
+    other: [
+      { rel: "shortcut icon", url: "/favicon.ico" },
+      { rel: "icon", url: "/favicon.png", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
