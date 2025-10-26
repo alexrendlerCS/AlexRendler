@@ -1,3 +1,17 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/blog/admin-dashboard-analytics/page": "app/blog/admin-dashboard-analytics/page.js",
+  "/blog/ai-personalization/page": "app/blog/ai-personalization/page.js",
+  "/blog/ai-tutor-platform-evolution/page": "app/blog/ai-tutor-platform-evolution/page.js",
+  "/blog/ai-tutor-prompt-engineering/page": "app/blog/ai-tutor-prompt-engineering/page.js",
+  "/blog/ai-tutor-tracking-correctness/page": "app/blog/ai-tutor-tracking-correctness/page.js",
+  "/blog/intro-skill-assessment/page": "app/blog/intro-skill-assessment/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/seo-integration/page": "app/blog/seo-integration/page.js",
+  "/blog/statsx-scaling-backend/page": "app/blog/statsx-scaling-backend/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/journey/demo/page": "app/journey/demo/page.js",
+  "/journey/page": "app/journey/page.js",
+  "/projects/page": "app/projects/page.js",
   "/page": "app/page.js"
 }
