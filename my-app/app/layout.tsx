@@ -44,11 +44,12 @@ export const metadata: Metadata = {
     },
     // prefer the repo's canonical favicons: /favicon.ico (legacy) and /favicon.png (modern)
     icons: {
-      icon: "/favicon.ico",
-      apple: "/favicon.png",
+      // Use query-string versioning so browsers/CDNs treat this as a fresh asset.
+      icon: "/favicon-v3.ico",
+      apple: "/favicon-v3.png",
       other: [
-        { rel: "shortcut icon", url: "/favicon.ico" },
-        { rel: "icon", url: "/favicon.png", type: "image/png" },
+        { rel: "shortcut icon", url: "/favicon-v3.ico" },
+        { rel: "icon", url: "/favicon-v3.png", type: "image/png" },
       ],
     },
 };
