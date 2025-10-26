@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       title: "Rendlr",
       card: "summary_large_image",
     },
-    // prefer legacy .ico (added to public/) with PNG as a fallback for Apple/modern browsers
+    // prefer the repo's canonical favicons: /favicon.ico (legacy) and /favicon.png (modern)
     icons: {
       icon: "/favicon.ico",
       apple: "/favicon.png",
