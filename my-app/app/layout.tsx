@@ -13,7 +13,7 @@ export const metadata: Metadata = {
       template: "%s | Rendlr",
     },
     description:
-      "Rendlr delivers modern, secure, and SEO-optimized websites built for growth. From sleek web design to AI-powered automation, we help your business thrive online.",
+      "Rendlr, modern web design, SEO, and AI-driven automation to help businesses grow online.",
     metadataBase: new URL("https://rendlr.dev"),
     keywords: [
       "web design Carlsbad",
@@ -31,16 +31,16 @@ export const metadata: Metadata = {
     ],
     openGraph: {
       title: "Rendlr",
-      description:
-        "Rendlr delivers modern, secure, and SEO-optimized websites built for growth. From sleek web design to AI-powered automation, we help your business thrive online.",
+      description: "Rendlr, modern web design, SEO, and AI-driven automation to help businesses grow online.",
       url: "https://rendlr.dev",
       siteName: "Rendlr",
-      // images can be added here (e.g. '/og-image.png')
+      images: ["/Logos/Logo.png"],
       type: "website",
     },
     twitter: {
       title: "Rendlr",
       card: "summary_large_image",
+      images: ["/Logos/Logo.png"],
     },
     // prefer the repo's canonical favicons: /favicon.ico (legacy) and /favicon.png (modern)
     icons: {
