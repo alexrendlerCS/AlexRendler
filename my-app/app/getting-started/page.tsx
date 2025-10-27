@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Globe, Search, Sparkles, Shield, Code2, Zap, Users, TrendingUp } from "lucide-react"
+import { Globe, Search, Sparkles, Shield, Code2, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {

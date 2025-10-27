@@ -32,7 +32,7 @@ export default function ScheduleCallModal({ open, onClose }: Props) {
             <h3 className="text-xl font-semibold">Schedule a Call</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Please send a text to <a href="tel:+17606539999" className="text-brand-blue">(760) 653-9999</a> with your
-              name and a short description of the project you'd like to embark on. We'll reply to set up a convenient time
+              name and a short description of the project you&apos;d like to embark on. We&apos;ll reply to set up a convenient time
               to call and discuss details.
             </p>
           </div>
