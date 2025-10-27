@@ -2,369 +2,390 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, ExternalLink, Code2, ArrowRight, Sparkles } from "lucide-react"
+import { Globe, Search, Sparkles, Shield, ArrowRight, CheckCircle2, Code2, Zap, Users, TrendingUp } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
-import Skills from "@/components/skills"
-import Tag from "../components/ui/tag"
+import { useEffect, useRef, useState } from "react"
 
-import heroBg from "../homepage/hero-background.png"
-import modernCode from "../homepage/modern-code-editor-interface-with-ai-suggestions.jpg"
+export default function HomePage() {
+  const [isVisible, setIsVisible] = useState(false)
+  const servicesRef = useRef<HTMLDivElement>(null)
+  const whyUsRef = useRef<HTMLDivElement>(null)
 
-const videos = [
-	{
-		title: "Building a Real-Time Chat App",
-		description: "15 min walkthrough • WebSocket implementation and scaling strategies",
-		thumbnail: "/VideoThumbnail.png",
-		link: "#",
-	},
-	{
-		title: "Optimizing Next.js Performance",
-		description: "22 min walkthrough • Advanced caching and image optimization techniques",
-		thumbnail: "/VideoThumbnail2.png",
-		link: "#",
-	},
-]
+  useEffect(() => {
+    setIsVisible(true)
 
-export default function Home() {
-	return (
-		<div className="min-h-screen">
-			{/* Hero Section */}
-			<section
-				className="relative flex items-center justify-center px-0 py-0 overflow-hidden"
-				style={{
-					left: "50%",
-					right: "50%",
-					marginLeft: "-50vw",
-					marginRight: "-50vw",
-					width: "100vw",
-					position: "relative",
-					top: 0,
-					marginTop:
-						"-88px" /* pull up to compensate for header (56px) + main padding (32px) */,
-					minHeight: "calc(100vh + 88px)",
-				}}
-			>
-				<div className="absolute inset-0">
-					<Image
-						src={heroBg}
-						alt="Office background"
-						fill
-						className="object-cover object-center blur-sm scale-105"
-						priority
-					/>
-					{/* Reduce white overlay intensity in light mode while keeping strong overlay in dark mode */}
-					<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background/70 dark:to-background/95" />
-					<div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-chart-1/10" />
-				</div>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px",
+    }
 
-				<div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-					<div className="space-y-4">
-						<h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance text-white">
-							Hi, I&apos;m{" "}
-							<span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-								Alex Rendler
-							</span>
-						</h1>
-						<p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto text-balance">
-							Full-stack developer crafting elegant solutions to complex
-							problems
-						</p>
-					</div>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in")
+        }
+      })
+    }, observerOptions)
 
-					<div className="flex flex-wrap gap-4 justify-center">
-						<Link href="/projects" className="">
-							<Button
-								size="lg"
-								className="gap-2 bg-white hover:bg-gray-100 text-black shadow-lg shadow-white/20"
-							>
-								View My Work
-								<ArrowRight className="h-4 w-4" />
-							</Button>
-						</Link>
-						<Link href="/contact">
-							<Button
-								size="lg"
-								variant="outline"
-								className="gap-2 border-white/30 hover:bg-white/10 bg-white/5 text-white backdrop-blur-sm"
-							>
-								<Mail className="h-4 w-4" />
-								Get In Touch
-							</Button>
-						</Link>
-					</div>
+    const sections = document.querySelectorAll(".fade-in-section")
+    sections.forEach((section) => observer.observe(section))
 
-					<div className="flex flex-wrap gap-3 justify-center pt-8">
-						{["React", "TypeScript", "Next.js", "Node.js", "PostgreSQL"].map(
-							(tech) => (
-								<Tag key={tech} className="text-white">
-									{tech}
-								</Tag>
-							)
-						)}
-					</div>
-				</div>
+    return () => observer.disconnect()
+  }, [])
 
-				{/* scroll indicator removed */}
-			</section>
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+  <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden w-screen left-1/2 -translate-x-1/2 -mt-8 px-0 py-0">
+        <div className="absolute inset-0">
+          <Image
+            src="/bg.png"
+            alt="Background"
+            fill
+            className="object-cover blur-sm transform-gpu scale-125 md:scale-115 lg:scale-105 xl:scale-105 2xl:scale-105 object-bottom md:object-bottom lg:object-center xl:object-center 2xl:object-center"
+            priority
+            quality={90}
+          />
+          {/* dark overlay (only in dark mode) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-primary/30 dark:block hidden" />
 
-			{/* Current Focus + Featured Projects */}
-			<section className="border-b border-border/40 bg-gradient-to-b from-background to-muted/20">
-				<div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-					<div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-						<div className="space-y-6">
-							<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
-								<Sparkles className="h-4 w-4" />
-								Current Focus
-							</div>
-							<h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
-								Securing Data And Powering Payroll Intelligence
-							</h2>
-							<div className="space-y-4 text-lg text-muted-foreground text-pretty">
-								<p>
-									I currently work full-time as a Cyber Security Data
-									Integration Specialist, building and operating secure data
-									pipelines that ingest, normalize, and protect high-volume
-									enterprise datasets. My day-to-day focuses include SQL-driven
-									analysis, scripting and automation, Python tooling for ETL and
-									integrations, and ensuring data integrity and observability
-									across downstream systems.
-								</p>
-								<p>
-									Alongside my full-time role I maintain contract work as a
-									full-stack developer. Right now I am developing an innovative
-									payroll platform that combines deep analytics with multi-step
-									submission and approval workflows — designed to handle complex
-									approval chains, reconciliation, and auditing. The payroll
-									project uses a React frontend, Node.js backend, and a flexible
-									NoSQL datastore to support rapid iteration and rich reporting.
-								</p>
-							</div>
-											<div className="flex flex-wrap gap-3 pt-4">
-												{[
-													"Scripting",
-													"SSMS",
-													"Data Integration",
-													"React",
-													"Node.js",
-												].map((tech) => (
-													<Tag key={tech} className="bg-primary/10 border-primary/20 text-primary dark:text-white">
-														{tech}
-													</Tag>
-												))}
-											</div>
-						</div>
+          {/* subtle white overlay for light mode: bottom -> top */}
+          <div className="absolute inset-0 pointer-events-none dark:hidden bg-gradient-to-t from-white/30 via-white/10 to-transparent" />
 
-						<div className="relative group">
-							<div className="absolute -inset-1 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
-							<div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl">
-								<Image
-									src={modernCode}
-									alt="Current project screenshot"
-									width={800}
-									height={600}
-									className="w-full h-auto"
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+          {/* remove white bottom fade so background image reaches the page edges */}
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent" />
+        </div>
 
-			<section className="relative border-b border-border/40">
-				{/* full-bleed background panel behind the cards (stretches viewport-wide) */}
-				<div className="pointer-events-none">
-					{/* use left/right 50% + negative margins so the gradient spans the full viewport width */}
-					<div
-						className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-600/30 to-orange-500/25"
-						style={{
-							position: "absolute",
-							left: "50%",
-							right: "50%",
-							marginLeft: "-50vw",
-							marginRight: "-50vw",
-							width: "100vw",
-							top: 0,
-							bottom: 0,
-						}}
-					/>
-				</div>
-				<div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-					<div className="mb-12 space-y-4 text-center">
-						<div className="flex items-center justify-center">
-							<span className="text-sm uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary">
-								Selected Work
-							</span>
-						</div>
+        <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+          <div className="relative w-[800px] h-[800px]">
+            <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain animate-pulse" />
+          </div>
+        </div>
 
-						<h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-balance text-foreground dark:text-white">
-							Featured Projects
-						</h2>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-chart-1/20 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          />
+        </div>
 
-						<div className="mx-auto my-3 h-1 w-24 rounded-full bg-gradient-to-r from-primary to-chart-1 opacity-90" />
+        <div
+          className={`relative z-10 max-w-6xl mx-auto text-center space-y-4 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium text-white mt-6 mb-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <Sparkles className="h-4 w-4 animate-pulse" />
+            Based in Carlsbad, CA
+          </div>
 
-						<p className="text-lg text-foreground/95 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
-							A selection of my recent work showcasing full-stack development
-							and modern web technologies
-						</p>
-					</div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance text-white">
+            {/* Replace text logo with image logo (keep subtle float animation) */}
+            <div className="flex justify-center mb-0">
+              <div className="relative w-56 md:w-80 lg:w-96 h-20 md:h-28 lg:h-36 animate-float-sm">
+                <Image src="/Logos/logo-dark-transparent.png" alt="Rendlr" fill className="object-contain" />
+              </div>
+            </div>
+            <span className="block pt-4">
+              <span className="text-6xl md:text-8xl bg-gradient-to-r from-white via-blue-400 to-blue-600 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">Modern Web Solutions Built for Growth</span>
+            </span>
+          </h1>
 
-					<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
-							<CardHeader className="px-6 pt-6">
-								<CardTitle className="flex items-center justify-between text-xl">
-									Realty Edge{" "}
-									<Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
-								</CardTitle>
-								<CardDescription className="text-base">
-									Modern property listing and analytics with responsive mapping and search.
-								</CardDescription>
-							</CardHeader>
-							<div className="relative aspect-video overflow-hidden bg-muted mx-6 my-4 rounded-lg">
-								<Image
-									src="/realty-edge-showcase.png"
-									alt="Realty Edge"
-									fill
-									className="object-cover transition-transform duration-500 group-hover:scale-110"
-								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-teal-500/100 via-teal-500/10 to-transparent opacity-65 group-hover:opacity-80 transition-opacity duration-300" />
-							</div>
-							<CardContent className="px-6 pb-6">
-								<div className="flex flex-wrap gap-2 mb-4">
-									{["Next.js", "React", "Real-Estate"].map((tech) => (
-										<Tag key={tech}>{tech}</Tag>
-									))}
-								</div>
-								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
-									<a href="https://realtyedge.vercel.app" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
-								</Button>
-							</CardContent>
-						</Card>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto text-balance leading-relaxed">
+            We build modern, secure, and high-performing websites
+            designed to grow your business. Everything you need to succeed online in one place.
+          </p>
 
-						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
-							<CardHeader className="px-6 pt-6">
-								<CardTitle className="flex items-center justify-between text-xl">
-									Fitness Trainer Platform{" "}
-									<Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
-								</CardTitle>
-								<CardDescription className="text-base">
-									Fitness platform with scheduling, client management, and payments.
-								</CardDescription>
-							</CardHeader>
-							<div className="relative aspect-video overflow-hidden bg-muted mx-6 my-4 rounded-lg">
-								<Image
-									src="/fitness-trainer-showcase.png"
-									alt="Fitness Trainer Platform"
-									fill
-									className="object-cover transition-transform duration-500 group-hover:scale-110"
-								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-red-600/100 via-red-600/10 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-300" />
-							</div>
-							<CardContent className="px-6 pb-6">
-								<div className="flex flex-wrap gap-2 mb-4">
-									{["React", "Node.js", "Payments"].map((tech) => (
-										<Tag key={tech}>{tech}</Tag>
-									))}
-								</div>
-								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
-									<a href="https://www.coachkilday.com/" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
-								</Button>
-							</CardContent>
-						</Card>
+          {/* Trust indicators */}
+          <div className="flex flex-wrap gap-8 justify-center pt-12 mb-12 text-sm text-gray-300">
+            {[
+              { icon: CheckCircle2, text: "Fast Delivery" },
+              { icon: CheckCircle2, text: "SEO Optimized" },
+              { icon: CheckCircle2, text: "Secure & Reliable" },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 hover:text-white transition-colors duration-300"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <item.icon className="h-5 w-5 text-[#0A92F8]" />
+                <span>{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
-						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
-							<CardHeader className="px-6 pt-6">
-								<CardTitle className="flex items-center justify-between text-xl">
-									Aicademy{" "}
-									<Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
-								</CardTitle>
-								<CardDescription className="text-base">
-									AI-powered education platform with demo accounts, and intelligent tutoring features.
-								</CardDescription>
-							</CardHeader>
-							<div className="relative aspect-video overflow-hidden bg-muted mx-6 my-4 rounded-lg">
-								<Image
-									src="/aicademy-showcase.png"
-									alt="Aicademy"
-									fill
-									className="object-cover transition-transform duration-500 group-hover:scale-110"
-								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-orange-500/100 via-orange-500/10 to-transparent opacity-65 group-hover:opacity-85 transition-opacity duration-300" />
-							</div>
-							<CardContent className="px-6 pb-6">
-								<div className="flex flex-wrap gap-2 mb-4">
-									{["React", "AI Engineering", "Analytics"].map((tech) => (
-										<Tag key={tech}>{tech}</Tag>
-									))}
-								</div>
-								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
-									<a href="https://aicademy-six.vercel.app/" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
-								</Button>
-							</CardContent>
-						</Card>
-					</div>
+        
+      </section>
 
-					<div className="mt-12 text-center">
-						<Link href="/projects">
-							<Button
-								variant="outline"
-								size="lg"
-								className="gap-2 bg-white text-black hover:bg-gray-100 border-white/20"
-							>
-								View All Projects <ExternalLink className="h-4 w-4" />
-							</Button>
-						</Link>
-					</div>
-				</div>
-			</section>
+      {/* Services Section */}
+      <section
+        ref={servicesRef}
+        className="border-t border-border/40 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden"
+      >
+        <div className="absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-3 pointer-events-none">
+          <div className="relative w-[240px] h-[240px]">
+            <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
+          </div>
+        </div>
 
-			<section className="border-b border-border/40 bg-gradient-to-b from-muted/20 to-background">
-				<div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-							<div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-								<div className="space-y-6">
-									<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
-										<Sparkles className="h-4 w-4" />
-										Project Walkthroughs
-									</div>
-									<h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
-										Project Walkthroughs
-									</h2>
-									<div className="space-y-4 text-lg text-muted-foreground text-pretty">
-										<p>
-											Deep dives into my projects, development process, and technical
-											decisions. Browse short walkthroughs that highlight architecture,
-											implementation, and trade-offs.
-										</p>
-									</div>
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-16 space-y-4 text-center fade-in-section opacity-0 transition-all duration-1000">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+              What <span className="text-[#0A92F8]">Rendlr</span> Does
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive digital solutions to elevate your online presence
+            </p>
+          </div>
 
-									{/* left column: header + paragraph only; walkthrough cards moved to right column */}
-								</div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Globe,
+                title: "Web Design",
+                description: "Beautiful, responsive websites that convert visitors into customers",
+                color: "primary",
+                delay: "0s",
+              },
+              {
+                icon: Search,
+                title: "SEO Optimization",
+                description: "Rank higher on Google and drive organic traffic to your site",
+                color: "chart-1",
+                delay: "0.1s",
+              },
+              {
+                icon: Sparkles,
+                title: "AI Integrations",
+                description: "Cutting-edge AI features to automate and enhance your business",
+                color: "chart-2",
+                delay: "0.2s",
+              },
+              {
+                icon: Shield,
+                title: "Digital Security",
+                description: "Protect your business with enterprise-grade security solutions",
+                color: "chart-3",
+                delay: "0.3s",
+              },
+            ].map((service, index) => (
+              <Card
+                key={index}
+                className="fade-in-section opacity-0 group relative overflow-hidden backdrop-blur-sm bg-card/50 border-border/50 hover:border-white/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
+                style={{ transitionDelay: service.delay }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardHeader className="relative">
+                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-brand-blue group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-primary/50">
+                    <service.icon className="h-7 w-7" />
+                  </div>
+                  <CardTitle className="text-xl group-hover:text-brand-blue transition-colors duration-300">
+                    {service.title}
+                  </CardTitle>
+                  <CardDescription className="text-base">{service.description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
-								<div className="space-y-4">
-									{videos.map((video, idx) => (
-										<Card key={idx} className="group overflow-hidden bg-card/50 border-border/50 transition-all">
-											<div className="flex items-center gap-4 p-4">
-												<div className="w-28 h-16 relative rounded-md overflow-hidden bg-muted flex-shrink-0">
-													<Image src={video.thumbnail} alt={video.title} fill className="object-cover" />
-												</div>
-												<div className="flex-1">
-													<h3 className="text-base font-semibold">{video.title}</h3>
-													<p className="text-sm text-muted-foreground">{video.description}</p>
-												</div>
-											</div>
-										</Card>
-									))}
-								</div>
-							</div>
-				</div>
-			</section>
+      {/* Why Choose Us Section */}
+      <section ref={whyUsRef} className="border-t border-border/40 relative overflow-hidden">
+        <div className="absolute top-3/4 md:top-1/2 right-0 translate-x-1/4 -translate-y-1/2 opacity-3 pointer-events-none">
+          <div className="relative w-[500px] h-[500px]">
+            <Image src="/Logos/logo-dark-transparent.png" alt="Rendlr" fill className="object-contain" />
+          </div>
+        </div>
 
-			{/* Insert Skills section from previous homepage to preserve skills list */}
-			<section className="py-16">
-				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-					<Skills />
-				</div>
-			</section>
-		</div>
-	)
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            <div className="space-y-8 fade-in-section opacity-0 transition-all duration-1000">
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+                  Why Choose <span className="text-brand-blue">Rendlr</span>?
+                </h2>
+                <p className="text-lg text-muted-foreground text-pretty">
+                  We combine technical expertise with business strategy to deliver websites that don't just look
+                  great—they drive results.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: Zap,
+                    title: "Lightning Fast",
+                    description: "Optimized for speed and performance to keep your visitors engaged",
+                    color: "primary",
+                  },
+                  {
+                    icon: Code2,
+                    title: "Modern Technology",
+                    description: "Built with the latest frameworks and best practices for scalability",
+                    color: "chart-1",
+                  },
+                  {
+                    icon: Users,
+                    title: "Dedicated Support",
+                    description: "We're here for you every step of the way, from launch to growth",
+                    color: "chart-2",
+                  },
+                  {
+                    icon: TrendingUp,
+                    title: "Results Driven",
+                    description: "Focused on metrics that matter: conversions, traffic, and revenue",
+                    color: "chart-3",
+                  },
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex gap-4 group hover:translate-x-2 transition-transform duration-300"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-brand-blue group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg group-hover:shadow-primary/50">
+                      <feature.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-brand-blue transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className="relative fade-in-section opacity-0 transition-all duration-1000"
+              style={{ transitionDelay: "0.3s" }}
+            >
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-3xl opacity-20 animate-pulse" />
+              <Card className="relative backdrop-blur-sm bg-card/50 border-border/50 p-8 transition-all duration-500">
+                <div className="space-y-8">
+                  {[
+                    { value: "30+", label: "Websites Launched", color: "text-primary" },
+                    { value: "100%", label: "Client Satisfaction", color: "text-chart-1" },
+                    { value: "24/7", label: "Support Available", color: "text-chart-2" },
+                  ].map((stat, index) => (
+                    <div key={index} className="space-y-2">
+                      <div className={`text-6xl font-bold ${stat.color} inline-block`}>{stat.value}</div>
+                      <div className="text-muted-foreground text-lg">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="border-t border-border/40 bg-gradient-to-b from-background to-muted/20 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+          <div className="relative w-[700px] h-[700px]">
+            <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain animate-pulse" />
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 relative z-10">
+          <Card className="relative overflow-hidden backdrop-blur-sm bg-gradient-to-br from-primary/10 via-background to-chart-1/10 border-border/50 hover:border-white/30 transition-all duration-500 group">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-chart-1/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <CardContent className="relative p-12 md:p-16 text-center space-y-6">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+                Ready to Grow Your Business with <span className="text-brand-blue">Rendlr</span>?
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
+                Let's build something amazing together. Get a free consultation and see how we can help you succeed
+                online.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <Button
+                  size="lg"
+                  className="gap-2 bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                >
+                  Start Your Project
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="gap-2 bg-transparent hover:bg-white/5 hover:scale-105 transition-all duration-300"
+                >
+                  Schedule a Call
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border/40">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-4">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <div className="relative h-6 w-6 lg:h-5 lg:w-5">
+                  <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
+                </div>
+                <span className="text-base font-semibold lg:text-sm">Rendlr</span>
+              </div>
+              <p className="text-sm text-muted-foreground max-w-xs lg:text-sm">
+                Modern web solutions built for growth. Based in Carlsbad, CA.
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <h3 className="font-semibold">Services</h3>
+              <ul className="space-y-1 text-sm lg:text-xs text-muted-foreground">
+                {[
+                  "Web Design",
+                  "SEO Optimization",
+                  "AI Integrations",
+                  "Digital Security",
+                ].map((service, index) => (
+                  <li key={index}>
+                    <a
+                      href="#"
+                      className="hover:text-foreground transition-colors hover:translate-x-1 inline-block duration-150 text-sm lg:text-xs"
+                    >
+                      {service}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-1">
+              <h3 className="font-semibold">Contact</h3>
+              <ul className="space-y-1 text-sm lg:text-xs text-muted-foreground">
+                <li>Carlsbad, CA</li>
+                <li>
+                  <a href="mailto:alexrendler@yahoo.com" className="hover:text-foreground transition-colors">
+                    alexrendler@yahoo.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+17606539999" className="hover:text-foreground transition-colors">
+                    (760) 653-9999
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-border/40 text-center text-sm text-muted-foreground">
+            <p>© 2025 Rendlr. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
 }

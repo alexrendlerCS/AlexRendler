@@ -20,8 +20,9 @@ function MobileMenu({ pathname }: { pathname: string }) {
       </button>
       {open && (
         <div className="absolute top-14 left-0 w-full bg-background shadow-lg z-50 animate-fade-in">
-          <nav className="flex flex-col items-center py-4 space-y-2 text-base font-medium">
+            <nav className="flex flex-col items-center py-4 space-y-2 text-base font-medium">
             <Link href="/" className={pathname === "/" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Home</Link>
+            <Link href="/about" className={pathname === "/about" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>About</Link>
             <Link href="/projects" className={pathname === "/projects" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Projects</Link>
             <Link href="/blog" className={pathname === "/blog" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Blog</Link>
             <Link href="/journey" className={pathname === "/journey" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>My Journey</Link>
@@ -53,14 +54,16 @@ const Header = () => {
           : "bg-transparent"
       } ${!isTop ? "shadow-sm" : ""} backdrop-blur`}
     >
-      <div className="container flex h-14 items-center px-4 md:px-6 justify-between">
+  <div className="container flex h-14 items-center px-4 md:px-6 justify-between">
         <div className="flex items-center">
           <Link href="/" className="mr-4 flex items-center space-x-2">
-            <span className="font-bold">Alex Rendler</span>
+            {/* Use the header logo asset */}
+            <img src="/Logos/Logo-Header.png" alt="Rendlr" className="h-8 w-auto" />
           </Link>
           <div className="hidden md:flex">
             <nav className="flex items-center space-x-6 text-sm font-medium">
               <Link href="/" className={pathname === "/" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Home</Link>
+              <Link href="/about" className={pathname === "/about" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>About</Link>
               <Link href="/projects" className={pathname === "/projects" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Projects</Link>
               <Link href="/blog" className={pathname === "/blog" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Blog</Link>
               <Link href="/journey" className={pathname === "/journey" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>My Journey</Link>

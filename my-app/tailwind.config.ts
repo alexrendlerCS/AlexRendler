@@ -50,6 +50,9 @@ const config: Config = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+			,
+			// brand colors
+			'brand-blue': '#0A92F8'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
