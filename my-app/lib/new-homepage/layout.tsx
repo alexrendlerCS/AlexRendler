@@ -5,8 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Header } from "@/components/header"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+// fonts intentionally not used here; remove to satisfy linter
 
 export const metadata: Metadata = {
   title: "Rendlr - Modern Web Solutions",

@@ -1,13 +1,16 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Globe, Search, Sparkles, Shield, ArrowRight, CheckCircle2, Code2, Zap, Users, TrendingUp } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
+import ScheduleCallModal from "@/components/ui/schedule-call-modal"
 
 export default function HomePage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isScheduleOpen, setIsScheduleOpen] = useState(false)
   const servicesRef = useRef<HTMLDivElement>(null)
   const whyUsRef = useRef<HTMLDivElement>(null)
 
@@ -35,6 +38,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
+      <ScheduleCallModal open={isScheduleOpen} onClose={() => setIsScheduleOpen(false)} />
       {/* Hero Section */}
   <section className="relative min-h-[90vh] md:min-h-[95vh] flex items-center justify-center overflow-hidden w-screen left-1/2 -translate-x-1/2 -mt-8 px-0 py-0">
         <div className="absolute inset-0">
@@ -195,11 +199,6 @@ export default function HomePage() {
 
       {/* Why Choose Us Section */}
       <section ref={whyUsRef} className="border-t border-border/40 relative overflow-hidden">
-        <div className="absolute top-3/4 md:top-1/2 right-0 translate-x-1/4 -translate-y-1/2 opacity-3 pointer-events-none">
-          <div className="relative w-[500px] h-[500px]">
-            <Image src="/Logos/logo-dark-transparent.png" alt="Rendlr" fill className="object-contain" />
-          </div>
-        </div>
 
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
@@ -209,7 +208,7 @@ export default function HomePage() {
                   Why Choose <span className="text-brand-blue">Rendlr</span>?
                 </h2>
                 <p className="text-lg text-muted-foreground text-pretty">
-                  We combine technical expertise with business strategy to deliver websites that don't just look
+                  We combine technical expertise with business strategy to deliver websites that don&apos;t just look
                   great—they drive results.
                 </p>
               </div>
@@ -265,7 +264,12 @@ export default function HomePage() {
               style={{ transitionDelay: "0.3s" }}
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-3xl opacity-20 animate-pulse" />
-              <Card className="relative backdrop-blur-sm bg-card/50 border-border/50 p-8 transition-all duration-500">
+              <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none z-0 hidden sm:block">
+                <div className="relative w-[300px] h-[300px]">
+                  <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
+                </div>
+              </div>
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-8 transition-all duration-500">
                 <div className="space-y-8">
                   {[
                     { value: "30+", label: "Websites Launched", color: "text-primary" },
@@ -301,22 +305,22 @@ export default function HomePage() {
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
                 Ready to Grow Your Business with <span className="text-brand-blue">Rendlr</span>?
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-                Let's build something amazing together. Get a free consultation and see how we can help you succeed
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
+                Let&apos;s build something amazing together. Get a free consultation and see how we can help you succeed
                 online.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                <Button
-                  size="lg"
-                  className="gap-2 bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
-                >
-                  Start Your Project
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button asChild size="lg" className="gap-2 bg-white hover:bg-gray-100 text-black shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                  <Link href="/getting-started">
+                    Start Your Project
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="gap-2 bg-transparent hover:bg-white/5 hover:scale-105 transition-all duration-300"
+                  onClick={() => setIsScheduleOpen(true)}
                 >
                   Schedule a Call
                 </Button>

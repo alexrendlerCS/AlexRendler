@@ -197,7 +197,7 @@ export default function HomePage() {
       <section ref={whyUsRef} className="border-t border-border/40 relative overflow-hidden">
         <div className="absolute top-1/2 right-0 translate-x-1/4 -translate-y-1/2 opacity-3 pointer-events-none">
           <div className="relative w-[500px] h-[500px]">
-            <Image src="/logo-icon.png" alt="Rendlr" fill className="object-contain" />
+            <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
           </div>
         </div>
 
@@ -209,7 +209,7 @@ export default function HomePage() {
                   Why Choose <span className="text-primary">Rendlr</span>?
                 </h2>
                 <p className="text-lg text-muted-foreground text-pretty">
-                  We combine technical expertise with business strategy to deliver websites that don't just look
+                  We combine technical expertise with business strategy to deliver websites that don&apos;t just look
                   great—they drive results.
                 </p>
               </div>
@@ -231,7 +231,7 @@ export default function HomePage() {
                   {
                     icon: Users,
                     title: "Dedicated Support",
-                    description: "We're here for you every step of the way, from launch to growth",
+                    description: "We&apos;re here for you every step of the way, from launch to growth",
                     color: "chart-2",
                   },
                   {
@@ -301,8 +301,8 @@ export default function HomePage() {
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
                 Ready to Grow Your Business with <span className="text-primary">Rendlr</span>?
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-                Let's build something amazing together. Get a free consultation and see how we can help you succeed
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
+                Let&apos;s build something amazing together. Get a free consultation and see how we can help you succeed
                 online.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
