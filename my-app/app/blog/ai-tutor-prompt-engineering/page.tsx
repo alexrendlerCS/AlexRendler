@@ -23,6 +23,27 @@ export default function BlogPost() {
         Posted on April 22, 2025 · Tags:{" "}
         <span className="italic">AI, Prompt Engineering, EdTech</span>
       </p>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Designing Prompts to Encourage Learning, Not Replace It",
+            description:
+              "Practical insights on prompt engineering for tutoring systems — AI integrations and web development best practices to encourage learning rather than shortcuts.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-04-22",
+            image: "https://rendlr.dev/og/ai-tutor-prompt-engineering.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         One of the most interesting challenges while building my AIcademy has
         been <strong>prompt engineering</strong>. Although I’m still relatively

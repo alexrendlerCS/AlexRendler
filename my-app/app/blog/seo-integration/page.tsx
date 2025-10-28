@@ -70,6 +70,27 @@ export default function BlogPost() {
         <span className="italic">AI, Machine Learning, SEO, Data Analysis</span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "How I Used AI & Machine Learning to Transform SEO Keyword Strategy",
+            description:
+              "A technical walkthrough of combining AI, ML, and traditional techniques to cluster and prioritize SEO keywords — practical SEO and web development strategies.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-06-01",
+            image: "https://rendlr.dev/og/seo-integration.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         This project started as a personal experiment in analyzing keyword data
         from mock Google Ads campaigns. What it became was a full-stack,

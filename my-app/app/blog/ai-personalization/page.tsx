@@ -86,6 +86,27 @@ export default function BlogPost() {
         <span className="italic">AI, Personalization, EdTech</span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "How I'm Personalizing AI Tutoring Based on Skill, Age, and Attempts",
+            description:
+              "How Rendlr personalizes AI tutoring by adapting to skill, age, and attempt history — practical AI integrations and web development best practices for adaptive learning.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-05-04",
+            image: "https://rendlr.dev/og/ai-personalization.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         One of the most powerful upgrades to my AIcademy app was introducing
         <strong> dynamic personalization</strong> for every student based on

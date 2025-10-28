@@ -23,6 +23,27 @@ export default function BlogPost() {
         <span className="italic">EdTech, AI, Learning Tools</span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Pivoting from Just a Chatbot to a Full AI-Powered Learning Platform",
+            description:
+              "How Rendlr evolved a chatbot into a complete AI-powered learning platform — lessons in AI integrations, teacher workflows, and modern web development.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-05-21",
+            image: "https://rendlr.dev/og/ai-tutor-platform-evolution.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         When I first started this project, the goal was simple: create an{" "}
         <strong>AI chatbot that helps students think deeper</strong>. It would

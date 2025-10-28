@@ -21,6 +21,27 @@ export default function BlogPost() {
         <span className="italic">AI, EdTech, Personalization</span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Building an Introductory Skill Assessment for Smarter AI Tutoring",
+            description:
+              "Designing an introductory skill assessment to personalize AI tutoring — insights on adaptive learning, AI integrations, and web development best practices.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-05-04",
+            image: "https://rendlr.dev/og/intro-skill-assessment.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         When I began developing the AIcademy, one of my goals was to create a
         tutor that adjusts to each student’s unique skill level from the very

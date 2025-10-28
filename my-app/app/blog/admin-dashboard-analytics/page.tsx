@@ -56,6 +56,27 @@ export default function BlogPost() {
         <span className="italic">Data Analytics, EdTech, Visualization</span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Visualizing Student Progress in Real Time with Recharts and Supabase",
+            description:
+              "Practical guide on building real-time student progress visualizations using Supabase and Recharts — web development best practices and data-driven insights.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-05-04",
+            image: "https://rendlr.dev/og/admin-dashboard-analytics.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         I built an Admin Dashboard to help visualize how students are
         progressing across subjects — including XP earned, performance trends,

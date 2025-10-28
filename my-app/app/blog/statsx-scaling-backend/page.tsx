@@ -48,6 +48,27 @@ export default function BlogPost() {
         </span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Scaling StatsX: Moving NFL Projections to the Backend and Preparing for AI",
+            description:
+              "Refactoring StatsX to move heavy calculations server-side and prepare for AI integrations — backend architecture and web development best practices.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-04-25",
+            image: "https://rendlr.dev/og/statsx-scaling-backend.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         When I first launched StatsX, the focus was on getting real-time NFL
         player analysis working smoothly. Early on, I handled calculations like

@@ -52,6 +52,27 @@ export default function BlogPost() {
         <span className="italic">AI, EdTech, Data Analytics</span>
       </p>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "How I'm Tracking Student Performance in My AIcademy",
+            description:
+              "Implementation notes on tracking student attempts and performance with AI-powered tutoring — best practices for data tracking and web development.",
+            author: { "@type": "Person", name: "Alex Rendler" },
+            datePublished: "2025-04-21",
+            image: "https://rendlr.dev/og/ai-tutor-tracking-correctness.png",
+            publisher: {
+              "@type": "Organization",
+              name: "Rendlr",
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+            },
+          }),
+        }}
+      />
+
       <p className="mb-4 text-zinc-700 dark:text-zinc-200">
         In my AI-powered tutor project, I&apos;m building a system to detect
         correct answers, track how many attempts a student takes, and assign XP
