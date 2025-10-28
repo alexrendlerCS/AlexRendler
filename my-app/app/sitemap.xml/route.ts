@@ -74,29 +74,36 @@ export async function GET() {
 
   const headerDate = new Date().toISOString().split("T")[0];
 
+  // Helper to escape XML special characters
+  function escapeXml(s: string) {
+    return s
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&apos;");
+  }
+
   const xmlParts: string[] = [];
   xmlParts.push("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
   xmlParts.push(`<!--  Generated sitemap for rendlr.dev on ${headerDate}  -->`);
-  xmlParts.push(
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-  );
+  xmlParts.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
+  // Each <url> block is rendered on a single line per requirements
   for (const e of entries) {
-    xmlParts.push("  <url>");
-    xmlParts.push(`    <loc>${e.loc}</loc>`);
-    xmlParts.push(`    <lastmod>${e.lastmod}</lastmod>`);
-    xmlParts.push(`    <changefreq>${e.changefreq}</changefreq>`);
-    xmlParts.push(`    <priority>${e.priority.toFixed(1)}</priority>`);
-    xmlParts.push("  </url>");
+    const loc = escapeXml(e.loc);
+    const lastmod = escapeXml(e.lastmod);
+    const changefreq = escapeXml(e.changefreq);
+    const priority = escapeXml(e.priority.toFixed(1));
+
+    xmlParts.push(
+      `<url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`
+    );
   }
 
   xmlParts.push("</urlset>");
 
   const xml = xmlParts.join("\n");
 
-  return new Response(xml, {
-    headers: {
-      "Content-Type": "application/xml",
-    },
-  });
+  return new Response(xml, { headers: { "Content-Type": "application/xml" } });
 }
