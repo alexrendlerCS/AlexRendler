@@ -1,0 +1,8 @@
+# robots.txt for rendlr.dev
+# Allow all crawlers and point them to the sitemap
+
+User-agent: *
+Allow: /
+
+Sitemap: https://rendlr.dev/sitemap.xml
+Host: https://rendlr.dev
