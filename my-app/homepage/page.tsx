@@ -347,6 +347,41 @@ export default function Home() {
       </section>
 
       {/* Footer */}
+      {/* Ready to Grow CTA + Reviews */}
+      <section className="border-b border-border/40 bg-gradient-to-b from-muted/10 to-background/0">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Ready to Grow Your Business with Rendlr?</h2>
+            <p className="mt-2 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Professional sites and booking systems designed to convert visitors into customers. Trusted by coaches
+              and small businesses.
+            </p>
+          </div>
+
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-6 md:grid-cols-3">
+              {/* Review 1 */}
+              <blockquote className="rounded-2xl p-6 bg-white/6 backdrop-blur-md border border-white/8 text-foreground dark:bg-zinc-900/40 dark:border-zinc-800">
+                <p className="text-sm leading-relaxed">"The quick delivery time and amazing design exceeded my expectations. Alex went above and beyond what was expected, creating a platform that perfectly fits my practice needs."</p>
+                <footer className="mt-4 text-sm font-medium text-muted-foreground">— Kimberly Joyce</footer>
+              </blockquote>
+
+              {/* Review 2 */}
+              <blockquote className="rounded-2xl p-6 bg-white/6 backdrop-blur-md border border-white/8 text-foreground dark:bg-zinc-900/40 dark:border-zinc-800">
+                <p className="text-sm leading-relaxed">"FitWeb Studio has made managing my business so much easier! Booking clients and selling session packages is now completely seamless. Their team is responsive, reliable, and truly attentive to every detail. My clients love how easy the new system is to use—it's been a total game changer!"</p>
+                <footer className="mt-4 text-sm font-medium text-muted-foreground">— Coach Kilday</footer>
+              </blockquote>
+
+              {/* Review 3 */}
+              <blockquote className="rounded-2xl p-6 bg-white/6 backdrop-blur-md border border-white/8 text-foreground dark:bg-zinc-900/40 dark:border-zinc-800">
+                <p className="text-sm leading-relaxed">"Alex delivered a product better than what was expected and added more features than expected, making the website better than what was asked for. Truly exceptional work!"</p>
+                <footer className="mt-4 text-sm font-medium text-muted-foreground">— Michael Marx</footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-border/40">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">

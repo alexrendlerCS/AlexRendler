@@ -414,6 +414,152 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Reviews Section (under CTA) */}
+      <section className="border-b border-border/40 bg-gradient-to-b from-muted/10 to-background/0">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">What clients are saying about <span className="text-brand-blue">Rendlr</span></h3>
+            <p className="mt-2 text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">Real feedback from recent projects.</p>
+          </div>
+
+          <div className="mx-auto max-w-5xl">
+            <div className="flex flex-col gap-10 items-center">
+              {/* Card 1 - left aligned on md+ */}
+              <div className="relative w-full md:w-4/5 md:self-start md:-translate-x-8 lg:-translate-x-12">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-3xl opacity-20 animate-pulse" />
+                <div className="absolute right-6 top-4 opacity-20 pointer-events-none hidden sm:block">
+                  <div className="relative w-28 h-28">
+                    <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
+                  </div>
+                </div>
+
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                  <CardContent>
+                    <p className="text-lg text-muted-foreground text-pretty leading-relaxed">&quot;The quick delivery time and amazing design exceeded my expectations. Alex went above and beyond what was expected, creating a platform that perfectly fits my practice needs.&quot;</p>
+                  </CardContent>
+
+                  {/* Stars (hidden by default) + reviewer name (visible) - bottom-right */}
+                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-none">
+                    <div className="flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <span key={i} className="relative inline-block w-4 h-4">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-4 w-4 text-white" aria-hidden>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                              className="absolute inset-0 h-4 w-4 text-brand-blue z-10 opacity-0 group-hover:opacity-100 transform group-hover:scale-110 transition-opacity duration-300"
+                              style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
+                            aria-hidden
+                          >
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="text-left">
+                      <div className="text-sm font-semibold text-foreground">Kimberly Joyce</div>
+                      <div className="text-xs text-muted-foreground">PT Startup</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Card 2 - right aligned on md+ */}
+              <div className="relative w-full md:w-4/5 md:self-end md:translate-x-8 lg:translate-x-12">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-3xl opacity-20 animate-pulse" />
+                <div className="absolute left-6 top-4 opacity-20 pointer-events-none hidden sm:block">
+                  <div className="relative w-28 h-28">
+                    <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
+                  </div>
+                </div>
+
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                  <CardContent>
+                    <p className="text-lg text-muted-foreground text-pretty leading-relaxed">&quot;FitWeb Studio has made managing my business so much easier! Booking clients and selling session packages is now completely seamless. Their team is responsive, reliable, and truly attentive to every detail. My clients love how easy the new system is to use—it&apos;s been a total game changer!&quot;</p>
+                  </CardContent>
+
+                  {/* Stars (hidden by default) + reviewer name (visible) - bottom-right */}
+                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-none">
+                    <div className="flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <span key={i} className="relative inline-block w-4 h-4">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-4 w-4 text-white" aria-hidden>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                              className="absolute inset-0 h-4 w-4 text-brand-blue z-10 opacity-0 group-hover:opacity-100 transform group-hover:scale-110 transition-opacity duration-300"
+                              style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
+                            aria-hidden
+                          >
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="text-left">
+                      <div className="text-sm font-semibold text-foreground">Coach Kilday</div>
+                      <div className="text-xs text-muted-foreground">Fitness Trainer Brand</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Card 3 - left aligned on md+ */}
+              <div className="relative w-full md:w-4/5 md:self-start md:-translate-x-8 lg:-translate-x-12">
+                <div className="absolute -inset-4 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-3xl opacity-20 animate-pulse" />
+                <div className="absolute right-6 top-4 opacity-20 pointer-events-none hidden sm:block">
+                  <div className="relative w-28 h-28">
+                    <Image src="/Logos/Logo-Header.png" alt="Rendlr" fill className="object-contain" />
+                  </div>
+                </div>
+
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                  <CardContent>
+                    <p className="text-lg text-muted-foreground text-pretty leading-relaxed">&quot;Alex delivered a product better than what was expected and added more features than expected, making the website better than what was asked for. Truly exceptional work!&quot;</p>
+                  </CardContent>
+
+                  {/* Stars (hidden by default) + reviewer name (visible) - bottom-right */}
+                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-none">
+                    <div className="flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                      {[0, 1, 2, 3, 4].map((i) => (
+                        <span key={i} className="relative inline-block w-4 h-4">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-4 w-4 text-white" aria-hidden>
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                              className="absolute inset-0 h-4 w-4 text-brand-blue z-10 opacity-0 group-hover:opacity-100 transform group-hover:scale-110 transition-opacity duration-300"
+                              style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
+                            aria-hidden
+                          >
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                          </svg>
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="text-left">
+                      <div className="text-sm font-semibold text-foreground">Michael Marx</div>
+                      <div className="text-xs text-muted-foreground">Real Estate Website</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-border/40">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-4">
