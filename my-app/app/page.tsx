@@ -433,25 +433,25 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 pb-12 md:pb-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
                   <CardContent>
                     <p className="text-lg text-muted-foreground text-pretty leading-relaxed">&quot;The quick delivery time and amazing design exceeded my expectations. Alex went above and beyond what was expected, creating a platform that perfectly fits my practice needs.&quot;</p>
                   </CardContent>
 
                   {/* Stars (hidden by default) + reviewer name (visible) - bottom-right */}
-                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-none">
-                    <div className="flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-auto md:pointer-events-none">
+                    <div className="flex items-center gap-1 opacity-100 md:opacity-0 translate-y-0 md:translate-y-1 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all">
                       {[0, 1, 2, 3, 4].map((i) => (
-                        <span key={i} className="relative inline-block w-4 h-4">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-4 w-4 text-white" aria-hidden>
+                        <span key={i} className={`relative inline-block w-5 h-5 md:w-4 md:h-4 ${i === 4 ? "md:group-hover:scale-125" : ""}`}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-5 w-5 md:h-4 md:w-4 text-white" aria-hidden>
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                           </svg>
                           <svg
                             viewBox="0 0 24 24"
                             fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg"
-                              className="absolute inset-0 h-4 w-4 text-brand-blue z-10 opacity-0 group-hover:opacity-100 transform group-hover:scale-110 transition-opacity duration-300"
-                              style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
+                            className={`absolute inset-0 h-5 w-5 md:h-4 md:w-4 text-brand-blue z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:group-hover:scale-110 transition-all duration-300`}
+                            style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
                             aria-hidden
                           >
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -477,25 +477,25 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 pb-12 md:pb-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
                   <CardContent>
                     <p className="text-lg text-muted-foreground text-pretty leading-relaxed">&quot;FitWeb Studio has made managing my business so much easier! Booking clients and selling session packages is now completely seamless. Their team is responsive, reliable, and truly attentive to every detail. My clients love how easy the new system is to use—it&apos;s been a total game changer!&quot;</p>
                   </CardContent>
 
                   {/* Stars (hidden by default) + reviewer name (visible) - bottom-right */}
-                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-none">
-                    <div className="flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-auto md:pointer-events-none">
+                    <div className="flex items-center gap-1 opacity-100 md:opacity-0 translate-y-0 md:translate-y-1 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all">
                       {[0, 1, 2, 3, 4].map((i) => (
-                        <span key={i} className="relative inline-block w-4 h-4">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-4 w-4 text-white" aria-hidden>
+                        <span key={i} className={`relative inline-block w-5 h-5 md:w-4 md:h-4 ${i === 4 ? "md:group-hover:scale-125" : ""}`}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-5 w-5 md:h-4 md:w-4 text-white" aria-hidden>
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                           </svg>
                           <svg
                             viewBox="0 0 24 24"
                             fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg"
-                              className="absolute inset-0 h-4 w-4 text-brand-blue z-10 opacity-0 group-hover:opacity-100 transform group-hover:scale-110 transition-opacity duration-300"
-                              style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
+                            className={`absolute inset-0 h-5 w-5 md:h-4 md:w-4 text-brand-blue z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:group-hover:scale-110 transition-all duration-300`}
+                            style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
                             aria-hidden
                           >
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -521,25 +521,25 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+                <Card className="relative z-10 backdrop-blur-sm bg-card/50 border-border/50 p-4 pb-12 md:pb-4 transition-all duration-500 group hover:border-white/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
                   <CardContent>
                     <p className="text-lg text-muted-foreground text-pretty leading-relaxed">&quot;Alex delivered a product better than what was expected and added more features than expected, making the website better than what was asked for. Truly exceptional work!&quot;</p>
                   </CardContent>
 
                   {/* Stars (hidden by default) + reviewer name (visible) - bottom-right */}
-                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-none">
-                    <div className="flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                  <div className="absolute right-4 bottom-4 flex items-center gap-3 pointer-events-auto md:pointer-events-none">
+                    <div className="flex items-center gap-1 opacity-100 md:opacity-0 translate-y-0 md:translate-y-1 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all">
                       {[0, 1, 2, 3, 4].map((i) => (
-                        <span key={i} className="relative inline-block w-4 h-4">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-4 w-4 text-white" aria-hidden>
+                        <span key={i} className={`relative inline-block w-5 h-5 md:w-4 md:h-4 ${i === 4 ? "md:group-hover:scale-125" : ""}`}>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-5 w-5 md:h-4 md:w-4 text-white" aria-hidden>
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                           </svg>
                           <svg
                             viewBox="0 0 24 24"
                             fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg"
-                              className="absolute inset-0 h-4 w-4 text-brand-blue z-10 opacity-0 group-hover:opacity-100 transform group-hover:scale-110 transition-opacity duration-300"
-                              style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
+                            className={`absolute inset-0 h-5 w-5 md:h-4 md:w-4 text-brand-blue z-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:group-hover:scale-110 transition-all duration-300`}
+                            style={{ transitionDelay: `${i * 75}ms`, color: "#0A92F8" }}
                             aria-hidden
                           >
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
