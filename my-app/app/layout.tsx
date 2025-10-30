@@ -62,6 +62,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Rendlr",
+              url: "https://rendlr.dev",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://rendlr.dev/Logos/Logo.png",
+                width: 1200,
+                height: 1200,
+              },
+            }),
+          }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
