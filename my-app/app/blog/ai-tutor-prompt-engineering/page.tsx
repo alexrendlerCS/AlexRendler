@@ -5,13 +5,15 @@
 import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import Link from "next/link";
+import BlogNav from "@/components/ui/blog-nav";
 import { promptSnippet } from "@/lib/snippets/ai-tutor";
 
 export default function BlogPost() {
   return (
     <div className="container mx-auto px-4 py-10 max-w-3xl">
-      <motion.h1
+  <BlogNav />
+
+  <motion.h1
         className="text-3xl font-bold mb-4"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -84,12 +86,7 @@ export default function BlogPost() {
         I plan to fine-tune prompts per subject or based on student performance
         so that it grows more adaptive over time.
       </p>
-      <Link
-        href="/blog"
-        className="text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        ← Back to Blog
-      </Link>
+  <div />
     </div>
   );
 }

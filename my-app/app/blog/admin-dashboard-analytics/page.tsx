@@ -5,7 +5,7 @@
 import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import Link from "next/link";
+import BlogNav from "@/components/ui/blog-nav";
 
 const xpSnippet = `
 // Fetch and group XP history by date and subject
@@ -49,6 +49,7 @@ export default function BlogPost() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
+        <BlogNav />
         Visualizing Student Progress in Real Time with Recharts and Supabase
       </motion.h1>
       <p className="text-zinc-600 dark:text-zinc-300 mb-6 text-sm">
@@ -122,12 +123,6 @@ export default function BlogPost() {
         personalized goals, trend alerts, and difficulty calibration.
       </p>
 
-      <Link
-        href="/blog"
-        className="text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        ← Back to Blog
-      </Link>
     </div>
   );
 }

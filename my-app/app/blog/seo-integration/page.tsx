@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import BlogNav from "@/components/ui/blog-nav";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
@@ -56,7 +56,9 @@ class KeywordClusterer:
 export default function BlogPost() {
   return (
     <div className="container mx-auto px-4 py-10 max-w-3xl">
-      <motion.h1
+  <BlogNav />
+
+  <motion.h1
         className="text-3xl font-bold mb-4"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -179,12 +181,7 @@ export default function BlogPost() {
         psychology, timing, and trust. And AI should reflect that.
       </p>
 
-      <Link
-        href="/blog"
-        className="text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        ← Back to Blog
-      </Link>
+  <div />
     </div>
   );
 }
