@@ -67,7 +67,7 @@ export default function BlogPost() {
             publisher: {
               "@type": "Organization",
               name: "Rendlr",
-              logo: { "@type": "ImageObject", url: "https://rendlr.dev/logo.png" },
+              logo: { "@type": "ImageObject", url: "https://rendlr.dev/Logos/Logo.png" },
             },
           }),
         }}
