@@ -1,7 +1,7 @@
 {
   "/journey/page": "app/journey/page.js",
   "/getting-started/page": "app/getting-started/page.js",
-  "/blog/page": "app/blog/page.js",
   "/projects/page": "app/projects/page.js",
-  "/about/page": "app/about/page.js"
+  "/about/page": "app/about/page.js",
+  "/blog/page": "app/blog/page.js"
 }

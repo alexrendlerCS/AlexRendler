@@ -51,7 +51,7 @@ const projects = [
       "Responsive UI",
     ],
     categories: ["Web Development", "Personal Finance", "Data Analyzing"],
-    image: "/realty-edge-showcase.png",
+  image: "/Realty-Edge-Thumbnail.png",
     icon: <Globe2 className="h-6 w-6" />,
     link: "#",
   },
