@@ -21,12 +21,12 @@ function MobileMenu({ pathname }: { pathname: string }) {
       {open && (
         <div className="absolute top-14 left-0 w-full bg-background shadow-lg z-50 animate-fade-in">
             <nav className="flex flex-col items-center py-4 space-y-2 text-base font-medium">
-            <Link href="/" className={pathname === "/" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Home</Link>
-            <Link href="/getting-started" className={pathname === "/getting-started" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Get Started</Link>
-            <Link href="/about" className={pathname === "/about" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>About</Link>
-            <Link href="/projects" className={pathname === "/projects" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Projects</Link>
-            <Link href="/blog" className={pathname === "/blog" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Blog</Link>
-            <Link href="/journey" className={pathname === "/journey" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>My Journey</Link>
+            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={pathname === "/" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Home</Link>
+            <Link href="/getting-started" aria-current={pathname === "/getting-started" ? "page" : undefined} className={pathname === "/getting-started" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Get Started</Link>
+            <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>About</Link>
+            <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Projects</Link>
+            <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>Blog</Link>
+            <Link href="/journey" aria-current={pathname === "/journey" ? "page" : undefined} className={pathname === "/journey" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"} onClick={() => setOpen(false)}>My Journey</Link>
           </nav>
         </div>
       )}
@@ -63,12 +63,12 @@ const Header = () => {
           </Link>
           <div className="hidden md:flex">
             <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="/" className={pathname === "/" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Home</Link>
-              <Link href="/getting-started" className={pathname === "/getting-started" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Get Started</Link>
-              <Link href="/about" className={pathname === "/about" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>About</Link>
-              <Link href="/projects" className={pathname === "/projects" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Projects</Link>
-              <Link href="/blog" className={pathname === "/blog" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>Blog</Link>
-              <Link href="/journey" className={pathname === "/journey" ? "text-foreground" : "text-foreground/60 hover:text-foreground transition-colors"}>My Journey</Link>
+              <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={pathname === "/" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"}>Home</Link>
+              <Link href="/getting-started" aria-current={pathname === "/getting-started" ? "page" : undefined} className={pathname === "/getting-started" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"}>Get Started</Link>
+              <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"}>About</Link>
+              <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"}>Projects</Link>
+              <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"}>Blog</Link>
+              <Link href="/journey" aria-current={pathname === "/journey" ? "page" : undefined} className={pathname === "/journey" ? "text-brand-blue" : "text-foreground/60 hover:text-foreground transition-colors"}>My Journey</Link>
             </nav>
           </div>
         </div>
