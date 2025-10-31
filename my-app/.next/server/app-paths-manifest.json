@@ -1,7 +1,7 @@
 {
-  "/projects/page": "app/projects/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/getting-started/page": "app/getting-started/page.js",
   "/journey/page": "app/journey/page.js",
-  "/about/page": "app/about/page.js"
+  "/blog/page": "app/blog/page.js",
+  "/about/page": "app/about/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/getting-started/page": "app/getting-started/page.js"
 }
