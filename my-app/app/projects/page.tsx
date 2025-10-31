@@ -35,6 +35,27 @@ import {
 
 const projects = [
   {
+    title: "RealtyEdge - Housing Market Deals & Connections",
+    description:
+      "RealtyEdge connects lenders and real estate agents with potential homebuyers, surfacing active market housing deals and automating parts of the workflow for fast, secure match-making.",
+    skills: [
+      "Workflow automation",
+      "Supabase",
+      "Next.js",
+      "Tailwind",
+      "Data Security",
+      "Full Stack",
+      "Data Analytics",
+      "APIs",
+      "Data Viz",
+      "Responsive UI",
+    ],
+    categories: ["Web Development", "Personal Finance", "Data Analyzing"],
+    image: "/realty-edge-showcase.png",
+    icon: <Globe2 className="h-6 w-6" />,
+    link: "#",
+  },
+  {
     title: "TrainerDev: Custom Sites for Fitness Coaches",
     description:
       "A tailored website platform for personal trainers to grow their brand and manage clients. Includes mobile-friendly landing pages, booking flows, payment integrations, SEO optimization, and managed hosting. Built to be customized per trainer, combining marketing and functionality. Designed with dark green, black, and white branding, and optimized for conversions.",
@@ -236,6 +257,27 @@ const projects = [
     icon: <Code className="h-6 w-6" />,
     link: "https://corevybe.com/",
   },
+  {
+    title: "RealtyEdge - Housing Market Deals & Connections",
+    description:
+      "RealtyEdge connects lenders and real estate agents with potential homebuyers, surfacing active market housing deals and automating parts of the workflow for fast, secure match-making.",
+    skills: [
+      "Workflow automation",
+      "Supabase",
+      "Next.js",
+      "Tailwind",
+      "Data Security",
+      "Full Stack",
+      "Data Analytics",
+      "APIs",
+      "Data Viz",
+      "Responsive UI",
+    ],
+    categories: ["Web Development", "Personal Finance", "Data Analyzing"],
+    image: "/realty-edge-showcase.png",
+    icon: <Globe2 className="h-6 w-6" />,
+    link: "#",
+  },
 ];
 
 const iconMap: Record<string, JSX.Element> = {
@@ -285,6 +327,10 @@ const iconMap: Record<string, JSX.Element> = {
   "Role Auth": <ShieldCheck className="h-4 w-4" />,
   "Full Stack": <Code className="h-4 w-4" />,
 };
+
+// Add new skill icons
+iconMap["Workflow automation"] = <Activity className="h-4 w-4" />;
+iconMap["Data Security"] = <ShieldCheck className="h-4 w-4" />;
 
 const ProjectDescription = ({ description }: { description: string }) => {
   const [expanded, setExpanded] = useState(false);
