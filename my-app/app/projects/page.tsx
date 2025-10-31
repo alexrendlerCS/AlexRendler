@@ -312,31 +312,28 @@ const iconMap: Record<string, JSX.Element> = {
 iconMap["Workflow automation"] = <Activity className="h-4 w-4" />;
 iconMap["Data Security"] = <ShieldCheck className="h-4 w-4" />;
 
-const ProjectDescription = ({ description }: { description: string }) => {
-  const [expanded, setExpanded] = useState(false);
-  const toggleExpanded = () => setExpanded((prev) => !prev);
-
+const ProjectDescription = ({
+  description,
+  expanded,
+  onToggle,
+}: {
+  description: string;
+  expanded: boolean;
+  onToggle: () => void;
+}) => {
   return (
     <div className="mt-4">
-      <p
-        className={`text-sm mb-2 ${
-          !expanded ? "line-clamp-3 min-h-[72px]" : ""
-        }`}
-      >
+      <p className={`text-sm mb-2 ${!expanded ? "line-clamp-3 min-h-[72px]" : ""}`}>
         {description}
       </p>
       <div className="flex justify-center">
         <Button
-          onClick={toggleExpanded}
+          onClick={onToggle}
           variant="ghost"
           size="icon"
           className="text-muted-foreground hover:text-foreground transition-colors"
         >
-          {expanded ? (
-            <ChevronUp className="w-4 h-4" />
-          ) : (
-            <ChevronDown className="w-4 h-4" />
-          )}
+          {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
         </Button>
       </div>
     </div>
@@ -354,6 +351,11 @@ const ProjectsPage = () => {
     icon: JSX.Element;
     link: string;
   } | null>(null);
+  const [expandedMap, setExpandedMap] = useState<Record<number, boolean>>({});
+
+  const toggleExpanded = (index: number) => {
+    setExpandedMap((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
 
 
   const filteredProjects =
@@ -419,11 +421,15 @@ const ProjectsPage = () => {
         {filteredProjects.map((project, index) => (
           <motion.div
             key={index}
+            className="relative group"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="h-full flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            {/* Glow for dark mode (appears behind the card) */}
+            <div className="absolute -inset-4 rounded-lg pointer-events-none opacity-0 transition-all duration-300 dark:group-hover:opacity-70 dark:group-hover:blur-3xl dark:group-hover:bg-white/10" />
+
+            <Card className="h-full flex flex-col transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl dark:group-hover:shadow-none">
               <CardHeader>
                 <CardTitle className="flex justify-between items-center">
                   <div className="flex items-center">
@@ -448,7 +454,7 @@ const ProjectsPage = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
-                <div className="relative w-full h-40">
+                <div className={`relative w-full ${expandedMap[index] ? "h-80" : "h-40"}`}>
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -459,7 +465,11 @@ const ProjectsPage = () => {
                 </div>
 
                 <div className="mt-4">
-                  <ProjectDescription description={project.description} />
+                  <ProjectDescription
+                    description={project.description}
+                    expanded={!!expandedMap[index]}
+                    onToggle={() => toggleExpanded(index)}
+                  />
                 </div>
               </CardContent>
               <CardFooter>
