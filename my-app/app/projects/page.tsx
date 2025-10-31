@@ -37,7 +37,7 @@ const projects = [
   {
     title: "RealtyEdge - Housing Market Deals & Connections",
     description:
-      "RealtyEdge connects lenders and real estate agents with potential homebuyers, surfacing active market housing deals and automating parts of the workflow for fast, secure match-making.",
+      "I was a full stack developer for a project called RealtyEdge in which I worked with a team to utilize an automated flow of finding the newest on-market houses for under-market price using various workflow automations. This website offered a B2B marketplace connecting potential homebuyers, real estate agents and lenders in the homebuying process and providing them with deals on properties to work with.",
     skills: [
       "Workflow automation",
       "Supabase",
@@ -257,27 +257,7 @@ const projects = [
     icon: <Code className="h-6 w-6" />,
     link: "https://corevybe.com/",
   },
-  {
-    title: "RealtyEdge - Housing Market Deals & Connections",
-    description:
-      "RealtyEdge connects lenders and real estate agents with potential homebuyers, surfacing active market housing deals and automating parts of the workflow for fast, secure match-making.",
-    skills: [
-      "Workflow automation",
-      "Supabase",
-      "Next.js",
-      "Tailwind",
-      "Data Security",
-      "Full Stack",
-      "Data Analytics",
-      "APIs",
-      "Data Viz",
-      "Responsive UI",
-    ],
-    categories: ["Web Development", "Personal Finance", "Data Analyzing"],
-    image: "/realty-edge-showcase.png",
-    icon: <Globe2 className="h-6 w-6" />,
-    link: "#",
-  },
+  // RealtyEdge moved to top of the list
 ];
 
 const iconMap: Record<string, JSX.Element> = {
