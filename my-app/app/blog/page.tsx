@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { format } from "date-fns";
+import { useState } from "react";
 
 const posts = [
   {
@@ -98,19 +99,74 @@ const posts = [
 
 
 export default function BlogPage() {
+  const PER_PAGE = 6;
+  const [page, setPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+
+  const startIndex = (page - 1) * PER_PAGE;
+  const endIndex = startIndex + PER_PAGE;
+  const pagePosts = posts.slice(startIndex, endIndex);
+
+  function goToPage(n: number) {
+    const next = Math.min(Math.max(1, n), totalPages);
+    setPage(next);
+    // keep simple client-side pagination; scrolling to top of list
+    const container = document.getElementById("blog-list");
+    if (container) container.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <motion.h1
+      <div className="flex flex-col items-center gap-6">
+        <motion.h1
         className="text-3xl font-bold mb-6"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
         Blog
-      </motion.h1>
+        </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {posts.map((post) => (
+        {/* Page controller */}
+        <div className="flex items-center gap-3">
+          <button
+            aria-label="Previous page"
+            onClick={() => goToPage(page - 1)}
+            disabled={page === 1}
+            className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-sm disabled:opacity-40"
+          >
+            Prev
+          </button>
+
+          <div className="inline-flex items-center gap-2">
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const n = i + 1;
+              return (
+                <button
+                  key={n}
+                  onClick={() => goToPage(n)}
+                  aria-current={page === n ? "page" : undefined}
+                  className={`px-3 py-1 rounded-full text-sm ${page === n ? "bg-brand-blue text-white" : "bg-white/5"}`}
+                >
+                  {n}
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            aria-label="Next page"
+            onClick={() => goToPage(page + 1)}
+            disabled={page === totalPages}
+            className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-sm disabled:opacity-40"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      <div id="blog-list" className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {pagePosts.map((post) => (
           <motion.div
             key={post.slug}
             className="bg-zinc-100 dark:bg-zinc-800 rounded-lg overflow-hidden shadow-md dark:shadow-lg transition-all duration-300 hover:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
@@ -151,6 +207,11 @@ export default function BlogPage() {
             </Link>
           </motion.div>
         ))}
+      </div>
+
+      {/* Small pager summary */}
+      <div className="mt-8 text-center text-sm text-muted-foreground">
+        Page {page} of {totalPages}
       </div>
     </div>
   );
