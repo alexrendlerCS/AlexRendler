@@ -53,7 +53,7 @@ const projects = [
     categories: ["Web Development", "Personal Finance", "Data Analyzing"],
   image: "/Realty-Edge-Thumbnail.png",
     icon: <Globe2 className="h-6 w-6" />,
-    link: "https://realtyedge.vercel.app",
+    link: "#",
   },
   {
     title: "TrainerDev: Custom Sites for Fitness Coaches",
