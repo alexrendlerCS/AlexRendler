@@ -101,7 +101,7 @@ export default function GettingStartedPage() {
               Need help getting started?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-              Not sure which service is right for you? Let's discuss your project goals and find the perfect solution to grow your business.
+              Not sure which service is right for you? Let&apos;s discuss your project goals and find the perfect solution to grow your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <button
@@ -116,9 +116,6 @@ export default function GettingStartedPage() {
               >
                 Send Email
               </Link>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              <p>📧 alexrendler@yahoo.com • 📞 (760) 653-9999</p>
             </div>
           </CardContent>
         </Card>
