@@ -42,14 +42,23 @@ export const metadata: Metadata = {
       card: "summary_large_image",
       images: ["/Logos/Logo.png"],
     },
+    manifest: "/site.webmanifest",
     // prefer the repo's canonical favicons: /favicon.ico (legacy) and /favicon.png (modern)
     icons: {
       // Use query-string versioning so browsers/CDNs treat this as a fresh asset.
-      icon: "/favicon-v3.ico",
-      apple: "/favicon-v3.png",
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+        { url: "/Logos/Logo.png", type: "image/png", sizes: "192x192" },
+      ],
+      apple: [
+        { url: "/favicon-v3.png", sizes: "180x180" },
+        { url: "/Logos/Logo.png", sizes: "192x192" },
+      ],
       other: [
-        { rel: "shortcut icon", url: "/favicon-v3.ico" },
-        { rel: "icon", url: "/favicon-v3.png", type: "image/png" },
+        { rel: "shortcut icon", url: "/favicon.ico" },
+        { rel: "icon", url: "/favicon.png", type: "image/png", sizes: "32x32" },
+        { rel: "apple-touch-icon", url: "/Logos/Logo.png", sizes: "192x192" },
       ],
     },
 };
