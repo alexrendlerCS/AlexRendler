@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useEffect, useState } from "react";
@@ -59,7 +60,7 @@ const Header = () => {
         <div className="flex items-center">
           <Link href="/" className="mr-4 flex items-center space-x-2">
             {/* Use the header logo asset */}
-            <img src="/Logos/Logo-Header.png" alt="Rendlr" className="h-8 w-auto" />
+            <Image src="/Logos/Logo-Header.png" alt="Rendlr" width={120} height={32} className="h-8 w-auto" />
           </Link>
           <div className="hidden md:flex">
             <nav className="flex items-center space-x-6 text-sm font-medium">
