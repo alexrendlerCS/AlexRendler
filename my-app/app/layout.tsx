@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     },
     description:
       "Rendlr, modern web design, SEO, and AI-driven automation to help businesses grow online.",
-    metadataBase: new URL("https://rendlr.dev"),
+    metadataBase: new URL("https://www.rendlr.dev"),
     keywords: [
       "web design Carlsbad",
       "SEO solutions",
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
       "business automation",
     ],
     authors: [
-      { name: "Rendlr Web Design, SEO & Solutions", url: "https://rendlr.dev" },
+      { name: "Rendlr Web Design, SEO & Solutions", url: "https://www.rendlr.dev" },
     ],
     openGraph: {
       title: "Rendlr",
       description: "Rendlr, modern web design, SEO, and AI-driven automation to help businesses grow online.",
-      url: "https://rendlr.dev",
+      url: "https://www.rendlr.dev",
       siteName: "Rendlr",
       images: ["/Logos/Logo.png"],
       type: "website",
@@ -69,10 +69,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Rendlr",
-              url: "https://rendlr.dev",
+              url: "https://www.rendlr.dev",
               logo: {
                 "@type": "ImageObject",
-                url: "https://rendlr.dev/Logos/Logo.png",
+                url: "https://www.rendlr.dev/Logos/Logo.png",
                 width: 1200,
                 height: 1200,
               },
