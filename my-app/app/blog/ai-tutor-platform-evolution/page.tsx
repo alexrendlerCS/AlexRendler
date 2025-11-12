@@ -1,10 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 
-"use client";
-
+import type { Metadata } from "next";
 import { motion } from "framer-motion";
 import BlogNav from "@/components/ui/blog-nav";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "AI Tutor Platform Evolution",
+  description: "Exploring the evolution of AI tutoring platforms and their impact on modern education technology.",
+  alternates: {
+    canonical: "https://www.rendlr.dev/blog/ai-tutor-platform-evolution",
+  },
+};
 
 export default function BlogPost() {
   return (

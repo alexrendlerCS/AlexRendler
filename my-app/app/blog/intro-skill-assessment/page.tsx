@@ -1,9 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 
-"use client";
-
+import type { Metadata } from "next";
 import { motion } from "framer-motion";
 import BlogNav from "@/components/ui/blog-nav";
+
+export const metadata: Metadata = {
+  title: "Intro Skill Assessment",
+  description: "An introduction to skill assessment methodologies and best practices for educational technology.",
+  alternates: {
+    canonical: "https://www.rendlr.dev/blog/intro-skill-assessment",
+  },
+};
 
 export default function BlogPost() {
   return (

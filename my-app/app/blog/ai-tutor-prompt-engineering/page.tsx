@@ -1,12 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 
-"use client";
-
+import type { Metadata } from "next";
 import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import BlogNav from "@/components/ui/blog-nav";
 import { promptSnippet } from "@/lib/snippets/ai-tutor";
+
+export const metadata: Metadata = {
+  title: "Designing Prompts to Encourage Learning, Not Replace It",
+  description: "Learn how to design AI prompts that enhance learning rather than replace critical thinking in educational technology.",
+  alternates: {
+    canonical: "https://www.rendlr.dev/blog/ai-tutor-prompt-engineering",
+  },
+};
 
 export default function BlogPost() {
   return (
