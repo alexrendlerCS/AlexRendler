@@ -231,7 +231,7 @@ export default function HomePage() {
                   {
                     icon: Users,
                     title: "Dedicated Support",
-                    description: "We&apos;re here for you every step of the way, from launch to growth",
+                    description: "We are here for you every step of the way, from launch to growth",
                     color: "chart-2",
                   },
                   {

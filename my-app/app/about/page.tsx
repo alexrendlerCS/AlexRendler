@@ -9,7 +9,7 @@ import Skills from "@/components/skills"
 import Tag from "../../components/ui/tag"
 
 import heroBg from "../../homepage/hero-background.png"
-import modernCode from "../../homepage/modern-code-editor-interface-with-ai-suggestions.jpg"
+import aicademyExample from "../../public/aicadmy_example.png"
 
 const videos = [
 	{
@@ -95,7 +95,7 @@ export default function Home() {
 					</div>
 
 					<div className="flex flex-wrap gap-3 justify-center pt-8">
-						{["React", "TypeScript", "Next.js", "Node.js", "PostgreSQL"].map(
+						{["Full-Stack Development", "AI Engineering", "Cybersecurity", "SQL", "Dev Ops"].map(
 							(tech) => (
 								<Tag key={tech} className="text-white">
 									{tech}
@@ -118,35 +118,33 @@ export default function Home() {
 								Current Focus
 							</div>
 							<h2 className="text-4xl md:text-5xl font-bold tracking-tight text-balance">
-								Securing Data And Powering Payroll Intelligence
+								Designing Artificial Intelligence That Builds Intelligence
 							</h2>
 							<div className="space-y-4 text-lg text-muted-foreground text-pretty">
 								<p>
-									I currently work full-time as a Cyber Security Data
-									Integration Specialist, building and operating secure data
-									pipelines that ingest, normalize, and protect high-volume
-									enterprise datasets. My day-to-day focuses include SQL-driven
-									analysis, scripting and automation, Python tooling for ETL and
-									integrations, and ensuring data integrity and observability
-									across downstream systems.
+									At AIcademy, I engineered an AI tutor system that fundamentally 
+									reimagines how students interact with educational content. Instead 
+									of providing direct answers, the AI acts as a learning coach,dynamically 
+									injecting real-time lesson content, student progress data, and quiz 
+									scores into its context to deliver personalized, Socratic-method guidance.
 								</p>
 								<p>
-									Alongside my full-time role I maintain contract work as a
-									full-stack developer. Right now I am developing an innovative
-									payroll platform that combines deep analytics with multi-step
-									submission and approval workflows — designed to handle complex
-									approval chains, reconciliation, and auditing. The payroll
-									project uses a React frontend, Node.js backend, and a flexible
-									NoSQL datastore to support rapid iteration and rich reporting.
+									The technical innovation lies in the prompt engineering and response 
+									architecture: every AI interaction references specific curriculum material, 
+									asks three guiding questions, and enforces a consistent pedagogical 
+									structure through post-processing. This prevents passive learning while 
+									teaching students to leverage AI as a thinking partner rather than an 
+									answer machine—critical skills for the AI-driven workplace.
 								</p>
 							</div>
 											<div className="flex flex-wrap gap-3 pt-4">
 												{[
-													"Scripting",
-													"SSMS",
-													"Data Integration",
-													"React",
-													"Node.js",
+													"Next.js",
+													"R.A.G",
+													"AI Engineering",
+													"Ollama",
+													"Local LLM",
+													"Prompt Design",
 												].map((tech) => (
 													<Tag key={tech} className="bg-primary/10 border-primary/20 text-primary dark:text-white">
 														{tech}
@@ -159,8 +157,8 @@ export default function Home() {
 							<div className="absolute -inset-1 bg-gradient-to-r from-primary via-chart-1 to-chart-3 rounded-2xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
 							<div className="relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl">
 								<Image
-									src={modernCode}
-									alt="Current project screenshot"
+									src={aicademyExample}
+									alt="AICademy AI tutor using Socratic method to guide student learning"
 									width={800}
 									height={600}
 									className="w-full h-auto"
