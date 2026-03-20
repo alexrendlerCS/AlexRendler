@@ -20,13 +20,13 @@ function MobileMenu({ pathname }: { pathname: string }) {
         </svg>
       </button>
       {open && (
-        <div className="absolute top-14 left-0 w-full bg-background shadow-lg z-50 animate-fade-in">
-            <nav className="flex flex-col items-center py-4 space-y-2 text-base font-medium">
-            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={pathname === "/" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>Home</Link>
-            <Link href="/getting-started" aria-current={pathname === "/getting-started" ? "page" : undefined} className={pathname === "/getting-started" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>Get Started</Link>
-            <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>About</Link>
-            <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>Projects</Link>
-            <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>Blog</Link>
+        <div className="absolute top-14 left-0 w-full bg-background/95 backdrop-blur-md shadow-lg border-b border-border z-50 animate-fade-in">
+            <nav className="flex flex-col items-center py-6 space-y-1 text-base font-medium">
+            <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={`w-full text-center py-3 px-6 rounded-lg transition-all ${pathname === "/" ? "text-brand-blue bg-primary/10" : "text-foreground hover:text-brand-blue hover:bg-primary/5"}`} onClick={() => setOpen(false)}>Home</Link>
+            <Link href="/getting-started" aria-current={pathname === "/getting-started" ? "page" : undefined} className={`w-full text-center py-3 px-6 rounded-lg transition-all ${pathname === "/getting-started" ? "text-brand-blue bg-primary/10" : "text-foreground hover:text-brand-blue hover:bg-primary/5"}`} onClick={() => setOpen(false)}>Get Started</Link>
+            <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={`w-full text-center py-3 px-6 rounded-lg transition-all ${pathname === "/about" ? "text-brand-blue bg-primary/10" : "text-foreground hover:text-brand-blue hover:bg-primary/5"}`} onClick={() => setOpen(false)}>About</Link>
+            <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={`w-full text-center py-3 px-6 rounded-lg transition-all ${pathname === "/projects" ? "text-brand-blue bg-primary/10" : "text-foreground hover:text-brand-blue hover:bg-primary/5"}`} onClick={() => setOpen(false)}>Projects</Link>
+            <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={`w-full text-center py-3 px-6 rounded-lg transition-all ${pathname === "/blog" ? "text-brand-blue bg-primary/10" : "text-foreground hover:text-brand-blue hover:bg-primary/5"}`} onClick={() => setOpen(false)}>Blog</Link>
           </nav>
         </div>
       )}
