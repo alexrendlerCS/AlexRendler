@@ -27,7 +27,6 @@ function MobileMenu({ pathname }: { pathname: string }) {
             <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>About</Link>
             <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>Projects</Link>
             <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>Blog</Link>
-            <Link href="/journey" aria-current={pathname === "/journey" ? "page" : undefined} className={pathname === "/journey" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"} onClick={() => setOpen(false)}>My Journey</Link>
           </nav>
         </div>
       )}
@@ -69,7 +68,6 @@ const Header = () => {
               <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>About</Link>
               <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>Projects</Link>
               <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>Blog</Link>
-              <Link href="/journey" aria-current={pathname === "/journey" ? "page" : undefined} className={pathname === "/journey" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>My Journey</Link>
             </nav>
           </div>
         </div>
