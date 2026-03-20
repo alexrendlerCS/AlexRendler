@@ -28,10 +28,10 @@ const videos = [
 
 export default function Home() {
 	return (
-		<div className="min-h-screen">
+		<div className="min-h-screen -mt-14">
 			{/* Hero Section */}
 			<section
-				className="relative flex items-center justify-center px-0 py-0 overflow-hidden"
+				className="relative flex items-center justify-center px-4 pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden"
 				style={{
 					left: "50%",
 					right: "50%",
@@ -40,7 +40,6 @@ export default function Home() {
 					width: "100vw",
 					position: "relative",
 					top: 0,
-					minHeight: "100vh",
 				}}
 			>
 				<div className="absolute inset-0">
