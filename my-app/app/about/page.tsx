@@ -40,9 +40,7 @@ export default function Home() {
 					width: "100vw",
 					position: "relative",
 					top: 0,
-					marginTop:
-						"-88px" /* pull up to compensate for header (56px) + main padding (32px) */,
-					minHeight: "calc(100vh + 88px)",
+					minHeight: "100vh",
 				}}
 			>
 				<div className="absolute inset-0">
