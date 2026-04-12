@@ -63,11 +63,11 @@ const Header = () => {
           </Link>
           <div className="hidden md:flex">
             <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={pathname === "/" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>Home</Link>
-              <Link href="/getting-started" aria-current={pathname === "/getting-started" ? "page" : undefined} className={pathname === "/getting-started" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>Get Started</Link>
-              <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>About</Link>
-              <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>Projects</Link>
-              <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-white hover:text-brand-blue transition-colors"}>Blog</Link>
+              <Link href="/" aria-current={pathname === "/" ? "page" : undefined} className={pathname === "/" ? "text-brand-blue" : "text-foreground hover:text-brand-blue transition-colors"}>Home</Link>
+              <Link href="/getting-started" aria-current={pathname === "/getting-started" ? "page" : undefined} className={pathname === "/getting-started" ? "text-brand-blue" : "text-foreground hover:text-brand-blue transition-colors"}>Get Started</Link>
+              <Link href="/about" aria-current={pathname === "/about" ? "page" : undefined} className={pathname === "/about" ? "text-brand-blue" : "text-foreground hover:text-brand-blue transition-colors"}>About</Link>
+              <Link href="/projects" aria-current={pathname === "/projects" ? "page" : undefined} className={pathname === "/projects" ? "text-brand-blue" : "text-foreground hover:text-brand-blue transition-colors"}>Projects</Link>
+              <Link href="/blog" aria-current={pathname === "/blog" ? "page" : undefined} className={pathname === "/blog" ? "text-brand-blue" : "text-foreground hover:text-brand-blue transition-colors"}>Blog</Link>
             </nav>
           </div>
         </div>

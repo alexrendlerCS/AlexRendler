@@ -106,7 +106,7 @@ export default function Home() {
 						{/* IBM AI Engineering Badge */}
 						<div className="relative w-full sm:w-[calc(33.333%-0.67rem)] max-w-sm group cursor-pointer">
 							<div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-							<div className="relative bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-xl p-5 border border-blue-500/20 shadow-xl group-hover:border-blue-500/40 group-hover:scale-105 transition-all duration-300 h-full">
+							<div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 rounded-xl p-5 border border-blue-500/20 shadow-xl group-hover:border-blue-500/40 group-hover:scale-105 transition-all duration-300 h-full">
 								<div className="flex items-center gap-4">
 									{/* IBM Logo */}
 									<div className="flex-shrink-0">
@@ -121,9 +121,9 @@ export default function Home() {
 											<svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
 												<path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
 											</svg>
-											<h3 className="text-base font-bold text-white">AI Engineer</h3>
+											<h3 className="text-base font-bold text-foreground">AI Engineer</h3>
 										</div>
-										<p className="text-sm font-semibold text-blue-400">IBM AI Engineering Professional Certificate</p>
+										<p className="text-sm font-semibold text-blue-600 dark:text-blue-400">IBM AI Engineering Professional Certificate</p>
 									</div>
 								</div>
 							</div>
@@ -132,7 +132,7 @@ export default function Home() {
 						{/* SIMS Security Badge */}
 						<div className="relative w-full sm:w-[calc(33.333%-0.67rem)] max-w-sm group cursor-pointer">
 							<div className="absolute -inset-1 bg-gradient-to-r from-emerald-600 via-emerald-400 to-emerald-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-							<div className="relative bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-xl p-5 border border-emerald-500/20 shadow-xl group-hover:border-emerald-500/40 group-hover:scale-105 transition-all duration-300 h-full">
+							<div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 rounded-xl p-5 border border-emerald-500/20 shadow-xl group-hover:border-emerald-500/40 group-hover:scale-105 transition-all duration-300 h-full">
 								<div className="flex items-center gap-4">
 									{/* Database/Security Icon */}
 									<div className="flex-shrink-0">
@@ -147,9 +147,9 @@ export default function Home() {
 											<svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
 												<path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
 											</svg>
-											<h3 className="text-base font-bold text-white">Data Engineer</h3>
+											<h3 className="text-base font-bold text-foreground">Data Engineer</h3>
 										</div>
-										<p className="text-sm font-semibold text-emerald-400">SIMS Security & SQL Developer</p>
+										<p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">SIMS Security & SQL Developer</p>
 									</div>
 								</div>
 							</div>
@@ -158,7 +158,7 @@ export default function Home() {
 						{/* Rendlr Founder Badge */}
 						<div className="relative w-full sm:w-[calc(33.333%-0.67rem)] max-w-sm group cursor-pointer">
 							<div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-violet-400 to-purple-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-							<div className="relative bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 rounded-xl p-5 border border-purple-500/20 shadow-xl group-hover:border-purple-500/40 group-hover:scale-105 transition-all duration-300 h-full">
+							<div className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 rounded-xl p-5 border border-purple-500/20 shadow-xl group-hover:border-purple-500/40 group-hover:scale-105 transition-all duration-300 h-full">
 								<div className="flex items-center gap-4">
 									{/* Code Icon */}
 									<div className="flex-shrink-0">
@@ -173,9 +173,9 @@ export default function Home() {
 											<svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
 												<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"/>
 											</svg>
-											<h3 className="text-base font-bold text-white">Full Stack Developer</h3>
+											<h3 className="text-base font-bold text-foreground">Full Stack Developer</h3>
 										</div>
-										<p className="text-sm font-semibold text-purple-400">Founder of Rendlr</p>
+										<p className="text-sm font-semibold text-purple-600 dark:text-purple-400">Founder of Rendlr</p>
 									</div>
 								</div>
 							</div>
