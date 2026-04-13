@@ -7,6 +7,8 @@ import Image from "next/image"
 import Link from "next/link"
 import Skills from "@/components/skills"
 import Tag from "../../components/ui/tag"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
 
 import heroBg from "../../homepage/hero-background.png"
 import aicademyExample from "../../public/aicadmy_example.png"
@@ -27,12 +29,23 @@ const videos = [
 ]
 
 export default function Home() {
+	const heroRef = useRef(null)
+	const { scrollYProgress } = useScroll({
+		target: heroRef,
+		offset: ["start start", "end start"]
+	})
+	
+	const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+	const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
+	
 	return (
 		<div className="min-h-screen -mt-14">
 			{/* Hero Section */}
-			<section
-				className="relative flex items-center justify-center px-4 pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden"
-				style={{
+			<motion.section
+				ref={heroRef}
+				style={{ 
+					opacity: heroOpacity, 
+					scale: heroScale,
 					left: "50%",
 					right: "50%",
 					marginLeft: "-50vw",
@@ -41,6 +54,7 @@ export default function Home() {
 					position: "relative",
 					top: 0,
 				}}
+				className="relative flex items-center justify-center px-4 pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden"
 			>
 				<div className="absolute inset-0">
 					<Image
@@ -56,7 +70,12 @@ export default function Home() {
 				</div>
 
 				<div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-					<div className="space-y-4">
+					<motion.div 
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.2 }}
+						className="space-y-4"
+					>
 						<h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance text-white">
 							Hi, I&apos;m{" "}
 							<span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
@@ -67,9 +86,14 @@ export default function Home() {
 							Full-stack developer crafting elegant solutions to complex
 							problems
 						</p>
-					</div>
+					</motion.div>
 
-					<div className="flex flex-wrap gap-4 justify-center">
+					<motion.div 
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.4 }}
+						className="flex flex-wrap gap-4 justify-center"
+					>
 						<Link href="/projects" className="">
 							<Button
 								size="lg"
@@ -89,9 +113,14 @@ export default function Home() {
 								Get In Touch
 							</Button>
 						</Link>
-					</div>
+					</motion.div>
 
-					<div className="flex flex-wrap gap-3 justify-center pt-8">
+					<motion.div 
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.6 }}
+						className="flex flex-wrap gap-3 justify-center pt-8"
+					>
 						{["Full-Stack Development", "AI Engineering", "Cybersecurity", "SQL", "Dev Ops"].map(
 							(tech) => (
 								<Tag key={tech} className="text-white">
@@ -99,10 +128,15 @@ export default function Home() {
 								</Tag>
 							)
 						)}
-					</div>
+					</motion.div>
 
 					{/* AI Engineering Expertise Callout */}
-					<div className="pt-8 max-w-6xl mx-auto">
+					<motion.div 
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6, delay: 0.8 }}
+						className="pt-8 max-w-6xl mx-auto"
+					>
 						<div className="rounded-2xl border border-border/40 bg-gradient-to-br from-card via-card to-muted/30 dark:from-slate-900/80 dark:via-slate-800/50 dark:to-slate-900/80 backdrop-blur-sm p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
 							<div className="space-y-4">
 								{/* Top Row: Icon, Title/Description */}
@@ -150,14 +184,20 @@ export default function Home() {
 								</div>
 							</div>
 						</div>
-					</div>
+					</motion.div>
 				</div>
 
 				{/* scroll indicator removed */}
-			</section>
+			</motion.section>
 
 			{/* Certification Badges Section */}
-			<section className="relative py-16 overflow-hidden border-b border-border/40 bg-gradient-to-b from-slate-50/50 via-blue-50/30 to-slate-50/50 dark:from-slate-900/50 dark:via-blue-950/30 dark:to-slate-900/50">
+			<motion.section
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.6 }}
+				className="relative py-16 overflow-hidden border-b border-border/40 bg-gradient-to-b from-slate-50/50 via-blue-50/30 to-slate-50/50 dark:from-slate-900/50 dark:via-blue-950/30 dark:to-slate-900/50"
+			>
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<div className="text-center mb-12">
 						<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
@@ -248,10 +288,16 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</motion.section>
 
 			{/* Current Focus + Featured Projects */}
-			<section className="border-b border-border/40 bg-gradient-to-b from-background to-muted/20">
+			<motion.section
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.6 }}
+				className="border-b border-border/40 bg-gradient-to-b from-background to-muted/20"
+			>
 				<div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
 					<div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 						<div className="space-y-6">
@@ -309,9 +355,15 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</motion.section>
 
-			<section className="relative border-b border-border/40">
+			<motion.section
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.6 }}
+				className="relative border-b border-border/40"
+			>
 				{/* full-bleed background panel behind the cards (stretches viewport-wide) */}
 				<div className="pointer-events-none">
 					{/* use left/right 50% + negative margins so the gradient spans the full viewport width */}
@@ -456,9 +508,15 @@ export default function Home() {
 						</Link>
 					</div>
 				</div>
-			</section>
+			</motion.section>
 
-			<section className="border-b border-border/40 bg-gradient-to-b from-muted/20 to-background">
+			<motion.section
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.6 }}
+				className="border-b border-border/40 bg-gradient-to-b from-muted/20 to-background"
+			>
 				<div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
 							<div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 								<div className="space-y-6">
@@ -497,14 +555,20 @@ export default function Home() {
 								</div>
 							</div>
 				</div>
-			</section>
+			</motion.section>
 
 			{/* Insert Skills section from previous homepage to preserve skills list */}
-			<section className="py-16">
+			<motion.section
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, margin: "-100px" }}
+				transition={{ duration: 0.6 }}
+				className="py-16"
+			>
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 					<Skills />
 				</div>
-			</section>
+			</motion.section>
 		</div>
 	)
 }

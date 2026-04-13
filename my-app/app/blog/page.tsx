@@ -175,7 +175,7 @@ export default function BlogPage() {
       </div>
 
       <div id="blog-list" className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {pagePosts.map((post, index) => {
+        {pagePosts.map((post) => {
           const isFirstPost = posts.indexOf(post) === 0;
           return (
             <motion.div
