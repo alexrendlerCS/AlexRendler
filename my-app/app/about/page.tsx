@@ -135,48 +135,45 @@ export default function Home() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.6, delay: 0.8 }}
-						className="pt-8 max-w-6xl mx-auto"
+						className="pt-8 max-w-6xl mx-auto px-4 sm:px-0"
 					>
-						<div className="rounded-2xl border border-border/40 bg-gradient-to-br from-card via-card to-muted/30 dark:from-slate-900/80 dark:via-slate-800/50 dark:to-slate-900/80 backdrop-blur-sm p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-							<div className="space-y-4">
+						<div className="rounded-2xl border border-border/40 bg-gradient-to-br from-card via-card to-muted/30 dark:from-slate-900/80 dark:via-slate-800/50 dark:to-slate-900/80 backdrop-blur-sm p-4 sm:p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+							<div className="space-y-4 sm:space-y-5">
 								{/* Top Row: Icon, Title/Description */}
-								<div className="flex flex-col md:flex-row gap-6 md:gap-8">
+								<div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
 									{/* Title and Button */}
-									<div className="flex-shrink-0">
-										<div className="space-y-3">
-											<div>
-												<h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
-													AI Engineering Expertise
-												</h2>
-												<p className="text-sm text-muted-foreground font-medium mt-0.5">
-													Production-Ready AI Infrastructure
-												</p>
-											</div>
-											<Link href="/projects" className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group text-sm">
-												View Projects
-												<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-											</Link>
+									<div className="space-y-3 sm:space-y-4">
+										<div>
+											<h2 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground tracking-tight">
+												AI Engineering Expertise
+											</h2>
+											<p className="text-xs sm:text-sm text-muted-foreground font-medium mt-0.5 sm:mt-1">
+												Production-Ready AI Infrastructure
+											</p>
 										</div>
-									</div>
-
-									{/* Description */}
-									<div className="flex-1">
-										<p className="text-sm md:text-base text-foreground/80 leading-relaxed">
+										
+										{/* Description */}
+										<p className="text-xs sm:text-sm md:text-base text-foreground/80 leading-relaxed">
 											I architect and implement advanced AI systems with deep expertise in <span className="font-semibold text-foreground">RAG (Retrieval-Augmented Generation)</span>, <span className="font-semibold text-foreground">vector embeddings</span>, and <span className="font-semibold text-foreground">semantic search</span>. My work spans from designing chunking strategies for optimal context retrieval to building scalable AI pipelines that integrate <span className="font-semibold text-foreground">local LLMs</span>, <span className="font-semibold text-foreground">prompt engineering</span>, and real-time data processing.
 										</p>
+
+										<Link href="/projects" className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm w-full sm:w-auto">
+											View Projects
+											<ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
+										</Link>
 									</div>
 								</div>
 
 								{/* Bottom Row: Badges spanning full width */}
-								<div className="flex flex-wrap justify-between items-center gap-4 pt-2 border-t border-border/30 dark:border-border/50">
-									<div className="flex-1 flex justify-center">
-										<Link href="/blog/production-rag-ai-tutoring" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+								<div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-border/30 dark:border-border/50">
+									<div className="flex justify-center sm:justify-start order-2 sm:order-1">
+										<Link href="/blog/production-rag-ai-tutoring" className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
 											Read More
 										</Link>
 									</div>
-									<div className="flex flex-wrap justify-end gap-2">
+									<div className="flex flex-wrap justify-center sm:justify-end gap-1.5 sm:gap-2 order-1 sm:order-2">
 										{["RAG Architecture", "Vector Embeddings", "LLM Integration", "Semantic Search", "AI Infrastructure"].map((skill) => (
-											<span key={skill} className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 border border-blue-200/50 dark:border-blue-800/50 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm">
+											<span key={skill} className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 border border-blue-200/50 dark:border-blue-800/50 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm whitespace-nowrap">
 												{skill}
 											</span>
 										))}
