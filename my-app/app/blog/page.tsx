@@ -8,6 +8,15 @@ import { useState } from "react";
 
 const posts = [
   {
+    slug: "production-rag-ai-tutoring",
+    title: "Building a Production RAG System for AI-Powered Tutoring",
+    description:
+      "How I built a production-ready Retrieval-Augmented Generation system for AICademy using local embeddings, PostgreSQL pgvector, and semantic chunking to make AI tutoring 80% more efficient.",
+    date: new Date("2026-04-12"),
+    tags: ["AI Engineering", "RAG", "Vector Databases", "Machine Learning", "PostgreSQL"],
+    thumbnail: "/new_aicademy.png",
+  },
+  {
     slug: "building-personal-brand",
     title: "Starting My Personal Brand: From Portfolio to Product",
     description:
@@ -166,15 +175,26 @@ export default function BlogPage() {
       </div>
 
       <div id="blog-list" className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {pagePosts.map((post) => (
-          <motion.div
-            key={post.slug}
-            className="bg-zinc-100 dark:bg-zinc-800 rounded-lg overflow-hidden shadow-md dark:shadow-lg transition-all duration-300 hover:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link href={`/blog/${post.slug}`}>
+        {pagePosts.map((post, index) => {
+          const isFirstPost = posts.indexOf(post) === 0;
+          return (
+            <motion.div
+              key={post.slug}
+              className={`bg-zinc-100 dark:bg-zinc-800 rounded-lg overflow-hidden shadow-md dark:shadow-lg transition-all duration-300 hover:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_35px_65px_-10px_rgba(173,216,230,0.25)] ${
+                isFirstPost ? "shadow-[0_0_30px_rgba(59,130,246,0.5)] dark:shadow-[0_0_40px_rgba(96,165,250,0.6)] relative" : ""
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {isFirstPost && (
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-xl">
+                    Latest Post
+                  </span>
+                </div>
+              )}
+              <Link href={`/blog/${post.slug}`}>
               <div className="w-full h-40 relative">
                 <Image
                   src={post.thumbnail}
@@ -206,7 +226,8 @@ export default function BlogPage() {
               </div>
             </Link>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Small pager summary */}

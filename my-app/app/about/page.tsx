@@ -136,7 +136,7 @@ export default function Home() {
 								{/* Bottom Row: Badges spanning full width */}
 								<div className="flex flex-wrap justify-between items-center gap-4 pt-2 border-t border-border/30 dark:border-border/50">
 									<div className="flex-1 flex justify-center">
-										<Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+										<Link href="/blog/production-rag-ai-tutoring" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
 											Read More
 										</Link>
 									</div>
