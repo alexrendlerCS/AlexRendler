@@ -368,7 +368,7 @@ export default function Home() {
 				<div className="pointer-events-none">
 					{/* use left/right 50% + negative margins so the gradient spans the full viewport width */}
 					<div
-						className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-600/30 to-orange-500/25"
+						className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-600/30 to-orange-500/25 dark:from-slate-900/95 dark:via-slate-800/90 dark:to-slate-900/95"
 						style={{
 							position: "absolute",
 							left: "50%",
@@ -402,13 +402,13 @@ export default function Home() {
 					</div>
 
 					<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 dark:bg-slate-800/80 border border-white/20 dark:border-slate-700/50 text-foreground transition-all duration-500 hover:bg-white/50 dark:hover:bg-slate-800/95 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-blue-500/20 hover:-translate-y-1">
 							<CardHeader className="px-6 pt-6">
 								<CardTitle className="flex items-center justify-between text-xl">
 									Realty Edge{" "}
 									<Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
 								</CardTitle>
-								<CardDescription className="text-base">
+								<CardDescription className="text-base dark:text-gray-300">
 									Modern property listing and analytics with responsive mapping and search.
 								</CardDescription>
 							</CardHeader>
@@ -427,19 +427,19 @@ export default function Home() {
 										<Tag key={tech}>{tech}</Tag>
 									))}
 								</div>
-								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
+								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600 border-white/20 dark:border-slate-600" asChild>
 									<a href="https://realtyedge.vercel.app" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
 								</Button>
 							</CardContent>
 						</Card>
 
-						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 dark:bg-slate-800/80 border border-white/20 dark:border-slate-700/50 text-foreground transition-all duration-500 hover:bg-white/50 dark:hover:bg-slate-800/95 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-blue-500/20 hover:-translate-y-1">
 							<CardHeader className="px-6 pt-6">
 								<CardTitle className="flex items-center justify-between text-xl">
 									Fitness Trainer Platform{" "}
 									<Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
 								</CardTitle>
-								<CardDescription className="text-base">
+								<CardDescription className="text-base dark:text-gray-300">
 									Fitness platform with scheduling, client management, and payments.
 								</CardDescription>
 							</CardHeader>
@@ -458,19 +458,19 @@ export default function Home() {
 										<Tag key={tech}>{tech}</Tag>
 									))}
 								</div>
-								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
+								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600 border-white/20 dark:border-slate-600" asChild>
 									<a href="https://www.coachkilday.com/" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
 								</Button>
 							</CardContent>
 						</Card>
 
-						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 border border-white/20 text-foreground transition-all duration-500 hover:bg-white/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
+						<Card className="group overflow-hidden backdrop-blur-md bg-white/30 dark:bg-slate-800/80 border border-white/20 dark:border-slate-700/50 text-foreground transition-all duration-500 hover:bg-white/50 dark:hover:bg-slate-800/95 hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-blue-500/20 hover:-translate-y-1">
 							<CardHeader className="px-6 pt-6">
 								<CardTitle className="flex items-center justify-between text-xl">
 									Aicademy{" "}
 									<Code2 className="h-5 w-5 text-muted-foreground transition-colors" />
 								</CardTitle>
-								<CardDescription className="text-base">
+								<CardDescription className="text-base dark:text-gray-300">
 									AI-powered education platform with demo accounts, and intelligent tutoring features.
 								</CardDescription>
 							</CardHeader>
@@ -489,7 +489,7 @@ export default function Home() {
 										<Tag key={tech}>{tech}</Tag>
 									))}
 								</div>
-								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 border-white/20" asChild>
+								<Button variant="outline" className="w-full gap-2 bg-white text-black hover:bg-gray-100 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600 border-white/20 dark:border-slate-600" asChild>
 									<a href="https://aicademy-six.vercel.app/" target="_blank" rel="noopener noreferrer">View Project <ExternalLink className="h-3 w-3" /></a>
 								</Button>
 							</CardContent>
