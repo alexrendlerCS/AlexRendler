@@ -101,8 +101,74 @@ export default function Home() {
 						)}
 					</div>
 
-					{/* Certification Badges */}
-					<div className="flex flex-wrap justify-center gap-4 pt-6 max-w-6xl mx-auto">
+					{/* AI Engineering Expertise Callout */}
+					<div className="pt-8 max-w-6xl mx-auto">
+						<div className="rounded-2xl border border-border/40 bg-gradient-to-br from-card via-card to-muted/30 dark:from-slate-900/80 dark:via-slate-800/50 dark:to-slate-900/80 backdrop-blur-sm p-6 md:p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+							<div className="space-y-4">
+								{/* Top Row: Icon, Title/Description */}
+								<div className="flex flex-col md:flex-row gap-6 md:gap-8">
+									{/* Title and Button */}
+									<div className="flex-shrink-0">
+										<div className="space-y-3">
+											<div>
+												<h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
+													AI Engineering Expertise
+												</h2>
+												<p className="text-sm text-muted-foreground font-medium mt-0.5">
+													Production-Ready AI Infrastructure
+												</p>
+											</div>
+											<Link href="/projects" className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group text-sm">
+												View Projects
+												<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+											</Link>
+										</div>
+									</div>
+
+									{/* Description */}
+									<div className="flex-1">
+										<p className="text-sm md:text-base text-foreground/80 leading-relaxed">
+											I architect and implement advanced AI systems with deep expertise in <span className="font-semibold text-foreground">RAG (Retrieval-Augmented Generation)</span>, <span className="font-semibold text-foreground">vector embeddings</span>, and <span className="font-semibold text-foreground">semantic search</span>. My work spans from designing chunking strategies for optimal context retrieval to building scalable AI pipelines that integrate <span className="font-semibold text-foreground">local LLMs</span>, <span className="font-semibold text-foreground">prompt engineering</span>, and real-time data processing.
+										</p>
+									</div>
+								</div>
+
+								{/* Bottom Row: Badges spanning full width */}
+								<div className="flex flex-wrap justify-between items-center gap-4 pt-2 border-t border-border/30 dark:border-border/50">
+									<div className="flex-1 flex justify-center">
+										<Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+											Read More
+										</Link>
+									</div>
+									<div className="flex flex-wrap justify-end gap-2">
+										{["RAG Architecture", "Vector Embeddings", "LLM Integration", "Semantic Search", "AI Infrastructure"].map((skill) => (
+											<span key={skill} className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 border border-blue-200/50 dark:border-blue-800/50 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm">
+												{skill}
+											</span>
+										))}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{/* scroll indicator removed */}
+			</section>
+
+			{/* Certification Badges Section */}
+			<section className="relative py-16 overflow-hidden border-b border-border/40 bg-gradient-to-b from-slate-50/50 via-blue-50/30 to-slate-50/50 dark:from-slate-900/50 dark:via-blue-950/30 dark:to-slate-900/50">
+				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+					<div className="text-center mb-12">
+						<h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+							Certifications & Roles
+						</h2>
+						<p className="text-muted-foreground text-lg">
+							Professional credentials and current positions
+						</p>
+					</div>
+
+					<div className="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
 						{/* IBM AI Engineering Badge */}
 						<div className="relative w-full sm:w-[calc(33.333%-0.67rem)] max-w-sm group cursor-pointer">
 							<div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
@@ -182,8 +248,6 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
-
-				{/* scroll indicator removed */}
 			</section>
 
 			{/* Current Focus + Featured Projects */}
