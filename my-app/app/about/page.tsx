@@ -157,10 +157,16 @@ export default function Home() {
 											I architect and implement advanced AI systems with deep expertise in <span className="font-semibold text-foreground">RAG (Retrieval-Augmented Generation)</span>, <span className="font-semibold text-foreground">vector embeddings</span>, and <span className="font-semibold text-foreground">semantic search</span>. My work spans from designing chunking strategies for optimal context retrieval to building scalable AI pipelines that integrate <span className="font-semibold text-foreground">local LLMs</span>, <span className="font-semibold text-foreground">prompt engineering</span>, and real-time data processing.
 										</p>
 
-										<Link href="/projects" className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm w-full sm:w-auto">
-											View Projects
-											<ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
-										</Link>
+										<div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+											<Link href="/projects" className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm w-full sm:w-auto">
+												View Projects
+												<ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
+											</Link>
+											<a href="https://aicademy-six.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-blue-600 dark:text-blue-400 font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group text-xs sm:text-sm w-full sm:w-auto border-2 border-blue-600 dark:border-blue-400">
+												View Live Demo
+												<ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 group-hover:scale-110 transition-transform" />
+											</a>
+										</div>
 									</div>
 								</div>
 
